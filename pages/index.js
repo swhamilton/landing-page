@@ -8,13 +8,14 @@ import Box from '@material-ui/core/Box';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { createStyles } from '@material-ui/core/styles';
 import { useTheme, styled } from '@material-ui/core/styles';
-
+import SignIn from '../components/SignIn';
 const HeroSection = (props) => {
   const matches = useMediaQuery('(min-width:600px)');
   const { classes } = props;
   return (
-    <section
-      css={{
+    <Box
+      component="section"
+      sx={{
         backgroundColor: 'hotpink',
         '&:hover': {
           color: 'lightgreen',
@@ -22,13 +23,20 @@ const HeroSection = (props) => {
       }}
     >
       <div>This is the Section</div>
-    </section>
+    </Box>
   );
 };
 
 export function Index() {
+  const [isLoggedIn, setIsLoggedIn] = React.useState(false);
   return (
-    <Box sx={{ minWidth: '100%' }}>
+    <Box
+      sx={{
+        minWidth: '100%',
+        height: '100vh',
+        bgcolor: '#070707',
+      }}
+    >
       {/* <Global
         styles={css`
           .homeHero {
@@ -39,15 +47,20 @@ export function Index() {
           }
         `}
       /> */}
-      <Box
-        sx={{
-          border: '2px solid red',
-          minHeight: 'calc(100vh - 50px)',
-          width: '100%',
-        }}
-      >
-        <HeroSection classes="homeHero" />
-      </Box>
+      {isLoggedIn ? (
+        <Box
+          component="main"
+          sx={{
+            border: '2px solid red',
+            minHeight: 'calc(100vh - 50px)',
+            width: '100%',
+          }}
+        >
+          <HeroSection classes="homeHero" />
+        </Box>
+      ) : (
+        <SignIn />
+      )}
     </Box>
   );
 }
