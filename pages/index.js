@@ -8,6 +8,9 @@ import Box from '@material-ui/core/Box';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { createStyles } from '@material-ui/core/styles';
 import { useTheme, styled } from '@material-ui/core/styles';
+import { useContext } from 'react';
+import GlobalContext from '../state/globalContext';
+
 import SignIn from '../components/SignIn';
 const HeroSection = (props) => {
   const matches = useMediaQuery('(min-width:600px)');
@@ -28,7 +31,7 @@ const HeroSection = (props) => {
 };
 
 export function Index() {
-  const [isLoggedIn, setIsLoggedIn] = React.useState(false);
+  const { isLoggedIn, update } = useContext(GlobalContext);
   return (
     <Box
       sx={{
@@ -59,7 +62,11 @@ export function Index() {
           <HeroSection classes="homeHero" />
         </Box>
       ) : (
-        <SignIn />
+        <SignIn
+          onSignin={() => {
+            update({ isLoggedIn: true });
+          }}
+        />
       )}
     </Box>
   );

@@ -52,12 +52,13 @@ const CssTextField = styled(TextField)({
   },
 });
 
-export default function SignIn() {
+export default function SignIn(props) {
+  const { onSignin } = props;
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     if (USERS.includes(data.get('username'))) {
-      alert('IN!');
+      onSignin();
     }
   };
   const theme = useTheme();
