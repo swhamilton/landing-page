@@ -5,15 +5,18 @@ import * as React from 'react';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
+import Stack from '@material-ui/core/Stack';
+import AppBar from '@material-ui/core/AppBar';
+import Button from '@material-ui/core/Button';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { createStyles } from '@material-ui/core/styles';
 import { useTheme, styled } from '@material-ui/core/styles';
+import PlayCircleOutlineIcon from '@material-ui/icons/PlayCircleOutline';
 import { useContext } from 'react';
 import Image from 'next/image';
 import GlobalContext from '../state/globalContext';
 import SignIn from '../components/SignIn';
 import NewRelicSnippet from '../components/NewRelicSnippet';
-import AppBar from '@material-ui/core/AppBar';
 
 const HeroSection = (props) => {
   const matches = useMediaQuery('(min-width:600px)');
@@ -54,7 +57,6 @@ const HeroSection = (props) => {
           zIndex: '1',
           marginLeft: 'auto',
           marginRight: 'auto',
-          marginBottom: '4rem',
           paddingLeft: '15px',
           paddingRight: '15px',
           '@media (min-width: 600px)': {
@@ -65,7 +67,7 @@ const HeroSection = (props) => {
         <Typography
           variant="h1"
           sx={{
-            margin: '50px 0 0',
+            margin: '50px 0 1em',
             fontSize: '3rem',
             lineHeight: '3.5rem',
             fontWeight: '700',
@@ -73,6 +75,44 @@ const HeroSection = (props) => {
         >
           Reservations and payments software for tattoo artists and studios
         </Typography>
+        <Box display="flex" justifyContent="center">
+          <Stack direction="row" spacing={2}>
+            <Button
+              variant="contained"
+              css={css`
+                font-size: 1rem;
+                padding: 0.6em 2.5em;
+                text-transform: none;
+                background-color: #ff425e;
+                background: linear-gradient(
+                  320deg,
+                  #f0555a 0%,
+                  #dc335a 50%,
+                  #bb1b5d 100%
+                );
+              `}
+            >
+              Get started
+            </Button>
+            <Button
+              disableRipple
+              disableFocusRipple
+              variant="text"
+              sx={{
+                color: '#c3bd02',
+                padding: '0.6em 2em',
+                textTransform: 'none',
+                fontSize: '1rem',
+                '&:hover': {
+                  color: '#ffd600',
+                },
+              }}
+              endIcon={<PlayCircleOutlineIcon size="large" />}
+            >
+              Watch the video
+            </Button>
+          </Stack>
+        </Box>
       </Box>
     </Box>
   );
