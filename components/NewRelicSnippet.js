@@ -2,17 +2,17 @@ import Script from 'next/script';
 
 const NewRelicLoaderConfigInfoSnippet = `
 NREUM.loader_config = {
-  accountID: ${NR_ACCOUNT_ID},
-  trustKey: ${NR_TRUST_KEY},
-  agentID: ${NR_AGENT_ID},
-  licenseKey: ${NR_LICENSE_KEY},
-  applicationID: ${NR_APPLICATION_ID},
+  accountID: ${process.env.NR_ACCOUNT_ID},
+  trustKey: ${process.env.NR_TRUST_KEY},
+  agentID: ${process.env.NR_AGENT_ID},
+  licenseKey: ${process.env.NR_LICENSE_KEY},
+  applicationID: ${process.env.NR_APPLICATION_ID},
 };
 NREUM.info = {
   beacon: 'bam.nr-data.net',
   errorBeacon: 'bam.nr-data.net',
-  licenseKey: ${NR_LICENSE_KEY},
-  applicationID: ${NR_APPLICATION_ID},
+  licenseKey: ${process.env.NR_LICENSE_KEY},
+  applicationID: ${process.env.NR_APPLICATION_ID},
   sa: 1,
 };
 `;
