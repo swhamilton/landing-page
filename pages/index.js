@@ -144,7 +144,7 @@ const Header = () => {
         <Box display="flex" justifyContent="flex-end">
           <Typography component="div">Inspired. Always.</Typography>
           <Typography
-            sx={{ fontSize: '0.4em', color: '#777' }}
+            sx={{ fontSize: '5px', color: '#dcdcdc' }}
             variant="subtitle2"
             component="span"
           >
