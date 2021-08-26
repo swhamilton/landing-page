@@ -33,6 +33,7 @@ const HeroSection = (props) => {
         position: 'relative',
         maxHeight: '1600px',
         alignItems: 'center',
+        marginBottom: '2.5rem',
         backgroundImage:
           '-o-linear-gradient(24deg,rgba(0,0,0,.85) 0,rgba(0,0,0,.7) 25%,rgba(0,0,0,.3) 50%,rgba(0,0,0,.1) 75%,rgba(0,0,0,0) 100%),url(/assets/img/bg_desktop.jpeg)',
         backgroundImage:
@@ -67,7 +68,7 @@ const HeroSection = (props) => {
         <Typography
           variant="h1"
           sx={{
-            margin: '50px 0 1em',
+            marginBottom: '0.7rem',
             fontSize: '3rem',
             lineHeight: '3.5rem',
             fontWeight: '700',
