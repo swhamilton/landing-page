@@ -33,7 +33,6 @@ const HeroSection = (props) => {
         position: 'relative',
         maxHeight: '1600px',
         alignItems: 'center',
-        marginBottom: '2.5rem',
         backgroundImage:
           '-o-linear-gradient(24deg,rgba(0,0,0,.85) 0,rgba(0,0,0,.7) 25%,rgba(0,0,0,.3) 50%,rgba(0,0,0,.1) 75%,rgba(0,0,0,0) 100%),url(/assets/img/bg_desktop.jpeg)',
         backgroundImage:
@@ -41,7 +40,7 @@ const HeroSection = (props) => {
         backgroundPosition: '50%',
         backgroundSize: 'cover',
         // Extra
-        height: '80vh',
+        height: '78vh',
         backgroundPosition: 'center top',
       }}
     >
@@ -58,6 +57,7 @@ const HeroSection = (props) => {
           zIndex: '1',
           marginLeft: 'auto',
           marginRight: 'auto',
+          marginBottom: '1rem',
           paddingLeft: '15px',
           paddingRight: '15px',
           '@media (min-width: 600px)': {
@@ -68,7 +68,7 @@ const HeroSection = (props) => {
         <Typography
           variant="h1"
           sx={{
-            marginBottom: '0.7rem',
+            marginBottom: '3rem',
             fontSize: '3rem',
             lineHeight: '3.5rem',
             fontWeight: '700',
@@ -108,7 +108,8 @@ const HeroSection = (props) => {
                   color: '#ffd600',
                 },
               }}
-              endIcon={<PlayCircleOutlineIcon size="large" />}
+              size="large"
+              endIcon={<PlayCircleOutlineIcon style={{ fontSize: '2rem' }} />}
             >
               Watch the video
             </Button>
@@ -154,7 +155,11 @@ const Header = () => {
     </AppBar>
   );
 };
-console.log(process.env.ENABLE_OBSERVABILITY);
+
+if (!process.env.ENABLE_OBSERVABILITY) {
+  console.log('Observability disabled. Enable with env.ENABLE_OBSERVABILITY');
+}
+
 export function Index() {
   const { isLoggedIn, update } = useContext(GlobalContext);
   return (
