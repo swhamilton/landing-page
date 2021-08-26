@@ -156,7 +156,7 @@ const Header = () => {
   );
 };
 
-if (!process.env.ENABLE_OBSERVABILITY) {
+if (process.env.ENABLE_OBSERVABILITY !== 'true') {
   console.log('Observability disabled. Enable with env.ENABLE_OBSERVABILITY');
 }
 
