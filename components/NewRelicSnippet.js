@@ -17,8 +17,6 @@ NREUM.info = {
 };
 `;
 
-console.log('NewRelicLoaderConfigInfoSnippet', NewRelicLoaderConfigInfoSnippet);
-
 const NewRelicSnippet = () => (
   <Script
     dangerouslySetInnerHTML={{
