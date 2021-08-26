@@ -9,10 +9,11 @@ import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { createStyles } from '@material-ui/core/styles';
 import { useTheme, styled } from '@material-ui/core/styles';
 import { useContext } from 'react';
-
+import Image from 'next/image';
 import GlobalContext from '../state/globalContext';
 import SignIn from '../components/SignIn';
 import NewRelicSnippet from '../components/NewRelicSnippet';
+import AppBar from '@material-ui/core/AppBar';
 
 const HeroSection = (props) => {
   const matches = useMediaQuery('(min-width:600px)');
@@ -21,17 +22,98 @@ const HeroSection = (props) => {
     <Box
       component="section"
       sx={{
-        backgroundColor: 'hotpink',
-        '&:hover': {
-          color: 'lightgreen',
-        },
+        textAlign: 'center',
+        border: '2px solid red',
+        display: 'flex',
+        padding: '0',
+        overflow: 'hidden',
+        position: 'relative',
+        maxHeight: '1600px',
+        alignItems: 'center',
+        backgroundImage:
+          '-o-linear-gradient(24deg,rgba(0,0,0,.85) 0,rgba(0,0,0,.7) 25%,rgba(0,0,0,.3) 50%,rgba(0,0,0,.1) 75%,rgba(0,0,0,0) 100%),url(/assets/img/bg_desktop.jpeg)',
+        backgroundImage:
+          'linear-gradient(66deg,rgba(0,0,0,.85),rgba(0,0,0,.7) 25%,rgba(0,0,0,.3) 50%,rgba(0,0,0,.1) 75%,rgba(0,0,0,0)),url(/assets/img/bg_desktop.jpeg)',
+        backgroundPosition: '50%',
+        backgroundSize: 'cover',
+        // Extra
+        height: '80vh',
+        backgroundPosition: 'center top',
       }}
     >
-      <div>This is the Section</div>
+      <Box
+        id="heroSection.contentContainer"
+        sx={{
+          color: '#fff',
+          fontSize: '22.4px',
+          fontSize: '1.4rem',
+          lineHeight: '28.8px',
+          lineHeight: '1.8rem',
+          padding: '0 16px',
+          width: '100%',
+          zIndex: '1',
+          marginLeft: 'auto',
+          marginRight: 'auto',
+          marginBottom: '4rem',
+          paddingLeft: '15px',
+          paddingRight: '15px',
+          '@media (min-width: 600px)': {
+            maxWidth: '960px',
+          },
+        }}
+      >
+        <Typography
+          variant="h1"
+          sx={{
+            margin: '50px 0 0',
+            fontSize: '3rem',
+            lineHeight: '3.5rem',
+            fontWeight: '700',
+          }}
+        >
+          Reservations and payments software for tattoo artists and studios
+        </Typography>
+      </Box>
     </Box>
   );
 };
 
+const Header = () => {
+  return (
+    <AppBar
+      position="fixed"
+      sx={{
+        padding: '1em 1.3em',
+        background: 'none',
+        boxShadow: 'none',
+      }}
+    >
+      <div style={{ textAlign: 'right', width: '220px' }}>
+        <div style={{ position: 'relative', width: '220px', height: '40px' }}>
+          <Image
+            alt="Logo"
+            src={
+              '/assets/img/Atlas_UI_Resources$Layout$horizonal_transparent_background.png'
+            }
+            layout="fill"
+            objectFit="contain"
+          />
+        </div>
+        <Box display="flex" justifyContent="flex-end">
+          <Typography component="div">Inspired. Always.</Typography>
+          <Typography
+            sx={{ fontSize: '0.4em', color: '#777' }}
+            variant="subtitle2"
+            component="span"
+          >
+            TM
+          </Typography>
+        </Box>
+      </div>
+    </AppBar>
+  );
+};
+console.log(process.env.ENABLE_OBSERVABILITY);
 export function Index() {
   const { isLoggedIn, update } = useContext(GlobalContext);
   return (
@@ -42,7 +124,7 @@ export function Index() {
         bgcolor: '#070707',
       }}
     >
-      <NewRelicSnippet />
+      {process.env.ENABLE_OBSERVABILITY === 'true' && <NewRelicSnippet />}
       {/* <Global
         styles={css`
           .homeHero {
@@ -53,15 +135,17 @@ export function Index() {
           }
         `}
       /> */}
-      {isLoggedIn ? (
+      {isLoggedIn || process.env.TEST_MODE ? (
         <Box
           component="main"
           sx={{
+            overflowX: 'hidden',
             border: '2px solid red',
             minHeight: 'calc(100vh - 50px)',
             width: '100%',
           }}
         >
+          <Header />
           <HeroSection classes="homeHero" />
         </Box>
       ) : (
