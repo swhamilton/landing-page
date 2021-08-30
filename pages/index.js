@@ -299,7 +299,7 @@ export function Index() {
           }
         `}
       /> */}
-      {isLoggedIn || process.env.TEST_MODE ? (
+      {isLoggedIn || process.env.TEST_MODE === 'true' ? (
         <Box
           component="main"
           sx={{

@@ -63,7 +63,14 @@ export default function SignIn(props) {
   };
   const theme = useTheme();
   return (
-    <Container maxWidth="xs" sx={{ background: '#070707' }}>
+    <Container
+      maxWidth="xs"
+      sx={{
+        background: '#070707',
+        minWidth: '100%',
+        minHeight: '100%',
+      }}
+    >
       <Box
         sx={{
           color: 'white',
