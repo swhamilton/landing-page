@@ -6,7 +6,9 @@ import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Stack from '@material-ui/core/Stack';
+import Paper from '@material-ui/core/Paper';
 import AppBar from '@material-ui/core/AppBar';
+import FormatQuoteIcon from '@material-ui/icons/FormatQuote';
 import Button from '@material-ui/core/Button';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { createStyles } from '@material-ui/core/styles';
@@ -120,6 +122,16 @@ const HeroSection = (props) => {
   );
 };
 
+const HeaderUnderline = () => (
+  <hr
+    css={css`
+      width: 120px;
+      border-top: 3px solid #ed0c6f;
+      margin-bottom: 1rem;
+    `}
+  />
+);
+
 const DescriptionSection = () => {
   return (
     <Box
@@ -154,40 +166,43 @@ const DescriptionSection = () => {
           },
         }}
       >
-        <Typography
-          variant="h2"
-          sx={{
-            marginBottom: '3rem',
-            fontSize: '3rem',
-            lineHeight: '3.5rem',
-            fontWeight: '300',
-          }}
-        >
-          What is HyperTattoo?
-        </Typography>
-        <Typography
-          variant="subtitle1"
-          // sx={{
-          //   marginBottom: '3rem',
-          //   fontSize: '3rem',
-          //   lineHeight: '3.5rem',
-          //   fontWeight: '300',
-          // }}
-        >
-          The only reservations and payments tool you need.
-        </Typography>
-        <Typography
-          variant="subtitle1"
-          // sx={{
-          //   marginBottom: '3rem',
-          //   fontSize: '3rem',
-          //   lineHeight: '3.5rem',
-          //   fontWeight: '300',
-          // }}
-        >
-          Replaces email, Instagram, Facebook, and website management for tattoo
-          artists and studios.
-        </Typography>
+        <Box mb={6}>
+          <Typography
+            variant="h2"
+            sx={{
+              marginBottom: '1rem',
+              fontSize: '3rem',
+              lineHeight: '3.5rem',
+              fontWeight: '400',
+            }}
+          >
+            What is HyperTattoo?
+          </Typography>
+          <HeaderUnderline />
+          <Typography variant="subtitle1">
+            The only reservations and payments tool you need.
+          </Typography>
+          <Typography variant="subtitle1">
+            Replaces email, Instagram, Facebook, and website management for
+            tattoo artists and studios.
+          </Typography>
+        </Box>
+        <Box>
+          <Paper elevation={0} sx={{ background: '#f3f3f3', padding: '1rem' }}>
+            <FormatQuoteIcon style={{ fontSize: 50 }} />
+            <Typography variant="subtitle1">
+              HyperTattoo <strong>saves me over 15% in monthly expenses</strong>{' '}
+              as well as countless hours in weekly bookkeeping. I now have more
+              time to <strong>focus on upcoming projects.</strong>
+            </Typography>
+            <Typography variant="subtitle1">
+              - Izzy Williams,{' '}
+              <i>
+                <strong>Lightning Studio</strong>
+              </i>
+            </Typography>
+          </Paper>
+        </Box>
       </Box>
     </Box>
   );
