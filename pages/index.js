@@ -120,7 +120,111 @@ const HeroSection = (props) => {
   );
 };
 
-const Header = () => {
+const DescriptionSection = () => {
+  return (
+    <Box
+      component="section"
+      sx={{
+        textAlign: 'center',
+        border: '2px solid green',
+        display: 'flex',
+        // padding: '0',
+        // overflow: 'hidden',
+        // position: 'relative',
+        alignItems: 'center',
+      }}
+    >
+      <Box
+        id="details.contentContainer"
+        sx={{
+          fontSize: '22.4px',
+          fontSize: '1.4rem',
+          lineHeight: '28.8px',
+          lineHeight: '1.8rem',
+          padding: '4rem 16px',
+          width: '100%',
+          zIndex: '1',
+          marginLeft: 'auto',
+          marginRight: 'auto',
+          marginBottom: '1rem',
+          paddingLeft: '15px',
+          paddingRight: '15px',
+          '@media (min-width: 600px)': {
+            maxWidth: '960px',
+          },
+        }}
+      >
+        <Typography
+          variant="h2"
+          sx={{
+            marginBottom: '3rem',
+            fontSize: '3rem',
+            lineHeight: '3.5rem',
+            fontWeight: '300',
+          }}
+        >
+          What is HyperTattoo?
+        </Typography>
+        <Typography
+          variant="subtitle1"
+          // sx={{
+          //   marginBottom: '3rem',
+          //   fontSize: '3rem',
+          //   lineHeight: '3.5rem',
+          //   fontWeight: '300',
+          // }}
+        >
+          The only reservations and payments tool you need.
+        </Typography>
+        <Typography
+          variant="subtitle1"
+          // sx={{
+          //   marginBottom: '3rem',
+          //   fontSize: '3rem',
+          //   lineHeight: '3.5rem',
+          //   fontWeight: '300',
+          // }}
+        >
+          Replaces email, Instagram, Facebook, and website management for tattoo
+          artists and studios.
+        </Typography>
+      </Box>
+    </Box>
+  );
+};
+
+const Header = (props) => {
+  React.useEffect(() => {
+    if (props.changeColorOnScroll) {
+      window.addEventListener('scroll', headerColorChange);
+    }
+    return function cleanup() {
+      if (props.changeColorOnScroll) {
+        window.removeEventListener('scroll', headerColorChange);
+      }
+    };
+  });
+
+  const headerColorChange = () => {
+    const { color, changeColorOnScroll } = props;
+    const windowsScrollTop = window.pageYOffset;
+    if (windowsScrollTop > changeColorOnScroll.height) {
+      document.body
+        .getElementsByTagName('header')[0]
+        .classList.remove(classes[color]);
+      document.body
+        .getElementsByTagName('header')[0]
+        .classList.add(classes[changeColorOnScroll.color]);
+    } else {
+      document.body
+        .getElementsByTagName('header')[0]
+        .classList.add(classes[color]);
+      document.body
+        .getElementsByTagName('header')[0]
+        .classList.remove(classes[changeColorOnScroll.color]);
+    }
+  };
+
   return (
     <AppBar
       position="fixed"
@@ -167,7 +271,6 @@ export function Index() {
       sx={{
         minWidth: '100%',
         height: '100vh',
-        bgcolor: '#070707',
       }}
     >
       {process.env.ENABLE_OBSERVABILITY === 'true' && <NewRelicSnippet />}
@@ -193,6 +296,7 @@ export function Index() {
         >
           <Header />
           <HeroSection classes="homeHero" />
+          <DescriptionSection />
         </Box>
       ) : (
         <SignIn

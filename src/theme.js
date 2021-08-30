@@ -3,11 +3,17 @@ import { red } from '@material-ui/core/colors';
 
 // Create a theme instance.
 const theme = createTheme({
+  typography: {
+    subtitle1: {
+      fontSize: '1em',
+      fontWeight: 400,
+    },
+  },
   components: {
     MuiCssBaseline: {
       styleOverrides: `
         body {
-          background: #070707;
+          // background: red;
         }
       `,
     },
