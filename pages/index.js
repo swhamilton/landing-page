@@ -135,6 +135,7 @@ const HeaderUnderline = () => (
   <hr
     css={css`
       width: 120px;
+      border: none;
       border-top: 3px solid ${HYPER_PINK};
       margin-bottom: 1rem;
     `}
