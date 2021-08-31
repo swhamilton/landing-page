@@ -40,7 +40,7 @@ const CssTextField = styled(TextField)({
     color: 'white',
 
     '& fieldset': {
-      borderColor: 'gray',
+      borderColor: 'grey',
       // borderColor: `linear-gradient(320deg,#f0555a 0%, #dc335a 50%, #bb1b5d 100%)`,
     },
     '&:hover fieldset': {

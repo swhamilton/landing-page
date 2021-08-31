@@ -2,9 +2,15 @@
 /** @jsx jsx */
 import { css, jsx, Global } from '@emotion/react';
 import * as React from 'react';
+import GlobalStyles from '@material-ui/core/GlobalStyles';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
+import Grid from '@material-ui/core/Grid';
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardHeader from '@material-ui/core/CardHeader';
 import Stack from '@material-ui/core/Stack';
 import Paper from '@material-ui/core/Paper';
 import AppBar from '@material-ui/core/AppBar';
@@ -14,11 +20,15 @@ import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { createStyles } from '@material-ui/core/styles';
 import { useTheme, styled } from '@material-ui/core/styles';
 import PlayCircleOutlineIcon from '@material-ui/icons/PlayCircleOutline';
+import StarIcon from '@material-ui/icons/Star';
 import { useContext } from 'react';
 import Image from 'next/image';
 import GlobalContext from '../state/globalContext';
 import SignIn from '../components/SignIn';
 import NewRelicSnippet from '../components/NewRelicSnippet';
+import { grey } from '@material-ui/core/colors';
+
+const HYPER_PINK = '#ed0c6f';
 
 const HeroSection = (props) => {
   const matches = useMediaQuery('(min-width:600px)');
@@ -126,11 +136,32 @@ const HeaderUnderline = () => (
   <hr
     css={css`
       width: 120px;
-      border-top: 3px solid #ed0c6f;
+      border-top: 3px solid ${HYPER_PINK};
       margin-bottom: 1rem;
     `}
   />
 );
+
+const SectionHeader = (props) => {
+  return (
+    <Box mb={6}>
+      <Typography
+        variant="h2"
+        sx={{
+          marginBottom: '1rem',
+          fontSize: '3rem',
+          lineHeight: '3.5rem',
+          fontWeight: '400',
+        }}
+      >
+        {props.title}
+      </Typography>
+      <HeaderUnderline />
+      <Typography variant="subtitle1">{props.subtitle1}</Typography>
+      <Typography variant="subtitle1">{props.subtitle2}</Typography>
+    </Box>
+  );
+};
 
 const DescriptionSection = () => {
   return (
@@ -166,27 +197,14 @@ const DescriptionSection = () => {
           },
         }}
       >
-        <Box mb={6}>
-          <Typography
-            variant="h2"
-            sx={{
-              marginBottom: '1rem',
-              fontSize: '3rem',
-              lineHeight: '3.5rem',
-              fontWeight: '400',
-            }}
-          >
-            What is HyperTattoo?
-          </Typography>
-          <HeaderUnderline />
-          <Typography variant="subtitle1">
-            The only reservations and payments tool you need.
-          </Typography>
-          <Typography variant="subtitle1">
-            Replaces email, Instagram, Facebook, and website management for
-            tattoo artists and studios.
-          </Typography>
-        </Box>
+        <SectionHeader
+          title="What is HyperTattoo?"
+          subtitle1={'The only reservations and payments tool you need.'}
+          subtitle2={
+            'Replaces email, Instagram, Facebook, and website management for tattoo artists and studios.'
+          }
+        />
+
         <Box>
           <Paper elevation={0} sx={{ background: '#f3f3f3', padding: '1rem' }}>
             <FormatQuoteIcon style={{ fontSize: 50 }} />
@@ -203,6 +221,188 @@ const DescriptionSection = () => {
             </Typography>
           </Paper>
         </Box>
+      </Box>
+    </Box>
+  );
+};
+
+const tiers = [
+  {
+    title: 'Standard',
+    theme: 'HYPER_PINK',
+    subheader: 'Standard tier description.',
+    price: '0',
+    priceDescription: 'Free forever',
+    features: [
+      'Feature 1',
+      'Feature 1',
+      'Feature 1',
+      'Feature 1',
+      'Feature 1',
+      'Feature 1',
+    ],
+    buttonText: 'Get started',
+    buttonVariant: 'outlined',
+  },
+  {
+    title: 'Premium',
+    subheader: 'Premium tier description.',
+    price: '29.99',
+    priceDescription: 'Save $60 when billed annually',
+    features: [
+      'Feature 1',
+      'Feature 1',
+      'Feature 1',
+      'Feature 1',
+      'Feature 1',
+      'Feature 1',
+    ],
+    buttonText: 'Get started',
+    buttonVariant: 'contained',
+  },
+];
+
+const ColorButton = styled(Button)(({ theme }) => {
+  return {
+    textTransform: 'none',
+    backgroundColor: theme.palette.common.black,
+    '&:hover': {
+      backgroundColor: grey[900],
+    },
+  };
+});
+
+const PricingSection = (props) => {
+  return (
+    <Box
+      component="section"
+      sx={{
+        textAlign: 'center',
+        border: '2px solid green',
+        display: 'flex',
+        alignItems: 'center',
+      }}
+    >
+      <Box
+        id="pricingSection.contentContainer"
+        sx={{
+          fontSize: '22.4px',
+          fontSize: '1.4rem',
+          lineHeight: '28.8px',
+          lineHeight: '1.8rem',
+          padding: '4rem 16px',
+          width: '100%',
+          zIndex: '1',
+          marginLeft: 'auto',
+          marginRight: 'auto',
+          marginBottom: '1rem',
+          paddingLeft: '15px',
+          paddingRight: '15px',
+          '@media (min-width: 600px)': {
+            maxWidth: '960px',
+          },
+        }}
+      >
+        <SectionHeader
+          title="Account Types"
+          subtitle1={'Pick the plan that fits your business.'}
+        />
+
+        <Container maxWidth="md" component="main">
+          <Grid container spacing={5} alignItems="flex-end">
+            {tiers.map((tier, tierIndex) => {
+              const useHyperPink = tier.theme === 'HYPER_PINK';
+              return (
+                <Grid item key={tier.title} xs={12} sm={6} md={6}>
+                  <Card
+                    sx={{
+                      border: (theme) =>
+                        `2px solid ${
+                          useHyperPink ? HYPER_PINK : theme.palette.grey[800]
+                        }`,
+                      borderRadius: 3,
+                    }}
+                  >
+                    <CardHeader
+                      title={tier.title}
+                      subheader={tier.subheader}
+                      titleTypographyProps={{ align: 'left' }}
+                      action={tier.title === 'Pro' ? <StarIcon /> : null}
+                      subheaderTypographyProps={{
+                        marginTop: 2,
+                        align: 'left',
+                      }}
+                      sx={{
+                        color: (theme) =>
+                          useHyperPink ? HYPER_PINK : theme.palette.grey[800],
+                      }}
+                    />
+                    <CardContent>
+                      <Box
+                        sx={{
+                          display: 'flex',
+                          justifyContent: 'center',
+                          alignItems: 'baseline',
+                          mb: 2,
+                        }}
+                      >
+                        <Typography
+                          component="h2"
+                          variant="h4"
+                          textAlign="left"
+                          color="text.primary"
+                        >
+                          ${tier.price}
+                        </Typography>
+                        <Typography variant="subtitle1" color="grey.800" ml={1}>
+                          per user/mo.
+                        </Typography>
+                      </Box>
+                      <ul>
+                        {tier.features.map((line, featureIndex) => (
+                          <Typography
+                            component="li"
+                            variant="subtitle1"
+                            align="center"
+                            key={`tier${tierIndex}-featureIndex${featureIndex}`}
+                          >
+                            {line}
+                          </Typography>
+                        ))}
+                      </ul>
+                    </CardContent>
+                    <CardActions>
+                      {useHyperPink ? (
+                        <Button
+                          sx={{
+                            padding: 2,
+                            fontSize: '1rem',
+                            textTransform: 'none',
+                          }}
+                          fullWidth
+                          variant={tier.buttonVariant}
+                        >
+                          {tier.buttonText}
+                        </Button>
+                      ) : (
+                        <ColorButton
+                          sx={{
+                            padding: 2,
+                            fontSize: '1rem',
+                          }}
+                          fullWidth
+                          variant="contained"
+                        >
+                          Get started
+                        </ColorButton>
+                      )}
+                    </CardActions>
+                  </Card>
+                </Grid>
+              );
+            })}
+          </Grid>
+        </Container>
       </Box>
     </Box>
   );
@@ -289,6 +489,10 @@ export function Index() {
       }}
     >
       {process.env.ENABLE_OBSERVABILITY === 'true' && <NewRelicSnippet />}
+      <GlobalStyles
+        styles={{ ul: { margin: 0, padding: 0, listStyle: 'none' } }}
+      />
+
       {/* <Global
         styles={css`
           .homeHero {
@@ -312,6 +516,7 @@ export function Index() {
           <Header />
           <HeroSection classes="homeHero" />
           <DescriptionSection />
+          <PricingSection />
         </Box>
       ) : (
         <SignIn
