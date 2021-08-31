@@ -226,6 +226,10 @@ const DescriptionSection = () => {
   );
 };
 
+const styles = {
+  pricingButton: { padding: 2, fontSize: '1rem', textTransform: 'none' },
+};
+
 const tiers = [
   {
     title: 'Standard',
@@ -374,11 +378,7 @@ const PricingSection = (props) => {
                     <CardActions>
                       {useHyperPink ? (
                         <Button
-                          sx={{
-                            padding: 2,
-                            fontSize: '1rem',
-                            textTransform: 'none',
-                          }}
+                          sx={styles.pricingButton}
                           fullWidth
                           variant={tier.buttonVariant}
                         >
@@ -386,14 +386,11 @@ const PricingSection = (props) => {
                         </Button>
                       ) : (
                         <ColorButton
-                          sx={{
-                            padding: 2,
-                            fontSize: '1rem',
-                          }}
+                          sx={styles.pricingButton}
                           fullWidth
                           variant="contained"
                         >
-                          Get started
+                          {tier.buttonText}
                         </ColorButton>
                       )}
                     </CardActions>
