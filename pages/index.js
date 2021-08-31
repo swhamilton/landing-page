@@ -38,7 +38,6 @@ const HeroSection = (props) => {
       component="section"
       sx={{
         textAlign: 'center',
-        border: '2px solid red',
         display: 'flex',
         padding: '0',
         overflow: 'hidden',
@@ -142,18 +141,19 @@ const HeaderUnderline = () => (
   />
 );
 
+const sectionHeaderStyles = {
+  header: {
+    marginBottom: '1rem',
+    fontSize: '3rem',
+    lineHeight: '3.5rem',
+    fontWeight: '400',
+  },
+};
+
 const SectionHeader = (props) => {
   return (
     <Box mb={6}>
-      <Typography
-        variant="h2"
-        sx={{
-          marginBottom: '1rem',
-          fontSize: '3rem',
-          lineHeight: '3.5rem',
-          fontWeight: '400',
-        }}
-      >
+      <Typography variant="h2" sx={sectionHeaderStyles.header}>
         {props.title}
       </Typography>
       <HeaderUnderline />
@@ -165,38 +165,8 @@ const SectionHeader = (props) => {
 
 const DescriptionSection = () => {
   return (
-    <Box
-      component="section"
-      sx={{
-        textAlign: 'center',
-        border: '2px solid green',
-        display: 'flex',
-        // padding: '0',
-        // overflow: 'hidden',
-        // position: 'relative',
-        alignItems: 'center',
-      }}
-    >
-      <Box
-        id="details.contentContainer"
-        sx={{
-          fontSize: '22.4px',
-          fontSize: '1.4rem',
-          lineHeight: '28.8px',
-          lineHeight: '1.8rem',
-          padding: '4rem 16px',
-          width: '100%',
-          zIndex: '1',
-          marginLeft: 'auto',
-          marginRight: 'auto',
-          marginBottom: '1rem',
-          paddingLeft: '15px',
-          paddingRight: '15px',
-          '@media (min-width: 600px)': {
-            maxWidth: '960px',
-          },
-        }}
-      >
+    <Box component="section" sx={styles.sectionContainer}>
+      <Box id="details.contentContainer" sx={styles.sectionContentContainer}>
         <SectionHeader
           title="What is HyperTattoo?"
           subtitle1={'The only reservations and payments tool you need.'}
@@ -227,6 +197,33 @@ const DescriptionSection = () => {
 };
 
 const styles = {
+  sectionContainer: {
+    textAlign: 'center',
+    display: 'flex',
+    alignItems: 'center',
+  },
+  sectionContentContainer: {
+    fontSize: '22.4px',
+    fontSize: '1.4rem',
+    lineHeight: '28.8px',
+    lineHeight: '1.8rem',
+    padding: '4rem 16px',
+    width: '100%',
+    zIndex: '1',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    marginBottom: '1rem',
+    paddingLeft: '15px',
+    paddingRight: '15px',
+    '@media (min-width: 600px)': {
+      maxWidth: '960px',
+    },
+    mainContainer: {
+      overflowX: 'hidden',
+      minHeight: 'calc(100vh - 50px)',
+      width: '100%',
+    },
+  },
   pricingButton: { padding: 2, fontSize: '1rem', textTransform: 'none' },
 };
 
@@ -276,36 +273,142 @@ const ColorButton = styled(Button)(({ theme }) => {
   };
 });
 
-const PricingSection = (props) => {
+const videoStyles = {
+  detailsCard: {
+    textAlign: 'left',
+    paddingRight: 4,
+    marginBottom: 8,
+  },
+  detailsCardHeader: {
+    fontWeight: '500',
+  },
+};
+
+const VideoSection = (props) => {
   return (
     <Box
       component="section"
       sx={{
-        textAlign: 'center',
-        border: '2px solid green',
-        display: 'flex',
-        alignItems: 'center',
+        ...styles.sectionContainer,
+        backgroundColor: '#111111',
+        color: 'white',
       }}
     >
       <Box
+        id="videoSection.contentContainer"
+        sx={styles.sectionContentContainer}
+      >
+        <SectionHeader title="Inspired functionality" />
+        <Box
+          display="flex"
+          mb={6}
+          justifyContent="center"
+          alignItems="center"
+          sx={{
+            // border: '0 solid yellow',
+            '@media (min-width: 320px)': {
+              height: '200px',
+            },
+            '@media (min-width: 400px)': {
+              height: '300px',
+            },
+            '@media (min-width: 600px)': {
+              height: '520px',
+            },
+          }}
+        >
+          <iframe
+            src="https://player.vimeo.com/video/554786369?autoplay=1&muted=1"
+            width="100%"
+            style={{ minHeight: '100%' }}
+            frameBorder="0"
+            allow="autoplay; fullscreen"
+            allowFullScreen
+          ></iframe>
+        </Box>
+        <Grid container>
+          <Grid item sm={4} sx={videoStyles.detailsCard}>
+            <Typography
+              sx={videoStyles.detailsCardHeader}
+              component="h3"
+              variant="h5"
+              gutterBottom
+            >
+              Artist profiles
+            </Typography>
+            <Typography variant="body1">
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quaerat
+              distinctio dolore laborum at a minima aperiam.
+            </Typography>
+          </Grid>
+          <Grid item sm={4} sx={videoStyles.detailsCard}>
+            <Typography
+              sx={videoStyles.detailsCardHeader}
+              component="h3"
+              variant="h5"
+              gutterBottom
+            >
+              Direct messaging
+            </Typography>
+            <Typography variant="body1">
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quaerat
+              distinctio dolore laborum at a minima aperiam.
+            </Typography>
+          </Grid>
+          <Grid item sm={4} sx={videoStyles.detailsCard}>
+            <Typography
+              sx={videoStyles.detailsCardHeader}
+              component="h3"
+              variant="h5"
+              gutterBottom
+            >
+              Scheduling
+            </Typography>
+            <Typography variant="body1">
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quaerat
+              distinctio dolore laborum at a minima aperiam.
+            </Typography>
+          </Grid>
+          <Grid item sm={4} sx={videoStyles.detailsCard}>
+            <Typography
+              sx={videoStyles.detailsCardHeader}
+              component="h3"
+              variant="h5"
+              gutterBottom
+            >
+              Payment processing
+            </Typography>
+            <Typography variant="body1">
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quaerat
+              distinctio dolore laborum at a minima aperiam.
+            </Typography>
+          </Grid>
+          <Grid item sm={4} sx={videoStyles.detailsCard}>
+            <Typography
+              sx={videoStyles.detailsCardHeader}
+              component="h3"
+              variant="h5"
+              gutterBottom
+            >
+              Business insights
+            </Typography>
+            <Typography variant="body1">
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quaerat
+              distinctio dolore laborum at a minima aperiam.
+            </Typography>
+          </Grid>
+        </Grid>
+      </Box>
+    </Box>
+  );
+};
+
+const PricingSection = (props) => {
+  return (
+    <Box component="section" sx={styles.sectionContainer}>
+      <Box
         id="pricingSection.contentContainer"
-        sx={{
-          fontSize: '22.4px',
-          fontSize: '1.4rem',
-          lineHeight: '28.8px',
-          lineHeight: '1.8rem',
-          padding: '4rem 16px',
-          width: '100%',
-          zIndex: '1',
-          marginLeft: 'auto',
-          marginRight: 'auto',
-          marginBottom: '1rem',
-          paddingLeft: '15px',
-          paddingRight: '15px',
-          '@media (min-width: 600px)': {
-            maxWidth: '960px',
-          },
-        }}
+        sx={styles.sectionContentContainer}
       >
         <SectionHeader
           title="Account Types"
@@ -501,18 +604,11 @@ export function Index() {
         `}
       /> */}
       {isLoggedIn || process.env.TEST_MODE === 'true' ? (
-        <Box
-          component="main"
-          sx={{
-            overflowX: 'hidden',
-            border: '2px solid red',
-            minHeight: 'calc(100vh - 50px)',
-            width: '100%',
-          }}
-        >
+        <Box component="main" sx={styles.mainContainer}>
           <Header />
           <HeroSection classes="homeHero" />
           <DescriptionSection />
+          <VideoSection />
           <PricingSection />
         </Box>
       ) : (
