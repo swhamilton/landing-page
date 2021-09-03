@@ -90,13 +90,14 @@ export default function SignIn(props) {
           <CssTextField
             margin="normal"
             fullWidth
-            id="username"
+            id="LandingPageGate-usernameInputField"
             label="Username"
             name="username"
             autoComplete="username"
             autoFocus
           />
           <Button
+            id="LandingPageGate-signInButton"
             type="submit"
             fullWidth
             variant="contained"
