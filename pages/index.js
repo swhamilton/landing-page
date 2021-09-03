@@ -90,6 +90,7 @@ const HeroSection = (props) => {
         <Box display="flex" justifyContent="center">
           <Stack direction="row" spacing={2}>
             <Button
+              id="LandingPage-HeroSection-getStartedButton"
               variant="contained"
               css={css`
                 font-size: 1rem;
@@ -107,6 +108,7 @@ const HeroSection = (props) => {
               Get started
             </Button>
             <Button
+              id="LandingPage-HeroSection-watchVideoButton"
               disableRipple
               disableFocusRipple
               variant="text"
@@ -482,6 +484,7 @@ const PricingSection = (props) => {
                     <CardActions>
                       {useHyperPink ? (
                         <Button
+                          id="LandingPage-rightPricingButton"
                           sx={styles.pricingButton}
                           fullWidth
                           variant={tier.buttonVariant}
@@ -490,6 +493,7 @@ const PricingSection = (props) => {
                         </Button>
                       ) : (
                         <ColorButton
+                          id="LandingPage-leftPricingButton"
                           sx={styles.pricingButton}
                           fullWidth
                           variant="contained"
