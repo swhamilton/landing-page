@@ -41,21 +41,23 @@ const headerLinkStyles = {
     textTransform: 'none',
     borderWidth: '2.5px',
     borderRadius: '0.5rem',
-    margin: '0px',
+    margin: '0',
     display: 'inline-flex',
-    transition: 'font-size 0.2s',
-    '&:hover': {
-      fontSize: '1.15rem',
-    },
+
     '&:hover,&:focus': {
       color: 'inherit',
       background: 'rgba(100, 100, 100, 0.2)',
     },
   },
+  signInButton: {
+    '&:hover': {
+      border: '2.5px solid #ed0c6f',
+    },
+  },
 };
 
 const OutlineButton = ({ style, text, rest }) => (
-  <Button variant="outlined" sx={style} {...rest}>
+  <Button variant="outlined" {...rest}>
     {text}
   </Button>
 );
@@ -79,11 +81,18 @@ export default function HeaderLinks(props) {
         </Button>
       </ListItem>
       <ListItem sx={headerLinkStyles.listItem}>
-        <OutlineButton
+        {/* <OutlineButton
           text="Log in"
           href="#login"
           style={headerLinkStyles.navLink}
-        />
+        /> */}
+        <Button
+          variant="outlined"
+          href="#login"
+          sx={{ ...headerLinkStyles.navLink, ...headerLinkStyles.signInButton }}
+        >
+          Log in
+        </Button>
       </ListItem>
     </List>
   );
