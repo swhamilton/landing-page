@@ -331,8 +331,10 @@ const VideoSection = (props) => {
             width="100%"
             style={{ minHeight: '100%' }}
             frameBorder="0"
-            allow="autoplay; fullscreen"
+            // allow="autoplay; fullscreen"
             allowFullScreen
+            // webkitallowFullScreen
+            // mozallowFullScreen
           ></iframe>
         </Box>
         <Grid container>
@@ -640,6 +642,7 @@ const Header = (props) => {
       position="fixed"
       style={{ backgroundColor: bgColor }}
       sx={{
+        transition: '0.2s',
         padding: '1em 1.3em',
         boxShadow: 'none',
       }}
@@ -703,7 +706,7 @@ export function Index() {
             rightLinks={<HeaderLinks />}
             fixed
             changeColorOnScroll={{
-              height: 400, // Controls the scroll height when this style applies
+              height: 100, // Controls the scroll height when this style applies
               color: 'black',
             }}
           />
