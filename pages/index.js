@@ -703,7 +703,7 @@ export function Index() {
             rightLinks={<HeaderLinks />}
             fixed
             changeColorOnScroll={{
-              height: 600, // Controls the scroll height when this style applies
+              height: 400, // Controls the scroll height when this style applies
               color: 'black',
             }}
           />
