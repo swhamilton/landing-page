@@ -11,8 +11,13 @@ import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardHeader from '@material-ui/core/CardHeader';
+import IconButton from '@material-ui/core/IconButton';
+import Menu from '@material-ui/core/Menu';
+import Hidden from '@material-ui/core/Hidden';
 import Stack from '@material-ui/core/Stack';
 import Paper from '@material-ui/core/Paper';
+import Drawer from '@material-ui/core/Drawer';
+import Toolbar from '@material-ui/core/Toolbar';
 import AppBar from '@material-ui/core/AppBar';
 import FormatQuoteIcon from '@material-ui/icons/FormatQuote';
 import Button from '@material-ui/core/Button';
@@ -25,6 +30,7 @@ import { useContext } from 'react';
 import Image from 'next/image';
 import GlobalContext from '../state/globalContext';
 import SignIn from '../components/SignIn';
+import HeaderLinks from '../components/HeaderLinks';
 import NewRelicSnippet from '../components/NewRelicSnippet';
 import { grey } from '@material-ui/core/colors';
 
@@ -155,7 +161,7 @@ const sectionHeaderStyles = {
 
 const SectionHeader = (props) => {
   return (
-    <Box mb={6}>
+    <Box id={props.id} mb={6}>
       <Typography variant="h2" sx={sectionHeaderStyles.header}>
         {props.title}
       </Typography>
@@ -290,6 +296,7 @@ const videoStyles = {
 const VideoSection = (props) => {
   return (
     <Box
+      id="features"
       component="section"
       sx={{
         ...styles.sectionContainer,
@@ -308,7 +315,6 @@ const VideoSection = (props) => {
           justifyContent="center"
           alignItems="center"
           sx={{
-            // border: '0 solid yellow',
             '@media (min-width: 320px)': {
               height: '200px',
             },
@@ -408,7 +414,7 @@ const VideoSection = (props) => {
 
 const PricingSection = (props) => {
   return (
-    <Box component="section" sx={styles.sectionContainer}>
+    <Box id="pricing" component="section" sx={styles.sectionContainer}>
       <Box
         id="pricingSection.contentContainer"
         sx={styles.sectionContentContainer}
@@ -513,7 +519,93 @@ const PricingSection = (props) => {
   );
 };
 
+const defaultFont = {
+  fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
+  fontWeight: '300',
+  lineHeight: '1.5em',
+};
+
+const headerStyles = {
+  toolbar: {
+    display: 'flex',
+    justifyContent: 'space-between',
+  },
+  flex: {
+    flex: 1,
+  },
+  appResponsive: {
+    margin: '20px 10px',
+  },
+  title: {
+    ...defaultFont,
+    lineHeight: '30px',
+    fontSize: '18px',
+    borderRadius: '3px',
+    textTransform: 'none',
+    color: 'inherit',
+    padding: '8px 16px',
+    letterSpacing: 'unset',
+    '&:hover,&:focus': {
+      color: 'inherit',
+      background: 'transparent',
+    },
+  },
+  transparent: 'transparent-bg',
+  black: 'black-bg',
+};
+
+const PREFIX = 'Header';
+const classes = {
+  root: `${PREFIX}-root`,
+};
+const Root = styled('div')(({ theme }) => ({
+  [`&.${classes.root}`]: {
+    display: 'flex',
+    alignItems: 'center',
+  },
+}));
+
+const BrandComponent = () => {
+  return (
+    <Box
+      component="a"
+      href="#home"
+      display="flex"
+      flexDirection="column"
+      sx={{ textAlign: 'right', width: '220px', textDecoration: 'none' }}
+    >
+      <div style={{ position: 'relative', width: '220px', height: '40px' }}>
+        <Image
+          alt="Logo"
+          src={
+            '/assets/img/Atlas_UI_Resources$Layout$horizonal_transparent_background.png'
+          }
+          layout="fill"
+          objectFit="contain"
+        />
+      </div>
+      <Box display="flex" justifyContent="flex-end">
+        <Typography sx={{ fontSize: '0.8rem', color: 'white' }} component="div">
+          Inspired. Always.
+        </Typography>
+        <Typography
+          sx={{ fontSize: '5px', color: '#dcdcdc' }}
+          variant="subtitle2"
+          component="span"
+        >
+          TM
+        </Typography>
+      </Box>
+    </Box>
+  );
+};
+
 const Header = (props) => {
+  const { brand, rightLinks, color, changeColorOnScroll } = props;
+  const [mobileOpen, setMobileOpen] = React.useState(false);
+  const [bgColor, setBGColor] = React.useState(color);
+
+  // Bind a scroll listener to change header background
   React.useEffect(() => {
     if (props.changeColorOnScroll) {
       window.addEventListener('scroll', headerColorChange);
@@ -524,58 +616,53 @@ const Header = (props) => {
       }
     };
   });
+  let backgroundColorClass = headerStyles[color];
+  const handleDrawerToggle = () => {
+    setMobileOpen(!mobileOpen);
+  };
 
+  // TODO: Research better perf methods, possibly without state
   const headerColorChange = () => {
-    const { color, changeColorOnScroll } = props;
     const windowsScrollTop = window.pageYOffset;
     if (windowsScrollTop > changeColorOnScroll.height) {
-      document.body
-        .getElementsByTagName('header')[0]
-        .classList.remove(classes[color]);
-      document.body
-        .getElementsByTagName('header')[0]
-        .classList.add(classes[changeColorOnScroll.color]);
+      // Color
+      backgroundColorClass = changeColorOnScroll.color;
     } else {
-      document.body
-        .getElementsByTagName('header')[0]
-        .classList.add(classes[color]);
-      document.body
-        .getElementsByTagName('header')[0]
-        .classList.remove(classes[changeColorOnScroll.color]);
+      // Transparent
+      backgroundColorClass = color;
     }
+    setBGColor(backgroundColorClass);
   };
+  const leftLinks = undefined;
 
   return (
     <AppBar
       position="fixed"
+      style={{ backgroundColor: bgColor }}
       sx={{
         padding: '1em 1.3em',
-        background: 'none',
         boxShadow: 'none',
       }}
     >
-      <div style={{ textAlign: 'right', width: '220px' }}>
-        <div style={{ position: 'relative', width: '220px', height: '40px' }}>
-          <Image
-            alt="Logo"
-            src={
-              '/assets/img/Atlas_UI_Resources$Layout$horizonal_transparent_background.png'
-            }
-            layout="fill"
-            objectFit="contain"
-          />
-        </div>
-        <Box display="flex" justifyContent="flex-end">
-          <Typography component="div">Inspired. Always.</Typography>
-          <Typography
-            sx={{ fontSize: '5px', color: '#dcdcdc' }}
-            variant="subtitle2"
-            component="span"
-          >
-            TM
-          </Typography>
-        </Box>
-      </div>
+      <Toolbar sx={headerStyles.toolbar}>
+        <BrandComponent />
+        <Hidden smDown implementation="css">
+          {rightLinks}
+        </Hidden>
+      </Toolbar>
+      <Hidden mdUp implementation="js">
+        <Drawer
+          variant="temporary"
+          anchor={'right'}
+          open={mobileOpen}
+          onClose={handleDrawerToggle}
+        >
+          <Box sx={headerStyles.appResponsive}>
+            {leftLinks}
+            {rightLinks}
+          </Box>
+        </Drawer>
+      </Hidden>
     </AppBar>
   );
 };
@@ -598,7 +685,7 @@ export function Index() {
         styles={{ ul: { margin: 0, padding: 0, listStyle: 'none' } }}
       />
 
-      {/* <Global
+      <Global
         styles={css`
           .homeHero {
             @media (min-width: 600px) {
@@ -607,10 +694,19 @@ export function Index() {
             border: 2px solid blue;
           }
         `}
-      /> */}
+      />
       {isLoggedIn || process.env.TEST_MODE === 'true' ? (
-        <Box component="main" sx={styles.mainContainer}>
-          <Header />
+        <Box id="home" component="main" sx={styles.mainContainer}>
+          <Header
+            color="transparent"
+            brand="Brand text here"
+            rightLinks={<HeaderLinks />}
+            fixed
+            changeColorOnScroll={{
+              height: 600, // Controls the scroll height when this style applies
+              color: 'black',
+            }}
+          />
           <HeroSection classes="homeHero" />
           <DescriptionSection />
           <VideoSection />

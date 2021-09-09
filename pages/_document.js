@@ -16,7 +16,8 @@ export default class MyDocument extends Document {
             href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
           />
         </Head>
-        <body>
+        {/* TODO: Flip to black, fix white styles */}
+        <body style={{ background: 'white' }}>
           <Main />
           <NextScript />
         </body>
