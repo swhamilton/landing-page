@@ -62,21 +62,40 @@ const OutlineButton = ({ style, text, rest }) => (
   </Button>
 );
 
+const scrollToId = (id) => (e) => {
+  e.preventDefault();
+  document
+    .getElementById(id)
+    .scrollIntoView({ behavior: 'smooth', block: 'start' });
+};
+
 export default function HeaderLinks(props) {
   return (
-    <List sx={headerLinkStyles.list}>
+    <List id="header-links-container" sx={headerLinkStyles.list}>
       <ListItem sx={headerLinkStyles.listItem}>
-        <Button href="#home" sx={headerLinkStyles.navLink}>
+        <Button
+          href="#home"
+          sx={headerLinkStyles.navLink}
+          onClick={scrollToId('home')}
+        >
           Home
         </Button>
       </ListItem>
       <ListItem sx={headerLinkStyles.listItem}>
-        <Button href="#features" sx={headerLinkStyles.navLink}>
+        <Button
+          href="#features"
+          sx={headerLinkStyles.navLink}
+          onClick={scrollToId('features-target')}
+        >
           Features
         </Button>
       </ListItem>
       <ListItem sx={headerLinkStyles.listItem}>
-        <Button href="#pricing" sx={headerLinkStyles.navLink}>
+        <Button
+          href="#pricing"
+          sx={headerLinkStyles.navLink}
+          onClick={scrollToId('pricing-target')}
+        >
           Pricing
         </Button>
       </ListItem>

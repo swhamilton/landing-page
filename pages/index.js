@@ -210,6 +210,7 @@ const styles = {
     textAlign: 'center',
     display: 'flex',
     alignItems: 'center',
+    flexDirection: 'column',
   },
   sectionContentContainer: {
     fontSize: '22.4px',
@@ -293,6 +294,18 @@ const videoStyles = {
   },
 };
 
+const SectionAnchorTarget = (props) => (
+  <div
+    css={css`
+      position: relative;
+      display: inline-block;
+      top: -40px;
+      height: 0;
+    `}
+    {...props}
+  />
+);
+
 const VideoSection = (props) => {
   return (
     <Box
@@ -304,6 +317,7 @@ const VideoSection = (props) => {
         color: 'white',
       }}
     >
+      <SectionAnchorTarget id="features-target" />
       <Box
         id="videoSection.contentContainer"
         sx={styles.sectionContentContainer}
@@ -417,6 +431,7 @@ const VideoSection = (props) => {
 const PricingSection = (props) => {
   return (
     <Box id="pricing" component="section" sx={styles.sectionContainer}>
+      <SectionAnchorTarget id="pricing-target" />
       <Box
         id="pricingSection.contentContainer"
         sx={styles.sectionContentContainer}
@@ -612,6 +627,7 @@ const Header = (props) => {
     if (props.changeColorOnScroll) {
       window.addEventListener('scroll', headerColorChange);
     }
+
     return function cleanup() {
       if (props.changeColorOnScroll) {
         window.removeEventListener('scroll', headerColorChange);
