@@ -574,9 +574,9 @@ const BrandComponent = () => {
       href="#home"
       display="flex"
       flexDirection="column"
-      sx={{ textAlign: 'right', width: '220px', textDecoration: 'none' }}
+      sx={{ textAlign: 'right', width: '180px', textDecoration: 'none' }}
     >
-      <div style={{ position: 'relative', width: '220px', height: '40px' }}>
+      <div style={{ position: 'relative', width: '180px', height: '40px' }}>
         <Image
           alt="Logo"
           src={
@@ -643,7 +643,7 @@ const Header = (props) => {
       style={{ backgroundColor: bgColor }}
       sx={{
         transition: '0.2s',
-        padding: '1em 1.3em',
+        padding: '0.3em 1.3em',
         boxShadow: 'none',
       }}
     >
