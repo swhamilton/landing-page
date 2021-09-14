@@ -33,6 +33,7 @@ import SignIn from '../components/SignIn';
 import HeaderLinks from '../components/HeaderLinks';
 import NewRelicSnippet from '../components/NewRelicSnippet';
 import { grey } from '@material-ui/core/colors';
+import Footer from '../components/Footer';
 
 const HYPER_PINK = '#ed0c6f';
 
@@ -743,6 +744,7 @@ export function Index() {
           <DescriptionSection />
           <VideoSection />
           <PricingSection />
+          <Footer />
         </Box>
       ) : (
         <SignIn
