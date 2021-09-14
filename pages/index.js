@@ -582,14 +582,27 @@ const Root = styled('div')(({ theme }) => ({
   },
 }));
 
+// TODO: abstract to utils
+const scrollToId = (id) => (e) => {
+  e.preventDefault();
+  document
+    .getElementById(id)
+    .scrollIntoView({ behavior: 'smooth', block: 'start' });
+};
+
 const BrandComponent = () => {
   return (
     <Box
+      onClick={scrollToId('home')}
       component="a"
-      href="#home"
       display="flex"
       flexDirection="column"
-      sx={{ textAlign: 'right', width: '180px', textDecoration: 'none' }}
+      sx={{
+        textAlign: 'right',
+        width: '180px',
+        textDecoration: 'none',
+        cursor: 'pointer',
+      }}
     >
       <div style={{ position: 'relative', width: '180px', height: '40px' }}>
         <Image

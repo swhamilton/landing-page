@@ -35,7 +35,7 @@ const headerLinkStyles = {
     position: 'relative',
     padding: '0.5rem 1.5rem',
     fontWeight: '500',
-    fontSize: '1.1rem',
+    fontSize: '1rem',
     lineHeight: '1.5rem',
     textDecoration: 'none',
     textTransform: 'none',
