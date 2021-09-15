@@ -78,15 +78,32 @@ const Footer = () => {
         sx={sectionStyles.sectionContentContainer}
       >
         <Box>
-          <Box m={3}>
-            <Image
-              src={
-                '/assets/img/Atlas_UI_Resources$Layout$horizonal_transparent_background.png'
-              }
-              alt="HyperLogo"
-              width={200}
-              height={36}
-            />
+          <Box display="flex" flexDirection="row" justifyContent="center">
+            <Box mb={5} sx={{ width: '200px' }}>
+              <Image
+                src={
+                  '/assets/img/Atlas_UI_Resources$Layout$horizonal_transparent_background.png'
+                }
+                alt="HyperLogo"
+                width={200}
+                height={36}
+              />
+              <Box display="flex" justifyContent="flex-end">
+                <Typography
+                  sx={{ fontSize: '0.8rem', color: 'white' }}
+                  component="div"
+                >
+                  Inspired. Always.
+                </Typography>
+                <Typography
+                  sx={{ fontSize: '4px', fontWeight: 400, color: '#dcdcdc' }}
+                  variant="subtitle2"
+                  component="span"
+                >
+                  TM
+                </Typography>
+              </Box>
+            </Box>
           </Box>
           <Typography variant="h6" gutterBottom sx={{ fontWeight: 600 }}>
             Sign up for our newsletter
