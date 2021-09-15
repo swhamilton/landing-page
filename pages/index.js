@@ -85,15 +85,18 @@ const HeroSection = (props) => {
         }}
       >
         <Typography
-          variant="h1"
+          variant="h2"
           sx={{
             marginBottom: '1rem',
-            fontSize: '4rem',
-            lineHeight: '4.5rem',
-            fontWeight: '400',
+            fontWeight: '600',
+            '@media (max-width: 600px)': {
+              fontSize: '2.5rem',
+              lineHeight: '2.5rem',
+            },
           }}
         >
-          Reservations and Payments Software
+          Reservations and <br />
+          Payments Software
         </Typography>
         <Typography
           variant="h4"
@@ -168,8 +171,18 @@ const sectionHeaderStyles = {
   header: {
     marginBottom: '1rem',
     fontSize: '3rem',
-    lineHeight: '3.5rem',
     fontWeight: '400',
+    lineHeight: '3.5rem',
+    '@media (max-width: 600px)': {
+      fontSize: '2rem',
+      lineHeight: '2.5rem',
+    },
+  },
+  subtitle: {
+    '@media (max-width: 600px)': {
+      fontSize: '1rem',
+      lineHeight: '1.5rem',
+    },
   },
 };
 
@@ -180,8 +193,12 @@ const SectionHeader = (props) => {
         {props.title}
       </Typography>
       <HeaderUnderline />
-      <Typography variant="subtitle1">{props.subtitle1}</Typography>
-      <Typography variant="subtitle1">{props.subtitle2}</Typography>
+      <Typography sx={sectionHeaderStyles.subtitle} variant="subtitle1">
+        {props.subtitle1}
+      </Typography>
+      <Typography sx={sectionHeaderStyles.subtitle} variant="subtitle1">
+        {props.subtitle2}
+      </Typography>
     </Box>
   );
 };
@@ -560,6 +577,9 @@ const headerStyles = {
   toolbar: {
     display: 'flex',
     justifyContent: 'space-between',
+    '@media (max-width: 600px)': {
+      padding: '0',
+    },
   },
   flex: {
     flex: 1,
@@ -628,18 +648,24 @@ const BrandComponent = () => {
           objectFit="contain"
         />
       </div>
-      <Box display="flex" justifyContent="flex-end">
-        <Typography sx={{ fontSize: '0.8rem', color: 'white' }} component="div">
-          Inspired. Always.
-        </Typography>
-        <Typography
-          sx={{ fontSize: '5px', color: '#dcdcdc' }}
-          variant="subtitle2"
-          component="span"
-        >
-          TM
-        </Typography>
-      </Box>
+      {/* <Hidden smDown>
+        <Box display="flex" justifyContent="flex-end">
+          <Typography
+            sx={{ fontSize: '0.8rem', color: 'white' }}
+            component="div"
+          >
+            Inspired. Always.
+          </Typography>
+
+          <Typography
+            sx={{ fontSize: '5px', color: '#dcdcdc' }}
+            variant="subtitle2"
+            component="span"
+          >
+            TM
+          </Typography>
+        </Box>
+      </Hidden> */}
     </Box>
   );
 };
@@ -686,15 +712,16 @@ const Header = (props) => {
       style={{ backgroundColor: bgColor }}
       sx={{
         transition: '0.2s',
-        padding: '0.3em 1.3em',
+        padding: '0.1rem 1.3rem',
         boxShadow: 'none',
+        '@media (max-width: 600px)': {
+          padding: '0 0.6em',
+        },
       }}
     >
       <Toolbar sx={headerStyles.toolbar}>
         <BrandComponent />
-        <Hidden smDown implementation="css">
-          {rightLinks}
-        </Hidden>
+        {rightLinks}
       </Toolbar>
       <Hidden mdUp implementation="js">
         <Drawer

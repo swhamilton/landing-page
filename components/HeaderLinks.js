@@ -7,6 +7,7 @@ import ListItem from '@mui/material/ListItem';
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
 import Button from '@mui/material/Button';
+import Hidden from '@mui/material/Hidden';
 
 const headerLinkStyles = {
   list: {
@@ -72,39 +73,36 @@ const scrollToId = (id) => (e) => {
 export default function HeaderLinks(props) {
   return (
     <List id="header-links-container" sx={headerLinkStyles.list}>
+      <Hidden smDown implementation="css">
+        <ListItem sx={headerLinkStyles.listItem}>
+          <Button
+            href="#home"
+            sx={headerLinkStyles.navLink}
+            onClick={scrollToId('home')}
+          >
+            Home
+          </Button>
+        </ListItem>
+        <ListItem sx={headerLinkStyles.listItem}>
+          <Button
+            href="#features"
+            sx={headerLinkStyles.navLink}
+            onClick={scrollToId('features-target')}
+          >
+            Features
+          </Button>
+        </ListItem>
+        <ListItem sx={headerLinkStyles.listItem}>
+          <Button
+            href="#pricing"
+            sx={headerLinkStyles.navLink}
+            onClick={scrollToId('pricing-target')}
+          >
+            Pricing
+          </Button>
+        </ListItem>
+      </Hidden>
       <ListItem sx={headerLinkStyles.listItem}>
-        <Button
-          href="#home"
-          sx={headerLinkStyles.navLink}
-          onClick={scrollToId('home')}
-        >
-          Home
-        </Button>
-      </ListItem>
-      <ListItem sx={headerLinkStyles.listItem}>
-        <Button
-          href="#features"
-          sx={headerLinkStyles.navLink}
-          onClick={scrollToId('features-target')}
-        >
-          Features
-        </Button>
-      </ListItem>
-      <ListItem sx={headerLinkStyles.listItem}>
-        <Button
-          href="#pricing"
-          sx={headerLinkStyles.navLink}
-          onClick={scrollToId('pricing-target')}
-        >
-          Pricing
-        </Button>
-      </ListItem>
-      <ListItem sx={headerLinkStyles.listItem}>
-        {/* <OutlineButton
-          text="Log in"
-          href="#login"
-          style={headerLinkStyles.navLink}
-        /> */}
         <Button
           variant="outlined"
           href="#login"
