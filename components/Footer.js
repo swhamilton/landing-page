@@ -2,16 +2,19 @@ import React from 'react';
 import { css } from '@emotion/react';
 import Image from 'next/image';
 
-// @material-ui/core components
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import Link from '@material-ui/core/Link';
-import Paper from '@material-ui/core/Paper';
-import Box from '@material-ui/core/Box';
-import Typography from '@material-ui/core/Typography';
-import IconButton from '@material-ui/core/IconButton';
-import Tooltip from '@material-ui/core/Tooltip';
-import Button from '@material-ui/core/Button';
+// @mui/material components
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import Link from '@mui/material/Link';
+import Paper from '@mui/material/Paper';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+import IconButton from '@mui/material/IconButton';
+import Tooltip from '@mui/material/Tooltip';
+import Button from '@mui/material/Button';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
 // Custom
 import CustomTextField from './CustomTextField';
@@ -27,6 +30,7 @@ const FooterNavLinks = () => {
         display: 'flex',
         flexWrap: 'wrap',
         justifyContent: 'center',
+        alignItems: 'center',
         typography: 'body1',
         '& > :not(style) + :not(style)': {
           ml: 5,
@@ -34,27 +38,35 @@ const FooterNavLinks = () => {
         mb: 3,
       }}
     >
-      <Link href="#" underline="hover">
+      <Link sx={{ color: 'white' }} href="#" underline="hover">
         FAQ
       </Link>
-      <Link href="#" underline="hover">
+      <Link sx={{ color: 'white' }} href="#" underline="hover">
         Privacy
       </Link>
-      <Link href="#" underline="hover">
+      <Link sx={{ color: 'white' }} href="#" underline="hover">
         Policy
       </Link>
-      <Link href="#" underline="hover">
+      <Link sx={{ color: 'white' }} href="#" underline="hover">
         Legal
       </Link>
-      <Link href="#" underline="hover">
-        INST
-      </Link>
-      <Link href="#" underline="hover">
-        FB
-      </Link>
-      <Link href="#" underline="hover">
-        IN
-      </Link>
+      <Box>
+        <Link href="#" underline="hover">
+          <IconButton sx={{ marginRight: 1 }} aria-label="Instagram">
+            <InstagramIcon sx={{ color: 'white' }} fontSize="inherit" />
+          </IconButton>
+        </Link>
+        <Link href="#" underline="hover">
+          <IconButton sx={{ marginRight: 1 }} aria-label="Facebook">
+            <FacebookIcon sx={{ color: 'white' }} fontSize="inherit" />
+          </IconButton>
+        </Link>
+        <Link href="#" underline="hover">
+          <IconButton sx={{ marginRight: 1 }} aria-label="LinkedIn">
+            <LinkedInIcon sx={{ color: 'white' }} fontSize="inherit" />
+          </IconButton>
+        </Link>
+      </Box>
     </Box>
   );
 };
@@ -66,7 +78,7 @@ const Footer = () => {
         sx={sectionStyles.sectionContentContainer}
       >
         <Box>
-          <Box m={2}>
+          <Box m={3}>
             <Image
               src={
                 '/assets/img/Atlas_UI_Resources$Layout$horizonal_transparent_background.png'
@@ -76,7 +88,7 @@ const Footer = () => {
               height={36}
             />
           </Box>
-          <Typography variant="h6" gutterBottom sx={{ fontWeight: 500 }}>
+          <Typography variant="h6" gutterBottom sx={{ fontWeight: 600 }}>
             Sign up for our newsletter
           </Typography>
           <Typography variant="body1">

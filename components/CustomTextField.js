@@ -1,16 +1,17 @@
 import React from 'react';
-import IconButton from '@material-ui/core/IconButton';
-import SearchIcon from '@material-ui/icons/Search';
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
+import IconButton from '@mui/material/IconButton';
+import SearchIcon from '@mui/icons-material/Search';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
 
 export default function CustomTextField() {
   const SubmitButton = () => (
     <Button
       variant="contained"
       sx={{
-        borderRadius: '0 0.4rem 0.4rem 0',
+        borderRadius: '0 4px 4px 0',
         fontSize: '1rem',
+        fontWeight: '600',
         padding: '0.6rem 2rem',
         textTransform: 'none',
       }}
@@ -22,7 +23,7 @@ export default function CustomTextField() {
   return (
     <>
       <TextField
-        sx={{ margin: 4, minWidth: '22rem' }}
+        sx={{ margin: 4, marginBottom: 5, minWidth: '22rem' }}
         hiddenLabel
         placeholder="Email"
         id="filled-hidden-label-small"
@@ -34,9 +35,10 @@ export default function CustomTextField() {
               padding: 0,
               paddingTop: 0,
             },
-            paddingLeft: 1,
+
+            paddingLeft: '0.8rem',
             paddingRight: 0,
-            borderRadius: '5.5px',
+            borderRadius: '4px',
             backgroundColor: 'white',
           },
           disableUnderline: true,
