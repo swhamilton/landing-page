@@ -50,6 +50,7 @@ const headerLinkStyles = {
     },
   },
   signInButton: {
+    lineHeight: '1.2rem',
     '&:hover': {
       border: '2.5px solid #ed0c6f',
     },
