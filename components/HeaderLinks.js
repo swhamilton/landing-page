@@ -73,7 +73,7 @@ const scrollToId = (id) => (e) => {
 export default function HeaderLinks(props) {
   return (
     <List id="header-links-container" sx={headerLinkStyles.list}>
-      <Hidden smDown implementation="css">
+      <Hidden mdDown implementation="css">
         <ListItem sx={headerLinkStyles.listItem}>
           <Button
             href="#home"
