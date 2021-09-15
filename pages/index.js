@@ -1,7 +1,7 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
 import { css, jsx, Global } from '@emotion/react';
-import * as React from 'react';
+import React, { useContext } from 'react';
 import GlobalStyles from '@mui/material/GlobalStyles';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
@@ -26,7 +26,8 @@ import { createStyles } from '@mui/material/styles';
 import { useTheme, styled } from '@mui/material/styles';
 import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline';
 import StarIcon from '@mui/icons-material/Star';
-import { useContext } from 'react';
+
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import Image from 'next/image';
 import GlobalContext from '../state/globalContext';
 import SignIn from '../components/SignIn';
@@ -34,6 +35,7 @@ import HeaderLinks from '../components/HeaderLinks';
 import NewRelicSnippet from '../components/NewRelicSnippet';
 import { grey } from '@mui/material/colors';
 import Footer from '../components/Footer';
+import CustomTextField from '../components/CustomTextField';
 
 const HYPER_PINK = '#ed0c6f';
 
@@ -102,52 +104,36 @@ const HeroSection = (props) => {
           variant="h4"
           sx={{
             marginBottom: '3rem',
-            fontSize: '1.4rem',
+            fontSize: '1.8rem',
+            '@media (max-width: 600px)': {
+              fontSize: '1.4rem',
+            },
           }}
         >
           for Tattoo Artists &amp; Studios
         </Typography>
-        <Box display="flex" justifyContent="center">
-          <Stack direction="row" spacing={2}>
-            <Button
-              id="LandingPage-HeroSection-getStartedButton"
-              variant="contained"
-              css={css`
-                font-size: 1rem;
-                padding: 0.6em 2.5em;
-                text-transform: none;
-                background-color: #ff425e;
-                background: linear-gradient(
-                  320deg,
-                  #f0555a 0%,
-                  #dc335a 50%,
-                  #bb1b5d 100%
-                );
-              `}
-            >
-              Get started
-            </Button>
-            <Button
-              id="LandingPage-HeroSection-watchVideoButton"
-              disableRipple
-              disableFocusRipple
-              variant="text"
-              sx={{
-                color: '#c3bd02',
-                padding: '0.6em 2em',
-                textTransform: 'none',
-                fontSize: '1rem',
-                '&:hover': {
-                  color: '#ffd600',
-                },
-              }}
-              size="large"
-              endIcon={<PlayCircleOutlineIcon style={{ fontSize: '2rem' }} />}
-            >
-              Watch the video
-            </Button>
-          </Stack>
-        </Box>
+        <CustomTextField
+          submitButtonText="Start for Free"
+          placeholder="Email address"
+          style={{ width: 30 }}
+          textFieldStyles={{
+            minWidth: '33rem',
+            '@media (max-width: 600px)': {
+              minWidth: '100%',
+            },
+          }}
+          inputFieldStyles={{
+            '@media (max-width: 600px)': {
+              width: '100%',
+            },
+          }}
+          buttonStyles={{
+            minWidth: '12rem',
+            fontSize: '1.2rem',
+            padding: '0.7rem 0',
+          }}
+          buttonIcon={<ArrowForwardIosIcon />}
+        />
       </Box>
     </Box>
   );

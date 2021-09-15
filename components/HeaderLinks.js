@@ -11,7 +11,6 @@ import Hidden from '@mui/material/Hidden';
 
 const headerLinkStyles = {
   list: {
-    // ...defaultFont,
     display: 'flex',
     alignItems: 'center',
     fontSize: '1.1rem',

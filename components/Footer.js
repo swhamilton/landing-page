@@ -111,7 +111,11 @@ const Footer = () => {
           <Typography variant="body1">
             We respect your privacy. You can cancel at any time.
           </Typography>
-          <CustomTextField />
+          <CustomTextField
+            textFieldStyles={{ margin: 4, marginBottom: 5, minWidth: '22rem' }}
+            submitButtonText="Submit"
+            placeholder="Email address"
+          />
           <FooterNavLinks />
           <Typography variant="body1">
             © 2021 HyperTattoo. All rights reserved.
