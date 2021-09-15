@@ -65,6 +65,7 @@ const HeroSection = (props) => {
       <Box
         id="heroSection.contentContainer"
         sx={{
+          textAlign: 'left',
           color: '#fff',
           fontSize: '22.4px',
           fontSize: '1.4rem',
@@ -86,13 +87,22 @@ const HeroSection = (props) => {
         <Typography
           variant="h1"
           sx={{
-            marginBottom: '3rem',
-            fontSize: '3rem',
-            lineHeight: '3.5rem',
-            fontWeight: '700',
+            marginBottom: '1rem',
+            fontSize: '4rem',
+            lineHeight: '4.5rem',
+            fontWeight: '400',
           }}
         >
-          Reservations and payments software for tattoo artists and studios
+          Reservations and Payments Software
+        </Typography>
+        <Typography
+          variant="h4"
+          sx={{
+            marginBottom: '3rem',
+            fontSize: '1.4rem',
+          }}
+        >
+          for Tattoo Artists &amp; Studios
         </Typography>
         <Box display="flex" justifyContent="center">
           <Stack direction="row" spacing={2}>
@@ -152,6 +162,9 @@ const HeaderUnderline = () => (
 );
 
 const sectionHeaderStyles = {
+  headerContainer: {
+    color: 'white',
+  },
   header: {
     marginBottom: '1rem',
     fontSize: '3rem',
@@ -162,7 +175,7 @@ const sectionHeaderStyles = {
 
 const SectionHeader = (props) => {
   return (
-    <Box id={props.id} mb={6}>
+    <Box sx={sectionHeaderStyles.headerContainer} id={props.id} mb={6}>
       <Typography variant="h2" sx={sectionHeaderStyles.header}>
         {props.title}
       </Typography>
@@ -538,7 +551,7 @@ const PricingSection = (props) => {
 };
 
 const defaultFont = {
-  fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
+  fontFamily: '"Inter", "Helvetica", "Arial", sans-serif',
   fontWeight: '300',
   lineHeight: '1.5em',
 };

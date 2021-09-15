@@ -66,31 +66,27 @@ const Footer = () => {
         sx={sectionStyles.sectionContentContainer}
       >
         <Box>
-          <Paper elevation={0} sx={{ padding: '1rem' }}>
-            <div
-              style={{ position: 'relative', width: '180px', height: '40px' }}
-            >
-              <Image
-                alt="Logo"
-                src={
-                  '/assets/img/Atlas_UI_Resources$Layout$horizonal_transparent_background.png'
-                }
-                layout="fill"
-                // objectFit="contain"
-              />
-            </div>
-            <Typography variant="h6" gutterBottom sx={{ fontWeight: 500 }}>
-              Sign up for our newsletter
-            </Typography>
-            <Typography variant="body1">
-              We respect your privacy. You can cancel at any time.
-            </Typography>
-            <CustomTextField />
-            <FooterNavLinks />
-            <Typography variant="body1">
-              © 2021 HyperTattoo. All rights reserved.
-            </Typography>
-          </Paper>
+          <Box m={2}>
+            <Image
+              src={
+                '/assets/img/Atlas_UI_Resources$Layout$horizonal_transparent_background.png'
+              }
+              alt="HyperLogo"
+              width={200}
+              height={36}
+            />
+          </Box>
+          <Typography variant="h6" gutterBottom sx={{ fontWeight: 500 }}>
+            Sign up for our newsletter
+          </Typography>
+          <Typography variant="body1">
+            We respect your privacy. You can cancel at any time.
+          </Typography>
+          <CustomTextField />
+          <FooterNavLinks />
+          <Typography variant="body1">
+            © 2021 HyperTattoo. All rights reserved.
+          </Typography>
         </Box>
       </Box>
     </Box>

@@ -8,7 +8,12 @@ export default function CustomTextField() {
   const SubmitButton = () => (
     <Button
       variant="contained"
-      sx={{ fontSize: '1rem', padding: '0.6rem 2rem', textTransform: 'none' }}
+      sx={{
+        borderRadius: '0 0.4rem 0.4rem 0',
+        fontSize: '1rem',
+        padding: '0.6rem 2rem',
+        textTransform: 'none',
+      }}
     >
       Submit
     </Button>
@@ -21,10 +26,19 @@ export default function CustomTextField() {
         hiddenLabel
         placeholder="Email"
         id="filled-hidden-label-small"
-        variant="filled"
+        variant="standard"
         size="small"
         InputProps={{
-          sx: { paddingRight: 0, borderRadius: 1 },
+          sx: {
+            '& .MuiInputBase-input': {
+              padding: 0,
+              paddingTop: 0,
+            },
+            paddingLeft: 1,
+            paddingRight: 0,
+            borderRadius: '5.5px',
+            backgroundColor: 'white',
+          },
           disableUnderline: true,
           endAdornment: <SubmitButton />,
         }}

@@ -1,5 +1,6 @@
 export const sectionStyles = {
   sectionContainer: {
+    color: 'white',
     textAlign: 'center',
     display: 'flex',
     alignItems: 'center',

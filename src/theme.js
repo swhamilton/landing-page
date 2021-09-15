@@ -4,6 +4,18 @@ import { red, grey } from '@material-ui/core/colors';
 // Create a theme instance.
 const theme = createTheme({
   typography: {
+    fontFamily: [
+      // '-apple-system',
+      // 'BlinkMacSystemFont',
+      // '"Segoe UI"',
+      'Inter',
+      '"Helvetica Neue"',
+      'Arial',
+      'sans-serif',
+      '"Apple Color Emoji"',
+      '"Segoe UI Emoji"',
+      '"Segoe UI Symbol"',
+    ].join(','),
     subtitle1: {
       fontSize: '1em',
       fontWeight: 400,
