@@ -82,7 +82,7 @@ const HeroSection = (props) => {
           paddingLeft: '15px',
           paddingRight: '15px',
           '@media (min-width: 600px)': {
-            maxWidth: '960px',
+            maxWidth: '1280px',
           },
         }}
       >
