@@ -593,42 +593,40 @@ const PricingSection = (props) => {
           subtitle1={'Simple pricing to match your studio as it grows.'}
         />
 
-        <Container maxWidth="md" component="main">
-          <Grid container spacing={3} alignItems="flex-end">
-            {tiers.map((tier, tierIndex) => {
-              const {
-                buttonText,
-                features,
-                price,
-                priceDetails,
-                priceExtraDetails,
-                title,
-                useCurrencySymbol,
-              } = tier;
-              return (
-                <Grid item key={tier.title} xs={12} sm={6} md={6}>
-                  <PricingCard
-                    useCurrencySymbol={useCurrencySymbol}
-                    key={title}
-                    buttonText={buttonText}
-                    features={features}
-                    price={price}
-                    priceDetails={priceDetails}
-                    priceExtraDetails={priceExtraDetails}
-                    title={title}
-                  />
-                </Grid>
-              );
-            })}
-          </Grid>
-        </Container>
+        <Grid container spacing={3} alignItems="flex-end">
+          {tiers.map((tier, tierIndex) => {
+            const {
+              buttonText,
+              features,
+              price,
+              priceDetails,
+              priceExtraDetails,
+              title,
+              useCurrencySymbol,
+            } = tier;
+            return (
+              <Grid item key={tier.title} xs={12} sm={6} md={6}>
+                <PricingCard
+                  useCurrencySymbol={useCurrencySymbol}
+                  key={title}
+                  buttonText={buttonText}
+                  features={features}
+                  price={price}
+                  priceDetails={priceDetails}
+                  priceExtraDetails={priceExtraDetails}
+                  title={title}
+                />
+              </Grid>
+            );
+          })}
+        </Grid>
       </Box>
     </Box>
   );
 };
 
 const defaultFont = {
-  fontFamily: '"Inter", "Helvetica", "Arial", sans-serif',
+  fontFamily: '"Ubuntu", "Helvetica", "Arial", sans-serif',
   fontWeight: '300',
   lineHeight: '1.5em',
 };

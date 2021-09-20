@@ -8,7 +8,7 @@ const theme = createTheme({
       // '-apple-system',
       // 'BlinkMacSystemFont',
       // '"Segoe UI"',
-      'Inter',
+      'Ubuntu',
       '"Helvetica Neue"',
       'Arial',
       'sans-serif',
