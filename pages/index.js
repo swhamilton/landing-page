@@ -11,6 +11,10 @@ import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardHeader from '@mui/material/CardHeader';
+import ListItem from '@mui/material/ListItem';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
+import List from '@mui/material/List';
 import IconButton from '@mui/material/IconButton';
 import Menu from '@mui/material/Menu';
 import Hidden from '@mui/material/Hidden';
@@ -26,9 +30,12 @@ import { createStyles } from '@mui/material/styles';
 import { useTheme, styled } from '@mui/material/styles';
 import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline';
 import StarIcon from '@mui/icons-material/Star';
-
+import CheckBoxIcon from '@mui/icons-material/CheckBox';
+import CheckIcon from '@mui/icons-material/Check';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import Image from 'next/image';
+
+// Custom
 import GlobalContext from '../state/globalContext';
 import SignIn from '../components/SignIn';
 import HeaderLinks from '../components/HeaderLinks';
@@ -37,7 +44,7 @@ import { grey } from '@mui/material/colors';
 import Footer from '../components/Footer';
 import CustomTextField from '../components/CustomTextField';
 
-const HYPER_PINK = '#ed0c6f';
+const HYPER_PINK = '#ef4059';
 
 const HeroSection = (props) => {
   const matches = useMediaQuery('(min-width:600px)');
@@ -153,18 +160,29 @@ const HeaderUnderline = () => (
 const sectionHeaderStyles = {
   headerContainer: {
     color: 'white',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   header: {
-    marginBottom: '1rem',
-    fontSize: '3rem',
-    fontWeight: '400',
-    lineHeight: '3.5rem',
+    fontSize: '1.1rem',
+    letterSpacing: '1px',
+    textTransform: 'uppercase',
+    color: HYPER_PINK,
+    fontWeight: '600',
+    lineHeight: '1.5rem',
     '@media (max-width: 600px)': {
-      fontSize: '2rem',
-      lineHeight: '2.5rem',
+      fontSize: '1rem',
+      lineHeight: '1.5rem',
     },
   },
   subtitle: {
+    maxWidth: '30rem',
+    fontSize: '2.5rem',
+    fontWeight: '600',
+    lineHeight: '3rem',
+
     '@media (max-width: 600px)': {
       fontSize: '1rem',
       lineHeight: '1.5rem',
@@ -175,48 +193,51 @@ const sectionHeaderStyles = {
 const SectionHeader = (props) => {
   return (
     <Box sx={sectionHeaderStyles.headerContainer} id={props.id} mb={6}>
-      <Typography variant="h2" sx={sectionHeaderStyles.header}>
+      <Typography variant="h6" sx={sectionHeaderStyles.header} mb={1}>
         {props.title}
       </Typography>
-      <HeaderUnderline />
-      <Typography sx={sectionHeaderStyles.subtitle} variant="subtitle1">
+      <Typography
+        align="center"
+        sx={sectionHeaderStyles.subtitle}
+        variant="subtitle1"
+      >
         {props.subtitle1}
       </Typography>
-      <Typography sx={sectionHeaderStyles.subtitle} variant="subtitle1">
+      <Typography
+        align="center"
+        sx={sectionHeaderStyles.subtitle}
+        variant="subtitle1"
+      >
         {props.subtitle2}
       </Typography>
     </Box>
   );
 };
 
+const QuoteCard = () => {
+  <Box>
+    <Paper elevation={0} sx={{ background: '#f3f3f3', padding: '1rem' }}>
+      <FormatQuoteIcon style={{ fontSize: 50 }} />
+      <Typography variant="subtitle1">
+        HyperTattoo <strong>saves me over 15% in monthly expenses</strong> as
+        well as countless hours in weekly bookkeeping. I now have more time to{' '}
+        <strong>focus on upcoming projects.</strong>
+      </Typography>
+      <Typography variant="subtitle1">
+        - Izzy Williams,{' '}
+        <i>
+          <strong>Lightning Studio</strong>
+        </i>
+      </Typography>
+    </Paper>
+  </Box>;
+};
+
 const DescriptionSection = () => {
   return (
     <Box component="section" sx={styles.sectionContainer}>
       <Box id="details.contentContainer" sx={styles.sectionContentContainer}>
-        <SectionHeader
-          title="What is HyperTattoo?"
-          subtitle1={'The only reservations and payments tool you need.'}
-          subtitle2={
-            'Replaces email, Instagram, Facebook, and website management for tattoo artists and studios.'
-          }
-        />
-
-        <Box>
-          <Paper elevation={0} sx={{ background: '#f3f3f3', padding: '1rem' }}>
-            <FormatQuoteIcon style={{ fontSize: 50 }} />
-            <Typography variant="subtitle1">
-              HyperTattoo <strong>saves me over 15% in monthly expenses</strong>{' '}
-              as well as countless hours in weekly bookkeeping. I now have more
-              time to <strong>focus on upcoming projects.</strong>
-            </Typography>
-            <Typography variant="subtitle1">
-              - Izzy Williams,{' '}
-              <i>
-                <strong>Lightning Studio</strong>
-              </i>
-            </Typography>
-          </Paper>
-        </Box>
+        <SectionHeader title="Discover" subtitle1={'What is HyperTattoo?'} />
       </Box>
     </Box>
   );
@@ -251,16 +272,22 @@ const styles = {
       width: '100%',
     },
   },
-  pricingButton: { padding: 2, fontSize: '1rem', textTransform: 'none' },
+  pricingButton: {
+    padding: '0.6rem 1.3rem',
+    fontSize: '1rem',
+    textTransform: 'none',
+    fontWeight: '800',
+  },
 };
 
 const tiers = [
   {
-    title: 'Standard',
+    title: 'Core',
     theme: 'HYPER_PINK',
     subheader: 'Standard tier description.',
-    price: '0',
-    priceDescription: 'Free forever',
+    price: 'FREE',
+    priceDetails: 'for 1 user',
+    priceExtraDetails: 'Free forever',
     features: [
       'Feature 1',
       'Feature 1',
@@ -269,14 +296,16 @@ const tiers = [
       'Feature 1',
       'Feature 1',
     ],
-    buttonText: 'Get started',
+    buttonText: 'Get started for free with Core',
     buttonVariant: 'outlined',
   },
   {
-    title: 'Premium',
+    title: 'Studio Edition',
     subheader: 'Premium tier description.',
-    price: '29.99',
-    priceDescription: 'Save $60 when billed annually',
+    price: '40',
+    useCurrencySymbol: true,
+    priceDetails: 'per month for 2 users',
+    priceExtraDetails: '$15 for each additional set',
     features: [
       'Feature 1',
       'Feature 1',
@@ -285,7 +314,7 @@ const tiers = [
       'Feature 1',
       'Feature 1',
     ],
-    buttonText: 'Get started',
+    buttonText: 'Upgrade with Studio Edition',
     buttonVariant: 'contained',
   },
 ];
@@ -337,12 +366,10 @@ const VideoSection = (props) => {
       <SectionAnchorTarget id="features-target" />
       <Box
         id="videoSection.contentContainer"
-        sx={styles.sectionContentContainer}
+        sx={{ ...styles.sectionContentContainer, pt: 0 }}
       >
-        <SectionHeader title="Inspired functionality" />
         <Box
           display="flex"
-          mb={6}
           justifyContent="center"
           alignItems="center"
           sx={{
@@ -445,6 +472,114 @@ const VideoSection = (props) => {
   );
 };
 
+const pricingCardStyles = {
+  header: {
+    fontSize: '1.3rem',
+    padding: 0,
+    fontWeight: '600',
+    textTransform: 'uppercase',
+    color: HYPER_PINK,
+    padding: '0.8rem',
+  },
+  price: {
+    position: 'relative',
+    fontSize: '3.5rem',
+    fontWeight: '600',
+    lineHeight: '3.5rem',
+  },
+};
+
+const PricingCard = ({
+  buttonText,
+  features,
+  id,
+  price,
+  priceDetails,
+  priceExtraDetails,
+  subheader,
+  title,
+  useCurrencySymbol,
+}) => (
+  <Card
+    sx={{
+      background: '#252525',
+      borderRadius: 2,
+      color: 'white',
+    }}
+  >
+    <CardContent sx={{ p: 0 }}>
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center',
+          p: 2,
+        }}
+      >
+        <CheckBoxIcon sx={{ fontSize: 50 }} />
+        <Typography sx={pricingCardStyles.header} component="h2" variant="h4">
+          {title}
+        </Typography>
+        <Typography
+          sx={{
+            ...pricingCardStyles.price,
+            ':before': {
+              content: useCurrencySymbol ? '"$"' : '""',
+              fontSize: '2rem',
+              position: 'absolute',
+              left: '-1rem',
+              top: '-0.8rem',
+            },
+          }}
+          component="h2"
+          variant="h4"
+        >
+          {price}
+        </Typography>
+        <Typography variant="body1" color="grey.100" pb={'0.3rem'}>
+          {priceDetails}
+        </Typography>
+        <Typography variant="body2" color="grey.500" mb={1}>
+          {priceExtraDetails}
+        </Typography>
+      </Box>
+      <Box sx={{ borderTop: '2px solid black', p: 2 }}>
+        <List sx={{ p: '0 1rem' }}>
+          {features.map((line, featureIndex) => (
+            <ListItem
+              disablePadding
+              key={`tier${id}-featureIndex${featureIndex}`}
+            >
+              <ListItemIcon sx={{ minWidth: '40px' }}>
+                <CheckIcon fontSize="small" sx={{ color: 'white' }} />
+              </ListItemIcon>
+              <ListItemText
+                primary={line}
+                primaryTypographyProps={{
+                  fontWeight: featureIndex === 0 ? '600' : '400',
+                  lineHeight: '1.8 rem',
+                }}
+              />
+            </ListItem>
+          ))}
+        </List>
+      </Box>
+    </CardContent>
+    <CardActions
+      sx={{ display: 'flex', justifyContent: 'center', p: 4, pt: 1 }}
+    >
+      <Button
+        id="LandingPage-PricingButton-${id}"
+        sx={styles.pricingButton}
+        variant={'contained'}
+      >
+        {buttonText}
+      </Button>
+    </CardActions>
+  </Card>
+);
+
 const PricingSection = (props) => {
   return (
     <Box id="pricing" component="section" sx={styles.sectionContainer}>
@@ -454,95 +589,34 @@ const PricingSection = (props) => {
         sx={styles.sectionContentContainer}
       >
         <SectionHeader
-          title="Account Types"
-          subtitle1={'Pick the plan that fits your business.'}
+          title="Pricing"
+          subtitle1={'Simple pricing to match your studio as it grows.'}
         />
 
         <Container maxWidth="md" component="main">
           <Grid container spacing={5} alignItems="flex-end">
             {tiers.map((tier, tierIndex) => {
-              const useHyperPink = tier.theme === 'HYPER_PINK';
+              const {
+                buttonText,
+                features,
+                price,
+                priceDetails,
+                priceExtraDetails,
+                title,
+                useCurrencySymbol,
+              } = tier;
               return (
                 <Grid item key={tier.title} xs={12} sm={6} md={6}>
-                  <Card
-                    sx={{
-                      border: (theme) =>
-                        `2px solid ${
-                          useHyperPink ? HYPER_PINK : theme.palette.grey[800]
-                        }`,
-                      borderRadius: 3,
-                    }}
-                  >
-                    <CardHeader
-                      title={tier.title}
-                      subheader={tier.subheader}
-                      titleTypographyProps={{ align: 'left' }}
-                      action={tier.title === 'Pro' ? <StarIcon /> : null}
-                      subheaderTypographyProps={{
-                        marginTop: 2,
-                        align: 'left',
-                      }}
-                      sx={{
-                        color: (theme) =>
-                          useHyperPink ? HYPER_PINK : theme.palette.grey[800],
-                      }}
-                    />
-                    <CardContent>
-                      <Box
-                        sx={{
-                          display: 'flex',
-                          justifyContent: 'center',
-                          alignItems: 'baseline',
-                          mb: 2,
-                        }}
-                      >
-                        <Typography
-                          component="h2"
-                          variant="h4"
-                          textAlign="left"
-                          color="text.primary"
-                        >
-                          ${tier.price}
-                        </Typography>
-                        <Typography variant="subtitle1" color="grey.800" ml={1}>
-                          per user/mo.
-                        </Typography>
-                      </Box>
-                      <ul>
-                        {tier.features.map((line, featureIndex) => (
-                          <Typography
-                            component="li"
-                            variant="subtitle1"
-                            align="center"
-                            key={`tier${tierIndex}-featureIndex${featureIndex}`}
-                          >
-                            {line}
-                          </Typography>
-                        ))}
-                      </ul>
-                    </CardContent>
-                    <CardActions>
-                      {useHyperPink ? (
-                        <Button
-                          id="LandingPage-rightPricingButton"
-                          sx={styles.pricingButton}
-                          fullWidth
-                          variant={tier.buttonVariant}
-                        >
-                          {tier.buttonText}
-                        </Button>
-                      ) : (
-                        <ColorButton
-                          id="LandingPage-leftPricingButton"
-                          sx={styles.pricingButton}
-                          fullWidth
-                          variant="contained"
-                        >
-                          {tier.buttonText}
-                        </ColorButton>
-                      )}
-                    </CardActions>
-                  </Card>
+                  <PricingCard
+                    useCurrencySymbol={useCurrencySymbol}
+                    key={title}
+                    buttonText={buttonText}
+                    features={features}
+                    price={price}
+                    priceDetails={priceDetails}
+                    priceExtraDetails={priceExtraDetails}
+                    title={title}
+                  />
                 </Grid>
               );
             })}
