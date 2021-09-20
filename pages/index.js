@@ -594,7 +594,7 @@ const PricingSection = (props) => {
         />
 
         <Container maxWidth="md" component="main">
-          <Grid container spacing={5} alignItems="flex-end">
+          <Grid container spacing={3} alignItems="flex-end">
             {tiers.map((tier, tierIndex) => {
               const {
                 buttonText,
