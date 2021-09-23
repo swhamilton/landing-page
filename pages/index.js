@@ -157,8 +157,6 @@ const HeroSection = (props) => {
             }}
             inputFieldStyles={{
               width: '100%',
-              paddingTop: '0.6rem',
-              paddingBottom: '0.5rem',
             }}
           />
           <CustomButton
