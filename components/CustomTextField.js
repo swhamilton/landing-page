@@ -4,24 +4,26 @@ import SearchIcon from '@mui/icons-material/Search';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 
-export default function CustomTextField(props) {
-  const SubmitButton = () => (
-    <Button
-      variant="contained"
-      endIcon={props.buttonIcon}
-      sx={{
-        borderRadius: '0 4px 4px 0',
-        fontSize: '1rem',
-        fontWeight: '600',
-        padding: '0.6rem 2rem',
-        textTransform: 'none',
-        ...props.buttonStyles,
-      }}
-    >
-      {props.submitButtonText}
-    </Button>
-  );
+export const CustomButton = ({ styles, buttonIcon, buttonText, ...rest }) => (
+  <Button
+    variant="contained"
+    {...rest}
+    endIcon={buttonIcon}
+    sx={{
+      ...styles,
+    }}
+  >
+    {buttonText}
+  </Button>
+);
+const defaultButtonStyles = {
+  fontSize: '1.5rem',
+  fontWeight: '600',
+  padding: '0.6rem 2rem',
+  textTransform: 'none',
+};
 
+export default function CustomTextField(props) {
   return (
     <TextField
       sx={props.textFieldStyles}
@@ -33,17 +35,24 @@ export default function CustomTextField(props) {
       InputProps={{
         sx: {
           '& .MuiInputBase-input': {
-            padding: 0,
-            paddingTop: 0,
+            // padding: 0,
+            // paddingTop: 2,
+            // paddingTop: 2,
           },
           paddingLeft: '0.8rem',
-          paddingRight: 0,
+          paddingRight: props.useButton ? 0 : undefined,
           borderRadius: '4px',
           backgroundColor: 'white',
           ...props.inputFieldStyles,
         },
         disableUnderline: true,
-        endAdornment: <SubmitButton />,
+        endAdornment: props.useButton && (
+          <CustomButton
+            buttonIcon={props.buttonIcon}
+            buttonText={props.buttonText}
+            styles={{ ...defaultButtonStyles, ...props.buttonStyles }}
+          />
+        ),
       }}
     />
   );

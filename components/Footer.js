@@ -112,8 +112,15 @@ const Footer = () => {
             We respect your privacy. You can cancel at any time.
           </Typography>
           <CustomTextField
-            textFieldStyles={{ margin: 4, marginBottom: 5, minWidth: '22rem' }}
-            submitButtonText="Submit"
+            textFieldStyles={{
+              marginTop: 5,
+              marginBottom: 5,
+              width: '22rem',
+              '@media (max-width: 600px)': {
+                width: '20rem',
+              },
+            }}
+            buttonText="Submit"
             placeholder="Email address"
           />
           <FooterNavLinks />

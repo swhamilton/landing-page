@@ -42,13 +42,14 @@ import HeaderLinks from '../components/HeaderLinks';
 import NewRelicSnippet from '../components/NewRelicSnippet';
 import { grey } from '@mui/material/colors';
 import Footer from '../components/Footer';
-import CustomTextField from '../components/CustomTextField';
+import CustomTextField, { CustomButton } from '../components/CustomTextField';
 
 const HYPER_PINK = '#ef4059';
 
 const HeroSection = (props) => {
   const matches = useMediaQuery('(min-width:600px)');
   const { classes } = props;
+  const emailSignUpButtonText = matches ? 'Start for Free' : 'Start';
   return (
     <Box
       component="section"
@@ -69,12 +70,15 @@ const HeroSection = (props) => {
         // Extra
         height: '78vh',
         backgroundPosition: 'center top',
+        '@media (max-width: 600px)': {
+          height: '65vh',
+        },
       }}
     >
       <Box
         id="heroSection.contentContainer"
         sx={{
-          textAlign: 'left',
+          textAlign: matches ? 'left' : 'center',
           color: '#fff',
           fontSize: '22.4px',
           fontSize: '1.4rem',
@@ -105,7 +109,7 @@ const HeroSection = (props) => {
           }}
         >
           Reservations and <br />
-          Payments Software
+          Payments
         </Typography>
         <Typography
           variant="h4"
@@ -117,30 +121,58 @@ const HeroSection = (props) => {
             },
           }}
         >
-          for Tattoo Artists &amp; Studios
+          Software for Tattoo Artists
         </Typography>
-        <CustomTextField
-          submitButtonText="Start for Free"
-          placeholder="Email address"
-          style={{ width: 30 }}
-          textFieldStyles={{
-            minWidth: '33rem',
-            '@media (max-width: 600px)': {
+        <Hidden smDown>
+          <CustomTextField
+            useButton
+            buttonText="Start for Free"
+            placeholder="Email address"
+            textFieldStyles={{
+              minWidth: '33rem',
+              '@media (max-width: 600px)': {
+                minWidth: '100%',
+              },
+            }}
+            inputFieldStyles={{
+              '@media (max-width: 600px)': {
+                width: '100%',
+              },
+            }}
+            buttonStyles={{
+              borderRadius: '0 4px 4px 0',
+              minWidth: '12rem',
+              fontSize: '1.2rem',
+              padding: '0.7rem 0',
+            }}
+            buttonIcon={<ArrowForwardIosIcon />}
+          />
+        </Hidden>
+        <Hidden smUp>
+          <CustomTextField
+            placeholder="Email address"
+            textFieldStyles={{
               minWidth: '100%',
-            },
-          }}
-          inputFieldStyles={{
-            '@media (max-width: 600px)': {
+              marginBottom: 2,
+            }}
+            inputFieldStyles={{
               width: '100%',
-            },
-          }}
-          buttonStyles={{
-            minWidth: '12rem',
-            fontSize: '1.2rem',
-            padding: '0.7rem 0',
-          }}
-          buttonIcon={<ArrowForwardIosIcon />}
-        />
+              paddingTop: '0.6rem',
+              paddingBottom: '0.5rem',
+            }}
+          />
+          <CustomButton
+            buttonIcon={<ArrowForwardIosIcon />}
+            fullWidth
+            styles={{
+              fontSize: '1.2rem',
+              fontWeight: '600',
+              padding: '0.6rem 2rem',
+              textTransform: 'none',
+            }}
+            buttonText="Start for Free"
+          />
+        </Hidden>
       </Box>
     </Box>
   );
@@ -164,6 +196,12 @@ const sectionHeaderStyles = {
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
+    '@media (min-width: 600px)': {
+      marginBottom: '1rem',
+    },
+    '@media (max-width: 600px)': {
+      padding: '1rem',
+    },
   },
   header: {
     fontSize: '1.1rem',
@@ -192,7 +230,7 @@ const sectionHeaderStyles = {
 
 const SectionHeader = (props) => {
   return (
-    <Box sx={sectionHeaderStyles.headerContainer} id={props.id} mb={6}>
+    <Box sx={sectionHeaderStyles.headerContainer} id={props.id}>
       <Typography variant="h6" sx={sectionHeaderStyles.header} mb={1}>
         {props.title}
       </Typography>
@@ -203,13 +241,15 @@ const SectionHeader = (props) => {
       >
         {props.subtitle1}
       </Typography>
-      <Typography
-        align="center"
-        sx={sectionHeaderStyles.subtitle}
-        variant="subtitle1"
-      >
-        {props.subtitle2}
-      </Typography>
+      {props.subtitle2 && (
+        <Typography
+          align="center"
+          sx={sectionHeaderStyles.subtitle}
+          variant="subtitle1"
+        >
+          {props.subtitle2}
+        </Typography>
+      )}
     </Box>
   );
 };
@@ -255,16 +295,18 @@ const styles = {
     fontSize: '1.4rem',
     lineHeight: '28.8px',
     lineHeight: '1.8rem',
-    padding: '4rem 16px',
     width: '100%',
     zIndex: '1',
     marginLeft: 'auto',
     marginRight: 'auto',
-    marginBottom: '1rem',
     paddingLeft: '15px',
     paddingRight: '15px',
+    padding: '1rem',
     '@media (min-width: 600px)': {
       maxWidth: '960px',
+      marginBottom: '1rem',
+      padding: '4rem 16px',
+      margin: '0',
     },
     mainContainer: {
       overflowX: 'hidden',
@@ -593,7 +635,7 @@ const PricingSection = (props) => {
           subtitle1={'Simple pricing to match your studio as it grows.'}
         />
 
-        <Grid container spacing={3} alignItems="flex-end">
+        <Grid mt={2} container spacing={3} alignItems="flex-end">
           {tiers.map((tier, tierIndex) => {
             const {
               buttonText,
@@ -834,7 +876,7 @@ export function Index() {
             rightLinks={<HeaderLinks />}
             fixed
             changeColorOnScroll={{
-              height: 100, // Controls the scroll height when this style applies
+              height: 60, // Controls the scroll height when this style applies
               color: 'black',
             }}
           />
