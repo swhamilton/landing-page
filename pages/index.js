@@ -46,6 +46,23 @@ import CustomTextField, { CustomButton } from '../components/CustomTextField';
 
 const HYPER_PINK = '#ef4059';
 
+const heroStyles = {
+  listItem: {
+    fontSize: '1.5rem',
+    display: 'list-item',
+    '@media (max-width: 600px)': {
+      paddingTop: '0',
+      paddingBottom: '0',
+    },
+  },
+  listItemText: {
+    fontSize: '1.5rem',
+    '@media (max-width: 600px)': {
+      fontSize: '1rem',
+    },
+  },
+};
+
 const HeroSection = (props) => {
   const matches = useMediaQuery('(min-width:600px)');
   const { classes } = props;
@@ -78,7 +95,7 @@ const HeroSection = (props) => {
       <Box
         id="heroSection.contentContainer"
         sx={{
-          textAlign: matches ? 'left' : 'center',
+          textAlign: 'left',
           color: '#fff',
           fontSize: '22.4px',
           fontSize: '1.4rem',
@@ -90,6 +107,7 @@ const HeroSection = (props) => {
           marginLeft: 'auto',
           marginRight: 'auto',
           marginBottom: '1rem',
+          marginTop: '1rem',
           paddingLeft: '15px',
           paddingRight: '15px',
           '@media (min-width: 600px)': {
@@ -108,13 +126,14 @@ const HeroSection = (props) => {
             },
           }}
         >
-          Reservations and <br />
-          Payments
+          Reservations
+          <br />
+          &amp; Payments
         </Typography>
         <Typography
           variant="h4"
           sx={{
-            marginBottom: '3rem',
+            marginBottom: '2rem',
             fontSize: '1.8rem',
             '@media (max-width: 600px)': {
               fontSize: '1.4rem',
@@ -123,6 +142,32 @@ const HeroSection = (props) => {
         >
           Software for Tattoo Artists
         </Typography>
+        <Box mb={5}>
+          <List sx={{ listStyleType: 'disc', ml: 3 }}>
+            <ListItem sx={heroStyles.listItem}>
+              <ListItemText
+                primaryTypographyProps={{ sx: heroStyles.listItemText }}
+              >
+                Project management
+              </ListItemText>
+            </ListItem>
+            <ListItem sx={heroStyles.listItem}>
+              <ListItemText
+                primaryTypographyProps={{ sx: heroStyles.listItemText }}
+              >
+                Simplified scheduling
+              </ListItemText>
+            </ListItem>
+            <ListItem sx={heroStyles.listItem}>
+              <ListItemText
+                primaryTypographyProps={{ sx: heroStyles.listItemText }}
+              >
+                Cash or card payments
+              </ListItemText>
+            </ListItem>
+          </List>
+        </Box>
+
         <Hidden smDown>
           <CustomTextField
             useButton
