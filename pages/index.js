@@ -142,7 +142,8 @@ const HeroSection = (props) => {
         >
           Software for Tattoo Artists
         </Typography>
-        <Box mb={5}>
+        {/* No Bullets here, save for somewhere else */}
+        {/* <Box mb={5}>
           <List sx={{ listStyleType: 'disc', ml: 3 }}>
             <ListItem sx={heroStyles.listItem}>
               <ListItemText
@@ -166,7 +167,7 @@ const HeroSection = (props) => {
               </ListItemText>
             </ListItem>
           </List>
-        </Box>
+        </Box> */}
 
         <Hidden smDown>
           <CustomTextField
