@@ -199,7 +199,6 @@ const HeroSection = (props) => {
               },
             }}
             buttonStyles={{
-              borderRadius: '0 4px 4px 0',
               minWidth: '12rem',
               fontSize: '1.2rem',
               padding: '0.7rem 0',

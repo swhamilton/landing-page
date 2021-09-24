@@ -148,6 +148,7 @@ const Footer = () => {
             We respect your privacy. You can cancel at any time.
           </Typography>
           <CustomTextField
+            useButton
             textFieldStyles={{
               marginTop: 5,
               marginBottom: 5,

@@ -17,10 +17,11 @@ export const CustomButton = ({ styles, buttonIcon, buttonText, ...rest }) => (
   </Button>
 );
 const defaultButtonStyles = {
-  fontSize: '1.5rem',
+  fontSize: '1.2rem',
   fontWeight: '600',
   padding: '0.6rem 2rem',
   textTransform: 'none',
+  borderRadius: '0 4px 4px 0',
 };
 
 export default function CustomTextField(props) {
