@@ -76,15 +76,28 @@ const HeroSection = (props) => {
         padding: '0',
         overflow: 'hidden',
         position: 'relative',
-        maxHeight: '1600px',
         alignItems: 'center',
-        backgroundImage:
-          '-o-linear-gradient(24deg,rgba(0,0,0,.85) 0,rgba(0,0,0,.7) 25%,rgba(0,0,0,.3) 50%,rgba(0,0,0,.1) 75%,rgba(0,0,0,0) 100%),url(/assets/img/bg_desktop60.jpg)',
-        backgroundImage:
-          'linear-gradient(66deg,rgba(0,0,0,.85),rgba(0,0,0,.7) 25%,rgba(0,0,0,.3) 50%,rgba(0,0,0,.1) 75%,rgba(0,0,0,0)),url(/assets/img/bg_desktop60.jpg)',
+        maxHeight: '1600px',
+        backgroundImage: `
+          -o-linear-gradient(
+            180deg,
+            rgba(0,0,0,.85),
+            rgba(0,0,0,.3) 25%,
+            rgba(0,0,0,.2) 50%,
+            rgba(0,0,0,.1) 75%,
+            rgba(0,0,0,0) 100%),
+          url(/assets/img/bg_desktop60.jpg)`,
+        backgroundImage: `
+          linear-gradient(
+            180deg,
+            rgba(0,0,0,.85),
+            rgba(0,0,0,.3) 25%,
+            rgba(0,0,0,.2) 50%,
+            rgba(0,0,0,.1) 75%,
+            rgba(0,0,0,0) 100%),
+          url(/assets/img/bg_desktop60.jpg)`,
         backgroundPosition: '50%',
         backgroundSize: 'cover',
-        // Extra
         height: '78vh',
         backgroundPosition: 'center top',
         '@media (max-width: 600px)': {
