@@ -36,9 +36,8 @@ export default function CustomTextField(props) {
       InputProps={{
         sx: {
           '& .MuiInputBase-input': {
-            // padding: 0,
-            paddingTop: 1,
-            paddingBottom: 1,
+            paddingTop: '0.8rem',
+            paddingBottom: '0.8rem',
           },
           paddingLeft: '0.7rem',
           paddingRight: props.useButton ? 0 : '0.5rem',

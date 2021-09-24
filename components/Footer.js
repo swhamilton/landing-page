@@ -17,9 +17,10 @@ import Button from '@mui/material/Button';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 // Custom
-import CustomTextField from './CustomTextField';
+import CustomTextField, { CustomButton } from './CustomTextField';
 import sectionStyles from '../styles/sectionStyles';
 
 const footerStyles = {
@@ -147,20 +148,50 @@ const Footer = () => {
           <Typography variant="body1">
             We respect your privacy. You can cancel at any time.
           </Typography>
-          <CustomTextField
-            useButton
-            textFieldStyles={{
-              marginTop: 5,
-              marginBottom: 5,
-              width: '22rem',
-              '@media (max-width: 600px)': {
-                width: '20rem',
-              },
-            }}
-            buttonStyles={{ width: '12rem' }}
-            buttonText="Sign Up"
-            placeholder="Email address"
-          />
+          <Hidden smDown>
+            <CustomTextField
+              useButton
+              textFieldStyles={{
+                marginTop: 5,
+                marginBottom: 5,
+                width: '22rem',
+                '@media (max-width: 600px)': {
+                  width: '20rem',
+                },
+              }}
+              buttonStyles={{ width: '12rem' }}
+              buttonText="Sign Up"
+              placeholder="Email address"
+            />
+          </Hidden>
+          <Hidden smUp>
+            <CustomTextField
+              placeholder="Email address"
+              textFieldStyles={{
+                minWidth: '100%',
+                marginBottom: 2,
+                marginTop: 5,
+              }}
+              inputFieldStyles={{
+                width: '100%',
+              }}
+              buttonStyles={{
+                padding: '0.3rem 2rem',
+              }}
+            />
+            <CustomButton
+              buttonIcon={<ArrowForwardIosIcon />}
+              fullWidth
+              styles={{
+                fontSize: '1.2rem',
+                fontWeight: '600',
+                padding: '0.4rem 2rem',
+                textTransform: 'none',
+                marginBottom: 5,
+              }}
+              buttonText="Sign Up"
+            />
+          </Hidden>
           <FooterNavLinks />
           <Typography variant="body1">
             © 2021 HyperTattoo. All rights reserved.

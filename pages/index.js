@@ -224,7 +224,6 @@ const HeroSection = (props) => {
               fontSize: '1.2rem',
               fontWeight: '600',
               padding: '0.6rem 2rem',
-              textTransform: 'none',
             }}
             buttonText="Start for Free"
           />
