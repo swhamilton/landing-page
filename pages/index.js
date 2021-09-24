@@ -255,7 +255,6 @@ const sectionHeaderStyles = {
     fontWeight: '600',
     lineHeight: '1.5rem',
     '@media (max-width: 600px)': {
-      fontSize: '1rem',
       lineHeight: '1.5rem',
     },
   },
@@ -266,7 +265,7 @@ const sectionHeaderStyles = {
     lineHeight: '3rem',
 
     '@media (max-width: 600px)': {
-      fontSize: '1rem',
+      fontSize: '1.5rem',
       lineHeight: '1.5rem',
     },
   },

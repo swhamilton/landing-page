@@ -3,6 +3,8 @@ import { css } from '@emotion/react';
 import Image from 'next/image';
 
 // @mui/material components
+import Hidden from '@mui/material/Hidden';
+import Grid from '@mui/material/Grid';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import Link from '@mui/material/Link';
@@ -20,54 +22,88 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import CustomTextField from './CustomTextField';
 import sectionStyles from '../styles/sectionStyles';
 
-const footerStyles = {};
+const footerStyles = {
+  link: {
+    color: 'white',
+    // ':not(style)': {
+    //   mr: 5,
+    // },
+  },
+};
 
+const SocialLinks = () => (
+  <>
+    <Grid item>
+      <Link href="#" underline="hover">
+        <IconButton aria-label="Instagram">
+          <InstagramIcon sx={{ color: 'white' }} fontSize="inherit" />
+        </IconButton>
+      </Link>
+    </Grid>
+    <Grid item>
+      <Link href="#" underline="hover">
+        <IconButton aria-label="Facebook">
+          <FacebookIcon sx={{ color: 'white' }} fontSize="inherit" />
+        </IconButton>
+      </Link>
+    </Grid>
+    <Grid item>
+      <Link href="#" underline="hover">
+        <IconButton aria-label="LinkedIn">
+          <LinkedInIcon sx={{ color: 'white' }} fontSize="inherit" />
+        </IconButton>
+      </Link>
+    </Grid>
+  </>
+);
 const FooterNavLinks = () => {
   return (
-    <Box
+    <Grid
+      container
+      display="flex"
+      spacing={3}
       sx={{
-        color: 'black',
-        display: 'flex',
-        flexWrap: 'wrap',
-        justifyContent: 'center',
         alignItems: 'center',
-        typography: 'body1',
-        '& > :not(style) + :not(style)': {
-          ml: 5,
-        },
-        mb: 3,
+        justifyContent: 'center',
+        fontSize: '1rem',
+        marginBottom: 3,
       }}
     >
-      <Link sx={{ color: 'white' }} href="#" underline="hover">
-        FAQ
-      </Link>
-      <Link sx={{ color: 'white' }} href="#" underline="hover">
-        Privacy
-      </Link>
-      <Link sx={{ color: 'white' }} href="#" underline="hover">
-        Policy
-      </Link>
-      <Link sx={{ color: 'white' }} href="#" underline="hover">
-        Legal
-      </Link>
-      <Box>
-        <Link href="#" underline="hover">
-          <IconButton sx={{ marginRight: 1 }} aria-label="Instagram">
-            <InstagramIcon sx={{ color: 'white' }} fontSize="inherit" />
-          </IconButton>
+      <Hidden smUp>
+        <Grid
+          container
+          item
+          xs={12}
+          spacing={2}
+          sx={{ display: 'flex', justifyContent: 'center' }}
+        >
+          <SocialLinks />
+        </Grid>
+      </Hidden>
+      <Grid item>
+        <Link sx={footerStyles.link} href="#" underline="hover">
+          FAQ
         </Link>
-        <Link href="#" underline="hover">
-          <IconButton sx={{ marginRight: 1 }} aria-label="Facebook">
-            <FacebookIcon sx={{ color: 'white' }} fontSize="inherit" />
-          </IconButton>
+      </Grid>
+      <Grid item>
+        <Link sx={footerStyles.link} href="#" underline="hover">
+          Privacy
         </Link>
-        <Link href="#" underline="hover">
-          <IconButton sx={{ marginRight: 1 }} aria-label="LinkedIn">
-            <LinkedInIcon sx={{ color: 'white' }} fontSize="inherit" />
-          </IconButton>
+      </Grid>
+      <Grid item>
+        <Link sx={footerStyles.link} href="#" underline="hover">
+          Policy
         </Link>
-      </Box>
-    </Box>
+      </Grid>
+      <Grid item>
+        <Link sx={footerStyles.link} href="#" underline="hover">
+          Legal
+        </Link>
+      </Grid>
+      <Hidden smDown>
+        <SocialLinks />
+      </Hidden>
+    </Grid>
   );
 };
 const Footer = () => {
