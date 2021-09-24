@@ -157,7 +157,8 @@ const Footer = () => {
                 width: '20rem',
               },
             }}
-            buttonText="Submit"
+            buttonStyles={{ width: '11rem' }}
+            buttonText="Sign Up"
             placeholder="Email address"
           />
           <FooterNavLinks />
