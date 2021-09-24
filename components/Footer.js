@@ -157,7 +157,7 @@ const Footer = () => {
                 width: '20rem',
               },
             }}
-            buttonStyles={{ width: '11rem' }}
+            buttonStyles={{ width: '12rem' }}
             buttonText="Sign Up"
             placeholder="Email address"
           />
