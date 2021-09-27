@@ -46,6 +46,7 @@ import CustomTextField, { CustomButton } from '../components/CustomTextField';
 import { HYPER_PINK } from '../src/colors';
 import SectionAnchorTarget from '../components/SectionAnchorTarget';
 import PricingSection from '../components/PricingSection';
+import FeaturesSection from '../components/FeaturesSection';
 import SectionHeader from '../components/SectionHeader';
 import sectionStyles from '../styles/sectionStyles';
 import StudioIcon from '../components/StudioIcon';
@@ -363,7 +364,7 @@ const videoStyles = {
 const VideoSection = (props) => {
   return (
     <Box
-      id="features"
+      id="video"
       component="section"
       sx={{
         ...sectionStyles.sectionContainer,
@@ -371,7 +372,7 @@ const VideoSection = (props) => {
         color: 'white',
       }}
     >
-      <SectionAnchorTarget id="features-target" />
+      <SectionAnchorTarget id="video-target" />
       <Box
         id="videoSection.contentContainer"
         sx={{ ...sectionStyles.sectionContentContainer, pt: 0 }}
@@ -403,7 +404,7 @@ const VideoSection = (props) => {
             // mozallowFullScreen
           ></iframe>
         </Box>
-        <Grid container>
+        {/* <Grid container>
           <Grid item sm={4} sx={videoStyles.detailsCard}>
             <Typography
               sx={videoStyles.detailsCardHeader}
@@ -414,8 +415,8 @@ const VideoSection = (props) => {
               Artist profiles
             </Typography>
             <Typography variant="body1">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quaerat
-              distinctio dolore laborum at a minima aperiam.
+              Share your business details, social pages, and showcase work in a
+              custom gallery.
             </Typography>
           </Grid>
           <Grid item sm={4} sx={videoStyles.detailsCard}>
@@ -428,8 +429,8 @@ const VideoSection = (props) => {
               Direct messaging
             </Typography>
             <Typography variant="body1">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quaerat
-              distinctio dolore laborum at a minima aperiam.
+              Collaborate on designs, negotiate payments, and stay in touch with
+              customers in one place.
             </Typography>
           </Grid>
           <Grid item sm={4} sx={videoStyles.detailsCard}>
@@ -442,8 +443,9 @@ const VideoSection = (props) => {
               Scheduling
             </Typography>
             <Typography variant="body1">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quaerat
-              distinctio dolore laborum at a minima aperiam.
+              Accept or decline appointments online. Set availability on the
+              HyperTattoo calendar so you only get reservations when you’re able
+              to work.
             </Typography>
           </Grid>
           <Grid item sm={4} sx={videoStyles.detailsCard}>
@@ -456,8 +458,8 @@ const VideoSection = (props) => {
               Payment processing
             </Typography>
             <Typography variant="body1">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quaerat
-              distinctio dolore laborum at a minima aperiam.
+              Set custom rates, collect deposits before sessions, and close out
+              balances with either card or cash.
             </Typography>
           </Grid>
           <Grid item sm={4} sx={videoStyles.detailsCard}>
@@ -470,11 +472,11 @@ const VideoSection = (props) => {
               Business insights
             </Typography>
             <Typography variant="body1">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quaerat
-              distinctio dolore laborum at a minima aperiam.
+              Track your revenue and monitor upcoming projects in one
+              easy-to-use dashboard.
             </Typography>
           </Grid>
-        </Grid>
+        </Grid> */}
       </Box>
     </Box>
   );
@@ -695,8 +697,9 @@ export function Index() {
             }}
           />
           <HeroSection classes="homeHero" />
-          {/* <DescriptionSection /> */}
+          <DescriptionSection />
           <VideoSection />
+          <FeaturesSection />
           <PricingSection tiers={tiers} />
           <Footer />
         </Box>
