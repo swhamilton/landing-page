@@ -45,6 +45,10 @@ import Footer from '../components/Footer';
 import CustomTextField, { CustomButton } from '../components/CustomTextField';
 import PricingCard from '../components/PricingCard';
 import { HYPER_PINK } from '../src/colors';
+import SectionAnchorTarget from '../components/SectionAnchorTarget';
+import PricingSection from '../components/PricingSection';
+import SectionHeader from '../components/SectionHeader';
+import sectionStyles from '../styles/sectionStyles';
 
 const heroStyles = {
   listItem: {
@@ -251,70 +255,6 @@ const HeaderUnderline = () => (
   />
 );
 
-const sectionHeaderStyles = {
-  headerContainer: {
-    color: 'white',
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-    '@media (min-width: 600px)': {
-      marginBottom: '1rem',
-    },
-    '@media (max-width: 600px)': {
-      padding: '1rem',
-    },
-  },
-  header: {
-    fontSize: '1.1rem',
-    letterSpacing: '1px',
-    textTransform: 'uppercase',
-    color: HYPER_PINK,
-    fontWeight: '600',
-    lineHeight: '1.5rem',
-    '@media (max-width: 600px)': {
-      lineHeight: '1.5rem',
-    },
-  },
-  subtitle: {
-    maxWidth: '30rem',
-    fontSize: '2.5rem',
-    fontWeight: '600',
-    lineHeight: '3rem',
-
-    '@media (max-width: 600px)': {
-      fontSize: '1.5rem',
-      lineHeight: '1.5rem',
-    },
-  },
-};
-
-const SectionHeader = (props) => {
-  return (
-    <Box sx={sectionHeaderStyles.headerContainer} id={props.id}>
-      <Typography variant="h6" sx={sectionHeaderStyles.header} mb={1}>
-        {props.title}
-      </Typography>
-      <Typography
-        align="center"
-        sx={sectionHeaderStyles.subtitle}
-        variant="subtitle1"
-      >
-        {props.subtitle1}
-      </Typography>
-      {props.subtitle2 && (
-        <Typography
-          align="center"
-          sx={sectionHeaderStyles.subtitle}
-          variant="subtitle1"
-        >
-          {props.subtitle2}
-        </Typography>
-      )}
-    </Box>
-  );
-};
-
 const QuoteCard = () => {
   <Box>
     <Paper elevation={0} sx={{ background: '#f3f3f3', padding: '1rem' }}>
@@ -336,8 +276,11 @@ const QuoteCard = () => {
 
 const DescriptionSection = () => {
   return (
-    <Box component="section" sx={styles.sectionContainer}>
-      <Box id="details.contentContainer" sx={styles.sectionContentContainer}>
+    <Box component="section" sx={sectionStyles.sectionContainer}>
+      <Box
+        id="details.contentContainer"
+        sx={sectionStyles.sectionContentContainer}
+      >
         <SectionHeader title="Discover" subtitle1={'What is HyperTattoo?'} />
       </Box>
     </Box>
@@ -345,41 +288,10 @@ const DescriptionSection = () => {
 };
 
 const styles = {
-  sectionContainer: {
-    textAlign: 'center',
-    display: 'flex',
-    alignItems: 'center',
-    flexDirection: 'column',
-  },
-  sectionContentContainer: {
-    fontSize: '22.4px',
-    fontSize: '1.4rem',
-    lineHeight: '28.8px',
-    lineHeight: '1.8rem',
+  mainContainer: {
+    overflowX: 'hidden',
+    minHeight: 'calc(100vh - 50px)',
     width: '100%',
-    zIndex: '1',
-    marginLeft: 'auto',
-    marginRight: 'auto',
-    paddingLeft: '15px',
-    paddingRight: '15px',
-    padding: '1rem',
-    '@media (min-width: 600px)': {
-      maxWidth: '960px',
-      marginBottom: '1rem',
-      padding: '4rem 16px',
-      margin: '0',
-    },
-    mainContainer: {
-      overflowX: 'hidden',
-      minHeight: 'calc(100vh - 50px)',
-      width: '100%',
-    },
-  },
-  pricingButton: {
-    padding: '0.6rem 1.3rem',
-    fontSize: '1rem',
-    textTransform: 'none',
-    fontWeight: '800',
   },
 };
 
@@ -443,25 +355,13 @@ const videoStyles = {
   },
 };
 
-const SectionAnchorTarget = (props) => (
-  <div
-    css={css`
-      position: relative;
-      display: inline-block;
-      top: -40px;
-      height: 0;
-    `}
-    {...props}
-  />
-);
-
 const VideoSection = (props) => {
   return (
     <Box
       id="features"
       component="section"
       sx={{
-        ...styles.sectionContainer,
+        ...sectionStyles.sectionContainer,
         backgroundColor: '#111111',
         color: 'white',
       }}
@@ -469,7 +369,7 @@ const VideoSection = (props) => {
       <SectionAnchorTarget id="features-target" />
       <Box
         id="videoSection.contentContainer"
-        sx={{ ...styles.sectionContentContainer, pt: 0 }}
+        sx={{ ...sectionStyles.sectionContentContainer, pt: 0 }}
       >
         <Box
           display="flex"
@@ -569,51 +469,6 @@ const VideoSection = (props) => {
               distinctio dolore laborum at a minima aperiam.
             </Typography>
           </Grid>
-        </Grid>
-      </Box>
-    </Box>
-  );
-};
-
-const PricingSection = (props) => {
-  return (
-    <Box id="pricing" component="section" sx={styles.sectionContainer}>
-      <SectionAnchorTarget id="pricing-target" />
-      <Box
-        id="pricingSection.contentContainer"
-        sx={styles.sectionContentContainer}
-      >
-        <SectionHeader
-          title="Pricing"
-          subtitle1={'Simple pricing to match your studio as it grows.'}
-        />
-
-        <Grid mt={2} container spacing={3} alignItems="flex-end">
-          {tiers.map((tier, tierIndex) => {
-            const {
-              buttonText,
-              features,
-              price,
-              priceDetails,
-              priceExtraDetails,
-              title,
-              useCurrencySymbol,
-            } = tier;
-            return (
-              <Grid item key={tier.title} xs={12} sm={6} md={6}>
-                <PricingCard
-                  useCurrencySymbol={useCurrencySymbol}
-                  key={title}
-                  buttonText={buttonText}
-                  features={features}
-                  price={price}
-                  priceDetails={priceDetails}
-                  priceExtraDetails={priceExtraDetails}
-                  title={title}
-                />
-              </Grid>
-            );
-          })}
         </Grid>
       </Box>
     </Box>
@@ -834,9 +689,9 @@ export function Index() {
             }}
           />
           <HeroSection classes="homeHero" />
-          <DescriptionSection />
+          {/* <DescriptionSection /> */}
           <VideoSection />
-          <PricingSection />
+          <PricingSection tier={tiers} />
           <Footer />
         </Box>
       ) : (
