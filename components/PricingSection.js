@@ -21,7 +21,7 @@ const PricingSection = (props) => {
       >
         <SectionHeader
           title="Pricing"
-          subtitle1={'Simple pricing to match your studio as it grows.'}
+          subtitle1="Simple pricing to match your studio as it grows."
         />
 
         <Grid mt={2} container spacing={3} alignItems="flex-end">
@@ -37,7 +37,7 @@ const PricingSection = (props) => {
             } = tier;
             return (
               <Grid item key={tier.title} xs={12} sm={6} md={6}>
-                {/* <PricingCard
+                <PricingCard
                   useCurrencySymbol={useCurrencySymbol}
                   key={title}
                   buttonText={buttonText}
@@ -46,7 +46,7 @@ const PricingSection = (props) => {
                   priceDetails={priceDetails}
                   priceExtraDetails={priceExtraDetails}
                   title={title}
-                /> */}
+                />
               </Grid>
             );
           })}

@@ -691,7 +691,7 @@ export function Index() {
           <HeroSection classes="homeHero" />
           {/* <DescriptionSection /> */}
           <VideoSection />
-          <PricingSection tier={tiers} />
+          <PricingSection tiers={tiers} />
           <Footer />
         </Box>
       ) : (
