@@ -38,7 +38,7 @@ const MoreFeaturesSection = (props) => {
         <SectionAnchorTarget id="more-features-target" />
         <SectionHeader
           title="Software"
-          subtitle1="Built by the tattoo industry,"
+          subtitle1="Built for the tattoo industry,"
           subtitle2="by the tattoo industry."
         />
         <Typography
