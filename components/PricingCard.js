@@ -119,7 +119,7 @@ const PricingCard = ({
           {priceExtraDetails}
         </Typography>
       </Box>
-      <Box sx={{ borderTop: '2px solid black', p: 2 }}>
+      <Box sx={{ borderTop: '2px solid #141414', p: 2 }}>
         {useAccordian && (
           <Accordion
             sx={{

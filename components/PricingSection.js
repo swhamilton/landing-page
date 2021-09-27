@@ -16,7 +16,11 @@ import StudioIcon from './StudioIcon';
 const PricingSection = (props) => {
   const mobileView = useMediaQuery('(max-width:600px)');
   return (
-    <Box id="pricing" component="section" sx={sectionStyles.sectionContainer}>
+    <Box
+      id="pricing"
+      component="section"
+      sx={{ ...sectionStyles.sectionContainer, background: '#131313' }}
+    >
       <SectionAnchorTarget id="pricing-target" />
       <Box
         id="pricingSection.contentContainer"

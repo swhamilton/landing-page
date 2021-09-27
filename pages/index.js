@@ -47,6 +47,7 @@ import { HYPER_PINK } from '../src/colors';
 import SectionAnchorTarget from '../components/SectionAnchorTarget';
 import PricingSection from '../components/PricingSection';
 import FeaturesSection from '../components/FeaturesSection';
+import MoreFeaturesSection from '../components/MoreFeaturesSection';
 import SectionHeader from '../components/SectionHeader';
 import sectionStyles from '../styles/sectionStyles';
 import StudioIcon from '../components/StudioIcon';
@@ -350,17 +351,6 @@ const ColorButton = styled(Button)(({ theme }) => {
   };
 });
 
-const videoStyles = {
-  detailsCard: {
-    textAlign: 'left',
-    paddingRight: 4,
-    marginBottom: 8,
-  },
-  detailsCardHeader: {
-    fontWeight: '500',
-  },
-};
-
 const VideoSection = (props) => {
   return (
     <Box
@@ -372,11 +362,11 @@ const VideoSection = (props) => {
         color: 'white',
       }}
     >
-      <SectionAnchorTarget id="video-target" />
       <Box
         id="videoSection.contentContainer"
-        sx={{ ...sectionStyles.sectionContentContainer, pt: 0 }}
+        sx={{ ...sectionStyles.sectionContentContainer, p: 0, mb: 0 }}
       >
+        <SectionAnchorTarget id="video-target" />
         <Box
           display="flex"
           justifyContent="center"
@@ -700,6 +690,7 @@ export function Index() {
           <DescriptionSection />
           <VideoSection />
           <FeaturesSection />
+          <MoreFeaturesSection />
           <PricingSection tiers={tiers} />
           <Footer />
         </Box>

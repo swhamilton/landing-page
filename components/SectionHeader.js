@@ -33,7 +33,7 @@ const styles = {
     },
   },
   subtitle: {
-    maxWidth: '30rem',
+    maxWidth: '32rem',
     fontSize: '2.5rem',
     fontWeight: '600',
     lineHeight: '3rem',

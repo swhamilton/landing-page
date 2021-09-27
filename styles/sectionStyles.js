@@ -22,13 +22,7 @@ export const sectionStyles = {
     '@media (min-width: 600px)': {
       maxWidth: '960px',
     },
-    mainContainer: {
-      overflowX: 'hidden',
-      minHeight: 'calc(100vh - 50px)',
-      width: '100%',
-    },
   },
-  pricingButton: { padding: 2, fontSize: '1rem', textTransform: 'none' },
 };
 
 export default sectionStyles;
