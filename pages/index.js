@@ -101,7 +101,8 @@ const HeroSection = (props) => {
         height: '78vh',
         backgroundPosition: 'center top',
         '@media (max-width: 600px)': {
-          height: '65vh',
+          marginTop: '60px',
+          height: '70vh',
         },
       }}
     >
@@ -125,6 +126,9 @@ const HeroSection = (props) => {
           paddingRight: '15px',
           '@media (min-width: 600px)': {
             maxWidth: '1280px',
+          },
+          '@media (max-width: 600px)': {
+            marginTop: '3.5rem',
           },
         }}
       >
@@ -207,26 +211,29 @@ const HeroSection = (props) => {
           />
         </Hidden>
         <Hidden smUp>
-          <CustomTextField
-            placeholder="Email address"
-            textFieldStyles={{
-              minWidth: '100%',
-              marginBottom: 2,
+          <Box
+            sx={{
+              '@media (max-width: 600px)': {
+                marginTop: '5rem',
+              },
             }}
-            inputFieldStyles={{
-              width: '100%',
-            }}
-          />
-          <CustomButton
-            buttonIcon={<ArrowForwardIosIcon />}
-            fullWidth
-            styles={{
-              fontSize: '1.2rem',
-              fontWeight: '600',
-              padding: '0.6rem 2rem',
-            }}
-            buttonText="Start for Free"
-          />
+          >
+            <CustomTextField
+              placeholder="Email address"
+              textFieldStyles={{
+                minWidth: '100%',
+                marginBottom: 2,
+              }}
+              inputFieldStyles={{
+                width: '100%',
+              }}
+            />
+            <CustomButton
+              buttonIcon={<ArrowForwardIosIcon />}
+              fullWidth
+              buttonText="Start for Free"
+            />
+          </Box>
         </Hidden>
       </Box>
     </Box>

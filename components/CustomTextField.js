@@ -4,22 +4,29 @@ import SearchIcon from '@mui/icons-material/Search';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 
+const defaultButtonStyles = {
+  fontSize: '1.2rem',
+  fontWeight: '600',
+  padding: '0.5rem 2rem',
+  textTransform: 'none',
+};
 export const CustomButton = ({ styles, buttonIcon, buttonText, ...rest }) => (
   <Button
     variant="contained"
     {...rest}
     endIcon={buttonIcon}
     sx={{
+      ...defaultButtonStyles,
       ...styles,
     }}
   >
     {buttonText}
   </Button>
 );
-const defaultButtonStyles = {
+const defaultInputButtonStyles = {
   fontSize: '1.2rem',
   fontWeight: '600',
-  padding: '0.6rem 2rem',
+  padding: '0.5rem 2rem',
   textTransform: 'none',
   borderRadius: '0 4px 4px 0',
 };
@@ -50,7 +57,7 @@ export default function CustomTextField(props) {
           <CustomButton
             buttonIcon={props.buttonIcon}
             buttonText={props.buttonText}
-            styles={{ ...defaultButtonStyles, ...props.buttonStyles }}
+            styles={{ ...defaultInputButtonStyles, ...props.buttonStyles }}
           />
         ),
       }}
