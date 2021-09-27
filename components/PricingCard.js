@@ -10,9 +10,14 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
+import Accordion from '@mui/material/Accordion';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
 import CheckIcon from '@mui/icons-material/Check';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { HYPER_PINK } from '../src/colors';
+
 const styles = {
   header: {
     fontSize: '1.3rem',
@@ -36,15 +41,37 @@ const styles = {
   },
 };
 
+const FeaturesList = ({ features, id }) => (
+  <List sx={{ p: '0 1rem' }}>
+    {(features || []).map((line, featureIndex) => (
+      <ListItem disablePadding key={`tier${id}-featureIndex${featureIndex}`}>
+        <ListItemIcon sx={{ minWidth: '40px' }}>
+          <CheckIcon fontSize="small" sx={{ color: 'white' }} />
+        </ListItemIcon>
+        <ListItemText
+          primary={line}
+          primaryTypographyProps={{
+            fontWeight: featureIndex === 0 ? '600' : '400',
+            lineHeight: '1.8 rem',
+          }}
+        />
+      </ListItem>
+    ))}
+  </List>
+);
+
 const PricingCard = ({
+  accordianTitle,
   buttonText,
   features,
+  headerIcon,
   id,
   price,
   priceDetails,
   priceExtraDetails,
   subheader,
   title,
+  useAccordian,
   useCurrencySymbol,
 }) => (
   <Card
@@ -62,9 +89,10 @@ const PricingCard = ({
           justifyContent: 'center',
           alignItems: 'center',
           p: 2,
+          pt: 4,
         }}
       >
-        <CheckBoxIcon sx={{ fontSize: 50 }} />
+        {headerIcon}
         <Typography sx={styles.header} component="h2" variant="h4">
           {title}
         </Typography>
@@ -92,25 +120,26 @@ const PricingCard = ({
         </Typography>
       </Box>
       <Box sx={{ borderTop: '2px solid black', p: 2 }}>
-        <List sx={{ p: '0 1rem' }}>
-          {features.map((line, featureIndex) => (
-            <ListItem
-              disablePadding
-              key={`tier${id}-featureIndex${featureIndex}`}
+        {useAccordian && (
+          <Accordion
+            sx={{
+              background: 'transparent',
+              color: 'white',
+            }}
+          >
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon sx={{ color: 'white' }} />}
+              aria-controls="panel1a-content"
+              id="panel1a-header"
             >
-              <ListItemIcon sx={{ minWidth: '40px' }}>
-                <CheckIcon fontSize="small" sx={{ color: 'white' }} />
-              </ListItemIcon>
-              <ListItemText
-                primary={line}
-                primaryTypographyProps={{
-                  fontWeight: featureIndex === 0 ? '600' : '400',
-                  lineHeight: '1.8 rem',
-                }}
-              />
-            </ListItem>
-          ))}
-        </List>
+              <Typography>{accordianTitle}</Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <FeaturesList features={features} id={id} />
+            </AccordionDetails>
+          </Accordion>
+        )}
+        {!useAccordian && <FeaturesList features={features} id={id} />}
       </Box>
     </CardContent>
     <CardActions

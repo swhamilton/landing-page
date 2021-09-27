@@ -43,12 +43,13 @@ import NewRelicSnippet from '../components/NewRelicSnippet';
 import { grey } from '@mui/material/colors';
 import Footer from '../components/Footer';
 import CustomTextField, { CustomButton } from '../components/CustomTextField';
-import PricingCard from '../components/PricingCard';
 import { HYPER_PINK } from '../src/colors';
 import SectionAnchorTarget from '../components/SectionAnchorTarget';
 import PricingSection from '../components/PricingSection';
 import SectionHeader from '../components/SectionHeader';
 import sectionStyles from '../styles/sectionStyles';
+import StudioIcon from '../components/StudioIcon';
+import UserIcon from '../components/UserIcon';
 
 const heroStyles = {
   listItem: {
@@ -297,12 +298,14 @@ const styles = {
 
 const tiers = [
   {
-    title: 'Core',
-    theme: 'HYPER_PINK',
-    subheader: 'Standard tier description.',
+    accordianTitle: 'Core Features',
+    headerIcon: <UserIcon width={50} height={50} />,
     price: 'FREE',
     priceDetails: 'for 1 user',
     priceExtraDetails: 'Free forever',
+    subheader: 'Standard tier description.',
+    theme: 'HYPER_PINK',
+    title: 'Core',
     features: [
       'Feature 1',
       'Feature 1',
@@ -315,12 +318,14 @@ const tiers = [
     buttonVariant: 'outlined',
   },
   {
-    title: 'Studio Edition',
-    subheader: 'Premium tier description.',
+    accordianTitle: 'Studio Features',
+    headerIcon: <StudioIcon width={50} height={50} />,
     price: '40',
-    useCurrencySymbol: true,
     priceDetails: 'per month for 2 users',
     priceExtraDetails: '$15 for each additional set',
+    subheader: 'Premium tier description.',
+    title: 'Studio Edition',
+    useCurrencySymbol: true,
     features: [
       'Feature 1',
       'Feature 1',
@@ -654,6 +659,7 @@ if (process.env.ENABLE_OBSERVABILITY !== 'true') {
 
 export function Index() {
   const { isLoggedIn, update } = useContext(GlobalContext);
+
   return (
     <Box
       sx={{
