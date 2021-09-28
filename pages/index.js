@@ -236,6 +236,7 @@ const HeroSection = (props) => {
               }}
             />
             <CustomButton
+              onClick={() => alert('submit!')}
               buttonIcon={<ArrowForwardIosIcon />}
               fullWidth
               buttonText="Start for Free"
@@ -284,7 +285,7 @@ const DescriptionSection = () => {
         id="details.contentContainer"
         sx={sectionStyles.sectionContentContainer}
       >
-        <SectionHeader title="Discover" subtitle1={'What is HyperTattoo?'} />
+        <SectionHeader title="" subtitle1={'What is HyperTattoo?'} />
       </Box>
     </Box>
   );
@@ -320,7 +321,7 @@ const tiers = [
     buttonVariant: 'outlined',
   },
   {
-    accordianTitle: 'Studio Features',
+    accordianTitle: 'Studio Edition Features',
     headerIcon: <StudioIcon width={50} height={50} />,
     price: '40',
     priceDetails: 'per month for 2 users',
@@ -358,13 +359,29 @@ const VideoSection = (props) => {
       component="section"
       sx={{
         ...sectionStyles.sectionContainer,
-        backgroundColor: '#111111',
+        background: 'linear-gradient(black, #111)',
         color: 'white',
+        '@media (min-width: 900px)': {
+          padding: '4rem',
+          paddingTop: '0',
+        },
+        paddingTop: '0',
       }}
     >
       <Box
         id="videoSection.contentContainer"
-        sx={{ ...sectionStyles.sectionContentContainer, p: 0, mb: 0 }}
+        sx={{
+          ...sectionStyles.sectionContentContainer,
+          p: 0,
+          pt: 0,
+          pb: 0,
+          mb: 0,
+          '@media (max-width: 600px)': {
+            paddingTop: '0',
+            paddingBottom: '0',
+            background: 'black',
+          },
+        }}
       >
         <SectionAnchorTarget id="video-target" />
         <Box
@@ -379,7 +396,10 @@ const VideoSection = (props) => {
               height: '300px',
             },
             '@media (min-width: 600px)': {
-              height: '520px',
+              height: '380px',
+            },
+            '@media (min-width: 780px)': {
+              height: '500px',
             },
           }}
         >

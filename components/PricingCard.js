@@ -125,12 +125,14 @@ const PricingCard = ({
             sx={{
               background: 'transparent',
               color: 'white',
+              boxShadow: 'none',
             }}
           >
             <AccordionSummary
               expandIcon={<ExpandMoreIcon sx={{ color: 'white' }} />}
               aria-controls="panel1a-content"
               id="panel1a-header"
+              sx={{ fontWeight: '600' }}
             >
               <Typography>{accordianTitle}</Typography>
             </AccordionSummary>

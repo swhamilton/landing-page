@@ -18,7 +18,9 @@ const FeaturesSection = (props) => {
         component="section"
         sx={{
           ...sectionStyles.sectionContainer,
-          mt: 8,
+          '@media (min-width: 600px)': {
+            mt: 8,
+          },
           color: 'white',
         }}
       >
@@ -27,11 +29,7 @@ const FeaturesSection = (props) => {
           title="Introducing"
           subtitle1="The all-in-one solution."
         />
-        <Typography sx={{ fontSize: '1.3rem' }} variant="body1" gutterBottom>
-          HyperTattoo enables artists and studios to replace their current
-          multi-faceted approach to scheduling and payments with an all-in-one
-          platform.
-        </Typography>
+
         <Box
           sx={{
             background: 'radial-gradient(circle at 50%, #141414 7%, black 75%)',

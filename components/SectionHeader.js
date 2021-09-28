@@ -33,14 +33,14 @@ const styles = {
     },
   },
   subtitle: {
-    maxWidth: '32rem',
+    maxWidth: '35rem',
     fontSize: '2.5rem',
     fontWeight: '600',
     lineHeight: '3rem',
 
     '@media (max-width: 600px)': {
-      fontSize: '1.5rem',
-      lineHeight: '1.5rem',
+      fontSize: '1.8rem',
+      lineHeight: '1.8rem',
     },
   },
 };
@@ -48,9 +48,9 @@ const styles = {
 const SectionHeader = (props) => {
   return (
     <Box sx={styles.headerContainer} id={props.id}>
-      <Typography variant="h6" sx={styles.header} mb={1}>
+      {/* <Typography variant="h6" sx={styles.header} mb={1}>
         {props.title}
-      </Typography>
+      </Typography> */}
       <Typography align="center" sx={styles.subtitle} variant="subtitle1">
         {props.subtitle1}
       </Typography>

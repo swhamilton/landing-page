@@ -11,16 +11,19 @@ export const sectionStyles = {
     fontSize: '1.4rem',
     lineHeight: '28.8px',
     lineHeight: '1.8rem',
-    padding: '4rem 16px',
+    padding: '3rem 16px',
     width: '100%',
     zIndex: '1',
     marginLeft: 'auto',
     marginRight: 'auto',
-    marginBottom: '1rem',
     paddingLeft: '15px',
     paddingRight: '15px',
     '@media (min-width: 600px)': {
       maxWidth: '960px',
+    },
+    '@media (max-width: 600px)': {
+      paddingTop: '1rem',
+      paddingBottom: '1rem',
     },
   },
 };

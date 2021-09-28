@@ -150,8 +150,13 @@ const Footer = () => {
             Sign up for our newsletter
           </Typography>
           <Typography variant="body1">
-            We respect your privacy. You can cancel at any time.
+            We respect your privacy.{' '}
+            <Hidden smUp>
+              <br />
+            </Hidden>
+            You can cancel at any time.
           </Typography>
+
           <Hidden smDown>
             <CustomTextField
               useButton
@@ -164,7 +169,7 @@ const Footer = () => {
                 },
               }}
               buttonStyles={{ width: '12rem' }}
-              buttonText="Sign Up"
+              buttonText="Start for Free"
               placeholder="Email address"
             />
           </Hidden>
@@ -193,7 +198,7 @@ const Footer = () => {
                 textTransform: 'none',
                 marginBottom: 5,
               }}
-              buttonText="Sign Up"
+              buttonText="Start for Free"
             />
           </Hidden>
           <FooterNavLinks />

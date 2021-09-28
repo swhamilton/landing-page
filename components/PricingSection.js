@@ -26,12 +26,9 @@ const PricingSection = (props) => {
         id="pricingSection.contentContainer"
         sx={sectionStyles.sectionContentContainer}
       >
-        <SectionHeader
-          title="Pricing"
-          subtitle1="Simple pricing to match your studio as it grows."
-        />
+        <SectionHeader title="Pricing" subtitle1="Simple pricing." />
 
-        <Grid mt={2} container spacing={3} alignItems="flex-end">
+        <Grid mt={0} container spacing={3} alignItems="flex-end">
           {(props.tiers || []).map((tier, tierIndex) => {
             const {
               accordianTitle,

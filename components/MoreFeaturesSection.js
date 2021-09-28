@@ -5,6 +5,7 @@ import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import useMediaQuery from '@mui/material/useMediaQuery';
+import CheckIcon from '@mui/icons-material/Check';
 
 // Custom
 import SectionAnchorTarget from './SectionAnchorTarget';
@@ -14,19 +15,20 @@ import sectionStyles from '../styles/sectionStyles';
 const styles = {
   detailsCard: {
     textAlign: 'left',
-    paddingRight: 4,
-    marginBottom: 8,
-    paddingLeft: 4,
-    paddingRight: 4,
+    marginBottom: 3,
+    paddingLeft: 2,
+    paddingRight: 2,
   },
   detailsCardHeader: {
-    fontWeight: '500',
+    fontWeight: '600',
+    fontSize: '1.1rem',
+    lineHeight: '1.1rem',
   },
 };
 
 const MoreFeaturesSection = (props) => {
   return (
-    <Container maxWidth="xl">
+    <Container maxWidth="md">
       <Box
         id="more-features"
         component="section"
@@ -41,83 +43,115 @@ const MoreFeaturesSection = (props) => {
           subtitle1="Built for the tattoo industry,"
           subtitle2="by the tattoo industry."
         />
-        <Typography
+        {/* <Typography
           sx={{ fontSize: '1.3rem', mb: 5 }}
           variant="body1"
           gutterBottom
         >
           {`We believe the tattoo industry shouldn't have to conform to
             other industry solutions for payments and scheduling.`}
-        </Typography>
+        </Typography> */}
 
-        <Grid container spacing={0}>
-          <Grid item sm={4} sx={styles.detailsCard}>
-            <Typography
-              sx={styles.detailsCardHeader}
-              component="h3"
-              variant="h5"
-              gutterBottom
-            >
-              Artist profiles
-            </Typography>
-            <Typography variant="body1">
+        <Grid container sx={{ mt: 3 }} spacing={0}>
+          <Grid item sm={6} sx={styles.detailsCard}>
+            <Box display="flex" alignItems="center">
+              <CheckIcon sx={{ mb: '0.5rem', mr: '0.7rem' }} fontSize="small" />
+              <Typography
+                sx={styles.detailsCardHeader}
+                component="h3"
+                variant="h5"
+                gutterBottom
+              >
+                Artist profiles
+              </Typography>
+            </Box>
+            <Typography variant="body1" ml={'2rem'}>
               Share your business details, social pages, and showcase work in a
               custom gallery.
             </Typography>
           </Grid>
-          <Grid item sm={4} sx={styles.detailsCard}>
-            <Typography
-              sx={styles.detailsCardHeader}
-              component="h3"
-              variant="h5"
-              gutterBottom
-            >
-              Direct messaging
-            </Typography>
-            <Typography variant="body1">
+          <Grid item sm={6} sx={styles.detailsCard}>
+            <Box display="flex" alignItems="center">
+              <CheckIcon sx={{ mb: '0.5rem', mr: '0.7rem' }} fontSize="small" />
+              <Typography
+                sx={styles.detailsCardHeader}
+                component="h3"
+                variant="h5"
+                gutterBottom
+              >
+                Direct messaging
+              </Typography>
+            </Box>
+            <Typography variant="body1" ml={'2rem'}>
               Collaborate on designs, negotiate payments, and stay in touch with
               customers in one place.
             </Typography>
           </Grid>
-          <Grid item sm={4} sx={styles.detailsCard}>
-            <Typography
-              sx={styles.detailsCardHeader}
-              component="h3"
-              variant="h5"
-              gutterBottom
-            >
-              Scheduling
-            </Typography>
-            <Typography variant="body1">
+          <Grid item sm={6} sx={styles.detailsCard}>
+            <Box display="flex" alignItems="center">
+              <CheckIcon sx={{ mb: '0.5rem', mr: '0.7rem' }} fontSize="small" />
+              <Typography
+                sx={styles.detailsCardHeader}
+                component="h3"
+                variant="h5"
+                gutterBottom
+              >
+                Scheduling
+              </Typography>
+            </Box>
+            <Typography variant="body1" ml={'2rem'}>
               Accept or decline appointments online. Set availability on the
               HyperTattoo calendar so you only get reservations when you’re able
               to work.
             </Typography>
           </Grid>
-          <Grid item sm={4} sx={styles.detailsCard}>
-            <Typography
-              sx={styles.detailsCardHeader}
-              component="h3"
-              variant="h5"
-              gutterBottom
-            >
-              Payment processing
-            </Typography>
-            <Typography variant="body1">
+          <Grid item sm={6} sx={styles.detailsCard}>
+            <Box display="flex" alignItems="center">
+              <CheckIcon sx={{ mb: '0.5rem', mr: '0.7rem' }} fontSize="small" />
+              <Typography
+                sx={styles.detailsCardHeader}
+                component="h3"
+                variant="h5"
+                gutterBottom
+              >
+                Payment processing
+              </Typography>
+            </Box>
+            <Typography variant="body1" ml={'2rem'}>
               Set custom rates, collect deposits before sessions, and close out
               balances with either card or cash.
             </Typography>
           </Grid>
-          <Grid item sm={4} sx={styles.detailsCard}>
-            <Typography
-              sx={styles.detailsCardHeader}
-              component="h3"
-              variant="h5"
-              gutterBottom
-            >
-              Business insights
+          <Grid item sm={6} sx={styles.detailsCard}>
+            <Box display="flex" alignItems="center">
+              <CheckIcon sx={{ mb: '0.5rem', mr: '0.7rem' }} fontSize="small" />
+              <Typography
+                sx={styles.detailsCardHeader}
+                component="h3"
+                variant="h5"
+                gutterBottom
+              >
+                Automated Notifications
+              </Typography>
+            </Box>
+            <Typography variant="body1" ml={'2rem'}>
+              We automatically notify clients to complete payments and remind
+              them of upcoming appointments so you {"don't"} have to.
             </Typography>
-            <Typography variant="body1">
+          </Grid>
+          <Grid item sm={6} sx={styles.detailsCard}>
+            <Box display="flex" alignItems="center">
+              <CheckIcon sx={{ mb: '0.5rem', mr: '0.7rem' }} fontSize="small" />
+              <Typography
+                sx={styles.detailsCardHeader}
+                component="h3"
+                variant="h5"
+                gutterBottom
+              >
+                Business insights
+              </Typography>
+            </Box>
+            <Typography variant="body1" ml={'2rem'}>
               Track your revenue and monitor upcoming projects in one
               easy-to-use dashboard.
             </Typography>
