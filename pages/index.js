@@ -70,7 +70,17 @@ const heroStyles = {
   },
 };
 
+const MENDIX_URL = 'http://demo.hypertattoo.com/link/homepage';
+
 const HeroSection = (props) => {
+  const [email, setEmail] = React.useState('');
+  const handleOnChange = (e) => {
+    setEmail(e.target.value);
+  };
+  const handleOnSubmit = (e) => {
+    window.location.replace(`${MENDIX_URL}/${encodeURIComponent(email)}`);
+  };
+
   const matches = useMediaQuery('(min-width:600px)');
   const { classes } = props;
   const emailSignUpButtonText = matches ? 'Start for Free' : 'Start';
@@ -195,6 +205,8 @@ const HeroSection = (props) => {
 
         <Hidden smDown>
           <CustomTextField
+            onChange={handleOnChange}
+            onButtonClick={handleOnSubmit}
             useButton
             buttonText="Start for Free"
             placeholder="Email address"
@@ -226,6 +238,7 @@ const HeroSection = (props) => {
             }}
           >
             <CustomTextField
+              onChange={handleOnChange}
               placeholder="Email address"
               textFieldStyles={{
                 minWidth: '100%',
@@ -236,7 +249,7 @@ const HeroSection = (props) => {
               }}
             />
             <CustomButton
-              onClick={() => alert('submit!')}
+              onClick={handleOnSubmit}
               buttonIcon={<ArrowForwardIosIcon />}
               fullWidth
               buttonText="Start for Free"

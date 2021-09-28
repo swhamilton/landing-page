@@ -36,6 +36,7 @@ export default function CustomTextField(props) {
     <TextField
       sx={props.textFieldStyles}
       hiddenLabel
+      onChange={props.onChange}
       placeholder={props.placeholder}
       id="filled-hidden-label-small"
       variant="standard"
@@ -57,6 +58,7 @@ export default function CustomTextField(props) {
           <CustomButton
             buttonIcon={props.buttonIcon}
             buttonText={props.buttonText}
+            onClick={props.onButtonClick}
             styles={{ ...defaultInputButtonStyles, ...props.buttonStyles }}
           />
         ),
