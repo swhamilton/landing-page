@@ -163,12 +163,12 @@ const Footer = () => {
               textFieldStyles={{
                 marginTop: 5,
                 marginBottom: 5,
-                width: '22rem',
+                width: '30rem',
                 '@media (max-width: 600px)': {
                   width: '20rem',
                 },
               }}
-              buttonStyles={{ width: '12rem' }}
+              buttonStyles={{ width: '18rem' }}
               buttonText="Start for Free"
               placeholder="Email address"
             />

@@ -3,7 +3,6 @@ import Image from 'next/image';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
-import useMediaQuery from '@mui/material/useMediaQuery';
 
 // Custom
 import SectionAnchorTarget from './SectionAnchorTarget';

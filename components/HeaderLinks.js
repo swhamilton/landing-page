@@ -8,6 +8,7 @@ import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
 import Button from '@mui/material/Button';
 import Hidden from '@mui/material/Hidden';
+import { scrollToId } from '../utils';
 
 const headerLinkStyles = {
   list: {
@@ -57,18 +58,11 @@ const headerLinkStyles = {
   },
 };
 
-const OutlineButton = ({ style, text, rest }) => (
-  <Button variant="outlined" {...rest}>
-    {text}
-  </Button>
-);
-
-const scrollToId = (id) => (e) => {
-  e.preventDefault();
-  document
-    .getElementById(id)
-    .scrollIntoView({ behavior: 'smooth', block: 'start' });
-};
+// const OutlineButton = ({ style, text, rest }) => (
+//   <Button variant="outlined" {...rest}>
+//     {text}
+//   </Button>
+// );
 
 export default function HeaderLinks(props) {
   return (
