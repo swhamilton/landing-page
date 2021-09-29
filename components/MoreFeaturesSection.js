@@ -131,12 +131,12 @@ const MoreFeaturesSection = (props) => {
                 variant="h5"
                 gutterBottom
               >
-                Automated Notifications
+                Notifications
               </Typography>
             </Box>
             <Typography variant="body1" ml={'2rem'}>
-              We automatically notify clients to complete payments and remind
-              them of upcoming appointments so you {"don't"} have to.
+              We notify clients to complete payments and remind them of upcoming
+              appointments so you {"don't"} have to.
             </Typography>
           </Grid>
           <Grid item sm={6} sx={styles.detailsCard}>

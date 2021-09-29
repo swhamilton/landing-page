@@ -75,10 +75,10 @@ const MENDIX_URL = 'http://demo.hypertattoo.com/link/homepage';
 const HeroSection = (props) => {
   const [email, setEmail] = React.useState('');
   const handleOnChange = (e) => {
-    setEmail(e.target.value);
+    setEmail((e.target.value || '').toLowerCase());
   };
   const handleOnSubmit = (e) => {
-    window.location.replace(`${MENDIX_URL}/${encodeURIComponent(email)}`);
+    window.location = `${MENDIX_URL}/${encodeURIComponent(email)}`;
   };
 
   const matches = useMediaQuery('(min-width:600px)');
