@@ -39,7 +39,7 @@ const HeroSection = (props) => {
             rgba(0,0,0,.2) 50%,
             rgba(0,0,0,.1) 75%,
             rgba(0,0,0,0) 100%),
-          url(/assets/img/bg_desktop60.jpg)`,
+          url(/assets/img/bg_desktop70.jpg)`,
         backgroundImage: `
           linear-gradient(
             180deg,
@@ -48,7 +48,7 @@ const HeroSection = (props) => {
             rgba(0,0,0,.2) 50%,
             rgba(0,0,0,.1) 75%,
             rgba(0,0,0,0) 100%),
-          url(/assets/img/bg_desktop60.jpg)`,
+          url(/assets/img/bg_desktop70.jpg)`,
         backgroundPosition: '50%',
         backgroundSize: 'cover',
         height: '78vh',
@@ -91,22 +91,24 @@ const HeroSection = (props) => {
             marginBottom: '1rem',
             fontWeight: '600',
             '@media (max-width: 600px)': {
-              fontSize: '2.5rem',
-              lineHeight: '2.5rem',
+              fontSize: '3rem',
+              lineHeight: '3rem',
             },
           }}
         >
-          Reservations
-          <br />
-          &amp; Payments
+          Reservations &amp;{' '}
+          <Hidden mdDown>
+            <br />
+          </Hidden>
+          Payments
         </Typography>
         <Typography
           variant="h4"
           sx={{
             marginBottom: '2rem',
-            fontSize: '1.8rem',
+            fontSize: '2.5rem',
             '@media (max-width: 600px)': {
-              fontSize: '1.4rem',
+              fontSize: '1.5rem',
             },
           }}
         >

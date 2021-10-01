@@ -112,6 +112,7 @@ const Footer = () => {
       sx={{
         ...sectionStyles.sectionContainer,
         background: `linear-gradient(#131313, ${HYPER_DARK_PURPLE}, ${HYPER_PURPLE})`,
+        pb: 4,
       }}
     >
       <Box

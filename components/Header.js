@@ -118,7 +118,7 @@ const Header = (props) => {
         padding: '0.1rem 1.3rem',
         boxShadow: 'none',
         '@media (max-width: 600px)': {
-          padding: '0 0.6em',
+          padding: '0 1rem',
         },
       }}
     >

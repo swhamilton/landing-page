@@ -57,7 +57,7 @@ export default function SignIn(props) {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    if (USERS.includes(data.get('username'))) {
+    if (USERS.includes((data.get('username') || '').toLowerCase())) {
       onSignin();
     }
   };

@@ -27,6 +27,13 @@ const styles = {
 };
 
 const MoreFeaturesSection = (props) => {
+  const matches = useMediaQuery('(max-width:600px)');
+  const imgSrc = matches
+    ? '/assets/img/artist_carousel_mobile.png'
+    : '/assets/img/artist_carousel_1300x702.png';
+
+  const imgWidth = matches ? 600 : 900;
+
   return (
     <Container maxWidth="md">
       <Box
@@ -38,11 +45,11 @@ const MoreFeaturesSection = (props) => {
         }}
       >
         <SectionAnchorTarget id="more-features-target" />
-        <SectionHeader
+        {/* <SectionHeader
           title="Software"
           subtitle1="Built for the tattoo industry,"
           subtitle2="by the tattoo industry."
-        />
+        /> */}
         {/* <Typography
           sx={{ fontSize: '1.3rem', mb: 5 }}
           variant="body1"
@@ -162,12 +169,7 @@ const MoreFeaturesSection = (props) => {
             background: 'radial-gradient(circle at 50%, #141414 7%, black 75%)',
           }}
         >
-          <Image
-            src={'/assets/img/artist_carousel_1300x702.png'}
-            alt="Phones"
-            width={900}
-            height={500}
-          />
+          <Image src={imgSrc} alt="Phones" width={imgWidth} height={500} />
         </Box>
       </Box>
     </Container>

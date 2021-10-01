@@ -26,9 +26,17 @@ const PricingSection = (props) => {
         id="pricingSection.contentContainer"
         sx={sectionStyles.sectionContentContainer}
       >
-        <SectionHeader title="Pricing" subtitle1="Simple pricing." />
+        <SectionHeader
+          title="Pricing"
+          subtitle1="Simple pricing."
+          sx={{
+            '@media (min-width: 600px)': {
+              fontSize: '2.5rem',
+            },
+          }}
+        />
 
-        <Grid mt={0} container spacing={3} alignItems="flex-end">
+        <Grid mt={0} container spacing={3} alignItems="stretch">
           {(props.tiers || []).map((tier, tierIndex) => {
             const {
               accordianTitle,

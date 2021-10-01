@@ -25,8 +25,9 @@ const FeaturesSection = (props) => {
       >
         <SectionAnchorTarget id="features-target" />
         <SectionHeader
-          title="Introducing"
-          subtitle1="The all-in-one solution."
+          title="Software"
+          subtitle1="Built for the tattoo industry,"
+          subtitle2="by the tattoo industry."
         />
 
         <Box

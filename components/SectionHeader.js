@@ -51,11 +51,19 @@ const SectionHeader = (props) => {
       {/* <Typography variant="h6" sx={styles.header} mb={1}>
         {props.title}
       </Typography> */}
-      <Typography align="center" sx={styles.subtitle} variant="subtitle1">
+      <Typography
+        align="center"
+        sx={{ ...styles.subtitle, ...props.subtitleStyles }}
+        variant="subtitle1"
+      >
         {props.subtitle1}
       </Typography>
       {props.subtitle2 && (
-        <Typography align="center" sx={styles.subtitle} variant="subtitle1">
+        <Typography
+          align="center"
+          sx={{ ...styles.subtitle, ...props.subtitleStyles }}
+          variant="subtitle1"
+        >
           {props.subtitle2}
         </Typography>
       )}

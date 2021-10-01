@@ -79,9 +79,12 @@ const PricingCard = ({
       background: '#252525',
       borderRadius: 2,
       color: 'white',
+      height: '100%',
+      display: 'flex',
+      flexDirection: 'column',
     }}
   >
-    <CardContent sx={{ p: 0 }}>
+    <CardContent sx={{ p: 0, flex: 1 }}>
       <Box
         sx={{
           display: 'flex',

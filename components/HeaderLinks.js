@@ -29,7 +29,7 @@ const headerLinkStyles = {
     width: 'auto',
     margin: '0',
     padding: '0',
-    marginLeft: '0.3rem',
+    marginLeft: '0.6rem',
   },
   navLink: {
     color: 'inherit',
@@ -54,6 +54,12 @@ const headerLinkStyles = {
     lineHeight: '1.2rem',
     '&:hover': {
       border: '2.5px solid #ed0c6f',
+    },
+  },
+  requestDemoButtn: {
+    lineHeight: '1.2rem',
+    '&:hover': {
+      border: '2.5px solid white',
     },
   },
 };
