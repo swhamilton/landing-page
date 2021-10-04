@@ -11,20 +11,30 @@ import SectionAnchorTarget from './SectionAnchorTarget';
 import SectionHeader from './SectionHeader';
 import PricingCard from './PricingCard';
 import sectionStyles from '../styles/sectionStyles';
-import StudioIcon from './StudioIcon';
+import StudioIcon from './Icons/StudioIcon';
+import { FOOTER_TOP, HYPER_DARK_PURPLE, HYPER_PURPLE } from '../src/colors';
 
+const PRICING_TOP = '#0a0a0a';
 const PricingSection = (props) => {
   const mobileView = useMediaQuery('(max-width:600px)');
   return (
     <Box
       id="pricing"
       component="section"
-      sx={{ ...sectionStyles.sectionContainer, background: '#131313' }}
+      sx={{
+        ...sectionStyles.sectionContainer,
+        background: `linear-gradient(${PRICING_TOP} 80%, ${FOOTER_TOP} 90%)`,
+      }}
     >
       <SectionAnchorTarget id="pricing-target" />
       <Box
         id="pricingSection.contentContainer"
-        sx={sectionStyles.sectionContentContainer}
+        sx={{
+          ...sectionStyles.sectionContentContainer,
+          '@media (min-width: 600px)': {
+            maxWidth: '800px',
+          },
+        }}
       >
         <SectionHeader
           title="Pricing"

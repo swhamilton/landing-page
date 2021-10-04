@@ -48,8 +48,8 @@ import HeroSection from '../components/HeroSection';
 import SectionHeader from '../components/SectionHeader';
 import Header from '../components/Header';
 import sectionStyles from '../styles/sectionStyles';
-import StudioIcon from '../components/StudioIcon';
-import UserIcon from '../components/UserIcon';
+import StudioIcon from '../components/Icons/StudioIcon';
+import UserIcon from '../components/Icons/UserIcon';
 
 const HeaderUnderline = () => (
   <hr
@@ -85,7 +85,7 @@ const styles = {
 
 const tiers = [
   {
-    accordianTitle: 'Core Features',
+    accordianTitle: 'Plan includes:',
     headerIcon: <UserIcon width={50} height={50} />,
     price: 'FREE',
     priceDetails: 'for 1 user',
@@ -107,7 +107,7 @@ const tiers = [
     buttonVariant: 'outlined',
   },
   {
-    accordianTitle: 'Studio Edition Features',
+    accordianTitle: 'Includes CORE features plus:',
     headerIcon: <StudioIcon width={50} height={50} />,
     price: '40',
     priceDetails: 'per month for 2 users',
@@ -116,7 +116,6 @@ const tiers = [
     title: 'Studio Edition',
     useCurrencySymbol: true,
     features: [
-      'Includes CORE features plus:',
       'Multiple artist management',
       'Payment tracking',
       'Automatic revenue splitting',

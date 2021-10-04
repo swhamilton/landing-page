@@ -76,7 +76,7 @@ const PricingCard = ({
 }) => (
   <Card
     sx={{
-      background: '#252525',
+      background: '#333333',
       borderRadius: 2,
       color: 'white',
       height: '100%',
@@ -135,9 +135,11 @@ const PricingCard = ({
               expandIcon={<ExpandMoreIcon sx={{ color: 'white' }} />}
               aria-controls="panel1a-content"
               id="panel1a-header"
-              sx={{ fontWeight: '600' }}
+              sx={{ p: 0 }}
             >
-              <Typography>{accordianTitle}</Typography>
+              <Typography sx={{ fontWeight: '600' }}>
+                {accordianTitle}
+              </Typography>
             </AccordionSummary>
             <AccordionDetails>
               <FeaturesList features={features} id={id} />
@@ -154,6 +156,7 @@ const PricingCard = ({
         id="LandingPage-PricingButton-${id}"
         sx={styles.pricingButton}
         variant="contained"
+        fullWidth
       >
         {buttonText}
       </Button>

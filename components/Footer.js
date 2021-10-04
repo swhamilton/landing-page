@@ -22,7 +22,7 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 // Custom
 import CustomTextField, { CustomButton } from './CustomTextField';
 import sectionStyles from '../styles/sectionStyles';
-import { HYPER_DARK_PURPLE, HYPER_PURPLE } from '../src/colors';
+import { FOOTER_TOP, HYPER_DARK_PURPLE, HYPER_PURPLE } from '../src/colors';
 
 const footerStyles = {
   link: {
@@ -111,7 +111,7 @@ const Footer = () => {
       component="section"
       sx={{
         ...sectionStyles.sectionContainer,
-        background: `linear-gradient(#131313, ${HYPER_DARK_PURPLE}, ${HYPER_PURPLE})`,
+        background: `linear-gradient(${FOOTER_TOP}, ${HYPER_DARK_PURPLE}, ${HYPER_PURPLE})`,
         pb: 4,
       }}
     >
