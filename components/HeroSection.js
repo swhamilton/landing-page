@@ -5,6 +5,7 @@ import Hidden from '@mui/material/Hidden';
 import CustomTextField, { CustomButton } from '../components/CustomTextField';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import useMediaQuery from '@mui/material/useMediaQuery';
+import { defaultHeaderFont } from '../src/theme';
 
 const MENDIX_URL = 'http://demo.hypertattoo.com/link/homepage';
 
@@ -88,8 +89,8 @@ const HeroSection = (props) => {
         <Typography
           variant="h2"
           sx={{
+            ...defaultHeaderFont,
             marginBottom: '1rem',
-            fontWeight: '600',
             '@media (max-width: 600px)': {
               fontSize: '3rem',
               lineHeight: '3rem',
@@ -105,6 +106,8 @@ const HeroSection = (props) => {
         <Typography
           variant="h4"
           sx={{
+            ...defaultHeaderFont,
+            fontWeight: '400',
             marginBottom: '2rem',
             fontSize: '2.5rem',
             '@media (max-width: 600px)': {

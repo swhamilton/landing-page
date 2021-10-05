@@ -6,6 +6,7 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { HYPER_PINK } from '../src/colors';
+import { defaultHeaderFont } from '../src/theme';
 
 const styles = {
   headerContainer: {
@@ -23,16 +24,18 @@ const styles = {
   },
   header: {
     fontSize: '1.1rem',
+    fontWeight: '600',
+    lineHeight: '1.5rem',
     letterSpacing: '1px',
     textTransform: 'uppercase',
     color: HYPER_PINK,
-    fontWeight: '600',
-    lineHeight: '1.5rem',
     '@media (max-width: 600px)': {
       lineHeight: '1.5rem',
     },
   },
   subtitle: {
+    ...defaultHeaderFont,
+
     maxWidth: '35rem',
     fontSize: '2.5rem',
     fontWeight: '600',

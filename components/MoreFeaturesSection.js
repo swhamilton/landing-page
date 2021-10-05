@@ -33,7 +33,7 @@ const styles = {
     lineHeight: '1.2rem',
   },
   detailsCardText: {
-    color: grey[400],
+    color: grey[300],
   },
   icon: { mb: '0.5rem', mr: '0.7rem', color: HYPER_PINK },
 };

@@ -1,6 +1,12 @@
 import { createTheme } from '@mui/material/styles';
 import { red, grey } from '@mui/material/colors';
 
+export const defaultHeaderFont = {
+  fontFamily: '"Ubuntu", "Helvetica", "Arial", sans-serif',
+  fontWeight: '600',
+  lineHeight: '1em',
+};
+
 // Create a theme instance.
 const theme = createTheme({
   typography: {

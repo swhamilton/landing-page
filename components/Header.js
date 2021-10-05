@@ -6,12 +6,7 @@ import Box from '@mui/material/Box';
 import Hidden from '@mui/material/Hidden';
 import Drawer from '@mui/material/Drawer';
 import { scrollToId } from '../utils';
-
-const defaultFont = {
-  fontFamily: '"Ubuntu", "Helvetica", "Arial", sans-serif',
-  fontWeight: '300',
-  lineHeight: '1.5em',
-};
+import { defaultHeaderFont } from '../src/theme';
 
 const styles = {
   toolbar: {
@@ -27,20 +22,20 @@ const styles = {
   appResponsive: {
     margin: '20px 10px',
   },
-  title: {
-    ...defaultFont,
-    lineHeight: '30px',
-    fontSize: '18px',
-    borderRadius: '3px',
-    textTransform: 'none',
-    color: 'inherit',
-    padding: '8px 16px',
-    letterSpacing: 'unset',
-    '&:hover,&:focus': {
-      color: 'inherit',
-      background: 'transparent',
-    },
-  },
+  // title: {
+  //   ...defaultHeaderFont,
+  //   lineHeight: '30px',
+  //   fontSize: '18px',
+  //   borderRadius: '3px',
+  //   textTransform: 'none',
+  //   color: 'inherit',
+  //   padding: '8px 16px',
+  //   letterSpacing: 'unset',
+  //   '&:hover,&:focus': {
+  //     color: 'inherit',
+  //     background: 'transparent',
+  //   },
+  // },
   transparent: 'transparent-bg',
   black: 'black-bg',
 };
