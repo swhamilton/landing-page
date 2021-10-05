@@ -1,4 +1,6 @@
-import { css } from '@emotion/react';
+/** @jsxRuntime classic */
+/** @jsx jsx */
+import { css, jsx } from '@emotion/react';
 import React from 'react';
 
 const SectionAnchorTarget = (props) => (

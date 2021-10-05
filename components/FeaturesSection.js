@@ -23,7 +23,7 @@ const FeaturesSection = (props) => {
           color: 'white',
         }}
       >
-        <SectionAnchorTarget id="features-target" />
+        <SectionAnchorTarget id="features-target" style={{ top: '-80px' }} />
         <SectionHeader
           title="Software"
           subtitle1="Built for the tattoo industry,"
