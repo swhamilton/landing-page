@@ -11,6 +11,8 @@ import CreditCardOutlinedIcon from '@mui/icons-material/CreditCardOutlined';
 import EventAvailableOutlinedIcon from '@mui/icons-material/EventAvailableOutlined';
 import StackedLineChartOutlinedIcon from '@mui/icons-material/StackedLineChartOutlined';
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
+import ForumOutlinedIcon from '@mui/icons-material/ForumOutlined';
+import { grey } from '@mui/material/colors';
 
 // Custom
 import SectionAnchorTarget from './SectionAnchorTarget';
@@ -27,8 +29,11 @@ const styles = {
   },
   detailsCardHeader: {
     fontWeight: '600',
-    fontSize: '1.1rem',
-    lineHeight: '1.1rem',
+    fontSize: '1.2rem',
+    lineHeight: '1.2rem',
+  },
+  detailsCardText: {
+    color: grey[400],
   },
   icon: { mb: '0.5rem', mr: '0.7rem', color: HYPER_PINK },
 };
@@ -65,7 +70,7 @@ const MoreFeaturesSection = (props) => {
                 Scheduling
               </Typography>
             </Box>
-            <Typography variant="body1">
+            <Typography variant="body1" sx={styles.detailsCardText}>
               Accept or decline appointments online. Set availability on the
               HyperTattoo calendar so you only get reservations when you’re able
               to work.
@@ -83,7 +88,7 @@ const MoreFeaturesSection = (props) => {
                 Payment processing
               </Typography>
             </Box>
-            <Typography variant="body1">
+            <Typography variant="body1" sx={styles.detailsCardText}>
               Set custom rates, collect deposits before sessions, and close out
               balances with either card or cash.
             </Typography>
@@ -104,7 +109,7 @@ const MoreFeaturesSection = (props) => {
                 Notifications
               </Typography>
             </Box>
-            <Typography variant="body1">
+            <Typography variant="body1" sx={styles.detailsCardText}>
               We notify clients to complete payments and remind them of upcoming
               appointments so you {"don't"} have to.
             </Typography>
@@ -121,14 +126,14 @@ const MoreFeaturesSection = (props) => {
                 Business insights
               </Typography>
             </Box>
-            <Typography variant="body1">
+            <Typography variant="body1" sx={styles.detailsCardText}>
               Track your revenue and monitor upcoming projects in one
               easy-to-use dashboard.
             </Typography>
           </Grid>
           <Grid item sm={6} sx={styles.detailsCard}>
             <Box display="flex" flexDirection="column" alignItems="flex-start">
-              <CreditCardOutlinedIcon sx={styles.icon} fontSize="large" />
+              <ForumOutlinedIcon sx={styles.icon} fontSize="large" />
               <Typography
                 sx={styles.detailsCardHeader}
                 component="h3"
@@ -138,7 +143,7 @@ const MoreFeaturesSection = (props) => {
                 Direct messaging
               </Typography>
             </Box>
-            <Typography variant="body1">
+            <Typography variant="body1" sx={styles.detailsCardText}>
               Collaborate on designs, negotiate payments, and stay in touch with
               customers in one place.
             </Typography>
@@ -155,7 +160,7 @@ const MoreFeaturesSection = (props) => {
                 Artist profiles
               </Typography>
             </Box>
-            <Typography variant="body1">
+            <Typography variant="body1" sx={styles.detailsCardText}>
               Share your business details, social pages, and showcase work in a
               custom gallery.
             </Typography>

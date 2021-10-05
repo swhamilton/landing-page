@@ -13,6 +13,7 @@ import ListItemText from '@mui/material/ListItemText';
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
+import Hidden from '@mui/material/Hidden';
 import CheckIcon from '@mui/icons-material/Check';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
@@ -42,7 +43,14 @@ const styles = {
 };
 
 const FeaturesList = ({ features, id }) => (
-  <List sx={{ p: '0 1rem' }}>
+  <List
+    sx={{
+      p: '0 1rem',
+      '@media (max-width: 600px)': {
+        padding: '0',
+      },
+    }}
+  >
     {(features || []).map((line, featureIndex) => (
       <ListItem disablePadding key={`tier${id}-featureIndex${featureIndex}`}>
         <ListItemIcon sx={{ minWidth: '40px' }}>
@@ -51,8 +59,10 @@ const FeaturesList = ({ features, id }) => (
         <ListItemText
           primary={line}
           primaryTypographyProps={{
-            fontWeight: featureIndex === 0 ? '600' : '400',
-            lineHeight: '1.8 rem',
+            fontWeight: '400',
+            lineHeight: '1.3 rem',
+            pt: 0.5,
+            pb: 0.5,
           }}
         />
       </ListItem>
@@ -146,7 +156,18 @@ const PricingCard = ({
             </AccordionDetails>
           </Accordion>
         )}
-        {!useAccordian && <FeaturesList features={features} id={id} />}
+        {!useAccordian && (
+          <>
+            <Hidden smDown>
+              <Typography
+                sx={{ fontWeight: '600', textAlign: 'left', p: 2, pb: 1 }}
+              >
+                {accordianTitle}
+              </Typography>
+            </Hidden>
+            <FeaturesList features={features} id={id} />
+          </>
+        )}
       </Box>
     </CardContent>
     <CardActions

@@ -18,7 +18,7 @@ const styles = {
       marginBottom: '1rem',
     },
     '@media (max-width: 600px)': {
-      padding: '1rem',
+      padding: '1rem 0',
     },
   },
   header: {
