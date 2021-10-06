@@ -22,6 +22,8 @@ export const VideoSection = (props) => {
     >
       <Box
         id="videoSection.contentContainer"
+        display="flex"
+        flexDirection="column"
         sx={{
           ...sectionStyles.sectionContentContainer,
           p: 0,

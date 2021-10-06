@@ -31,8 +31,10 @@ import sectionStyles from '../styles/sectionStyles';
 import StudioIcon from '../components/Icons/StudioIcon';
 import UserIcon from '../components/Icons/UserIcon';
 
+const VIEW_CONTEXT_JOIN = 'JOIN';
+const VIEW_CONTEXT_HOME = 'HOME';
 const VIEW_CONTEXT = process.env.VIEW_CONTEXT;
-const VIEW_AS_RECRUITMENT_PAGE = VIEW_CONTEXT === 'JOIN';
+const VIEW_AS_RECRUITMENT_PAGE = VIEW_CONTEXT === VIEW_CONTEXT_JOIN;
 const FOOTER_TOP_GRADIENT_COLOR = VIEW_AS_RECRUITMENT_PAGE
   ? '#000000'
   : FOOTER_TOP;
@@ -105,10 +107,22 @@ if (process.env.ENABLE_OBSERVABILITY !== 'true') {
 console.log('env.VIEW_CONTEXT:', process.env.VIEW_CONTEXT);
 
 export function Index() {
-  const { isLoggedIn, update } = useContext(GlobalContext);
+  const { isLoggedIn, viewContext, update, ...rest } =
+    useContext(GlobalContext);
+
+  const handleKeyDown = (event) => {
+    // if (event.keyCode === 82) {
+    //   console.log('R key pressed');
+    //   const viewContext = VIEW_AS_RECRUITMENT_PAGE
+    //     ? VIEW_CONTEXT_HOME
+    //     : VIEW_CONTEXT_JOIN;
+    //   update({ ...rest, isLoggedIn, viewContext });
+    // }
+  };
 
   return (
     <Box
+      onKeyDown={handleKeyDown}
       sx={{
         minWidth: '100%',
         height: '100vh',
@@ -134,7 +148,9 @@ export function Index() {
           <Header
             color="transparent"
             brand="Brand text here"
-            rightLinks={<HeaderLinks />}
+            rightLinks={
+              <HeaderLinks showAllHeaderLinks={!VIEW_AS_RECRUITMENT_PAGE} />
+            }
             fixed
             changeColorOnScroll={{
               height: 60, // Controls the scroll height when this style applies

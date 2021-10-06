@@ -70,38 +70,40 @@ const headerLinkStyles = {
 //   </Button>
 // );
 
-export default function HeaderLinks(props) {
+export default function HeaderLinks({ showAllHeaderLinks }) {
   return (
     <List id="header-links-container" sx={headerLinkStyles.list}>
-      <Hidden mdDown implementation="css">
-        <ListItem sx={headerLinkStyles.listItem}>
-          <Button
-            href="#home"
-            sx={headerLinkStyles.navLink}
-            onClick={scrollToId('home')}
-          >
-            Home
-          </Button>
-        </ListItem>
-        <ListItem sx={headerLinkStyles.listItem}>
-          <Button
-            href="#features"
-            sx={headerLinkStyles.navLink}
-            onClick={scrollToId('features-target')}
-          >
-            Features
-          </Button>
-        </ListItem>
-        <ListItem sx={headerLinkStyles.listItem}>
-          <Button
-            href="#pricing"
-            sx={headerLinkStyles.navLink}
-            onClick={scrollToId('pricing-target')}
-          >
-            Pricing
-          </Button>
-        </ListItem>
-      </Hidden>
+      {showAllHeaderLinks && (
+        <Hidden mdDown implementation="css">
+          <ListItem sx={headerLinkStyles.listItem}>
+            <Button
+              href="#home"
+              sx={headerLinkStyles.navLink}
+              onClick={scrollToId('home')}
+            >
+              Home
+            </Button>
+          </ListItem>
+          <ListItem sx={headerLinkStyles.listItem}>
+            <Button
+              href="#features"
+              sx={headerLinkStyles.navLink}
+              onClick={scrollToId('features-target')}
+            >
+              Features
+            </Button>
+          </ListItem>
+          <ListItem sx={headerLinkStyles.listItem}>
+            <Button
+              href="#pricing"
+              sx={headerLinkStyles.navLink}
+              onClick={scrollToId('pricing-target')}
+            >
+              Pricing
+            </Button>
+          </ListItem>
+        </Hidden>
+      )}
       <ListItem sx={headerLinkStyles.listItem}>
         <Button
           variant="outlined"
