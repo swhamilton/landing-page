@@ -170,7 +170,7 @@ const Footer = ({ topGradientColor }) => {
                 },
               }}
               buttonStyles={{ width: '18rem' }}
-              buttonText="Start for Free"
+              buttonText="Start for FREE"
               placeholder="Email address"
             />
           </Hidden>
@@ -199,7 +199,7 @@ const Footer = ({ topGradientColor }) => {
                 textTransform: 'none',
                 marginBottom: 5,
               }}
-              buttonText="Start for Free"
+              buttonText="Start for FREE"
             />
           </Hidden>
           <FooterNavLinks />

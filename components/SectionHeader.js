@@ -35,15 +35,12 @@ const styles = {
   },
   subtitle: {
     ...defaultHeaderFont,
-
-    maxWidth: '35rem',
     fontSize: '2.5rem',
     fontWeight: '600',
     lineHeight: '3rem',
-
     '@media (max-width: 600px)': {
-      fontSize: '1.8rem',
-      lineHeight: '1.8rem',
+      fontSize: '1.6rem',
+      lineHeight: '1.6rem',
     },
   },
 };
@@ -56,6 +53,7 @@ const SectionHeader = (props) => {
       </Typography> */}
       <Typography
         align="center"
+        noWrap
         sx={{ ...styles.subtitle, ...props.subtitleStyles }}
         variant="subtitle1"
       >
@@ -64,6 +62,7 @@ const SectionHeader = (props) => {
       {props.subtitle2 && (
         <Typography
           align="center"
+          noWrap
           sx={{ ...styles.subtitle, ...props.subtitleStyles }}
           variant="subtitle1"
         >

@@ -122,7 +122,7 @@ const HeroSection = (props) => {
             onChange={handleOnChange}
             onButtonClick={handleOnSubmit}
             useButton
-            buttonText="Start for Free"
+            buttonText="Start for FREE"
             placeholder="Email address"
             textFieldStyles={{
               minWidth: '33rem',
@@ -140,20 +140,22 @@ const HeroSection = (props) => {
               fontSize: '1.2rem',
               padding: '0.7rem 0',
             }}
-            buttonIcon={<ArrowForwardIosIcon />}
           />
         </Hidden>
         <Hidden smUp>
           <Box
             sx={{
               '@media (max-width: 600px)': {
-                marginTop: '5rem',
+                marginTop: '2rem',
               },
             }}
           >
             <CustomTextField
+              useButton
               onChange={handleOnChange}
+              onButtonClick={handleOnSubmit}
               placeholder="Email address"
+              buttonText="Start for FREE"
               textFieldStyles={{
                 minWidth: '100%',
                 marginBottom: 2,
@@ -161,13 +163,14 @@ const HeroSection = (props) => {
               inputFieldStyles={{
                 width: '100%',
               }}
+              buttonStyles={{ width: '17rem', p: '0.5rem 1rem' }}
             />
-            <CustomButton
+            {/* <CustomButton
               onClick={handleOnSubmit}
               buttonIcon={<ArrowForwardIosIcon />}
               fullWidth
               buttonText="Start for Free"
-            />
+            /> */}
           </Box>
         </Hidden>
       </Box>

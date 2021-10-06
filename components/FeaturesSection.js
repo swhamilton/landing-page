@@ -11,10 +11,9 @@ import sectionStyles from '../styles/sectionStyles';
 
 const FeaturesSection = (props) => {
   return (
-    <Container maxWidth="xl">
+    <Container component="section" maxWidth="xl" sx={{ mt: '2rem' }}>
       <Box
         id="features"
-        component="section"
         sx={{
           ...sectionStyles.sectionContainer,
           '@media (min-width: 600px)': {
@@ -28,6 +27,12 @@ const FeaturesSection = (props) => {
           title="Software"
           subtitle1="Built for the tattoo industry,"
           subtitle2="by the tattoo industry."
+          subtitleStyles={{
+            '@media (max-width: 600px)': {
+              fontSize: '1.5rem',
+              lineHeight: '1.5rem',
+            },
+          }}
         />
 
         <Box

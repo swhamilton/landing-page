@@ -47,10 +47,9 @@ const MoreFeaturesSection = (props) => {
   const imgWidth = matches ? 600 : 900;
 
   return (
-    <Container maxWidth="md">
+    <Container maxWidth="md" component="section">
       <Box
         id="more-features"
-        component="section"
         sx={{
           ...sectionStyles.sectionContainer,
           color: 'white',
