@@ -73,7 +73,7 @@ const tiers = [
     headerIcon: <StudioIcon width={50} height={50} />,
     price: '40',
     priceDetails: 'per month for 2 users',
-    priceExtraDetails: '$15 for each additional set',
+    priceExtraDetails: '$15 for each additional seat',
     subheader: 'Premium tier description.',
     title: 'Studio Edition',
     useCurrencySymbol: true,
