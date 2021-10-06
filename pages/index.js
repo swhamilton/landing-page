@@ -38,7 +38,7 @@ import NewRelicSnippet from '../components/NewRelicSnippet';
 import { grey } from '@mui/material/colors';
 import Footer from '../components/Footer';
 import CustomTextField, { CustomButton } from '../components/CustomTextField';
-import { HYPER_PINK } from '../src/colors';
+import { FOOTER_TOP, HYPER_PINK } from '../src/colors';
 import SectionAnchorTarget from '../components/SectionAnchorTarget';
 import PricingSection from '../components/PricingSection';
 import FeaturesSection from '../components/FeaturesSection';
@@ -50,6 +50,8 @@ import Header from '../components/Header';
 import sectionStyles from '../styles/sectionStyles';
 import StudioIcon from '../components/Icons/StudioIcon';
 import UserIcon from '../components/Icons/UserIcon';
+
+const VIEW_CONTEXT = process.env.VIEW_CONTEXT;
 
 const HeaderUnderline = () => (
   <hr
@@ -140,6 +142,13 @@ if (process.env.ENABLE_OBSERVABILITY !== 'true') {
   console.log('Observability disabled. Enable with env.ENABLE_OBSERVABILITY');
 }
 
+console.log('env.VIEW_CONTEXT:', process.env.VIEW_CONTEXT);
+
+const VIEW_AS_RECRUITMENT_PAGE = VIEW_CONTEXT === 'JOIN';
+const FOOTER_TOP_GRADIENT_COLOR = VIEW_AS_RECRUITMENT_PAGE
+  ? '#000000'
+  : FOOTER_TOP;
+
 export function Index() {
   const { isLoggedIn, update } = useContext(GlobalContext);
 
@@ -178,12 +187,12 @@ export function Index() {
             }}
           />
           <HeroSection />
-          <DescriptionSection />
-          <VideoSection />
+          {!VIEW_AS_RECRUITMENT_PAGE && <DescriptionSection />}
+          {!VIEW_AS_RECRUITMENT_PAGE && <VideoSection />}
           <FeaturesSection />
           <MoreFeaturesSection />
-          <PricingSection tiers={tiers} />
-          <Footer />
+          {!VIEW_AS_RECRUITMENT_PAGE && <PricingSection tiers={tiers} />}
+          <Footer topGradientColor={FOOTER_TOP_GRADIENT_COLOR} />
         </Box>
       ) : (
         <SignIn

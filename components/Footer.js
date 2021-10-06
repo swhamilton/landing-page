@@ -105,13 +105,13 @@ const FooterNavLinks = () => {
     </Grid>
   );
 };
-const Footer = () => {
+const Footer = ({ topGradientColor }) => {
   return (
     <Box
       component="section"
       sx={{
         ...sectionStyles.sectionContainer,
-        background: `linear-gradient(${FOOTER_TOP}, ${HYPER_DARK_PURPLE}, ${HYPER_PURPLE})`,
+        background: `linear-gradient(${topGradientColor}, ${HYPER_DARK_PURPLE}, ${HYPER_PURPLE})`,
         pb: 4,
       }}
     >
