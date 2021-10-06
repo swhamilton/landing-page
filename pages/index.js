@@ -3,32 +3,11 @@
 import { css, jsx, Global } from '@emotion/react';
 import React, { useContext } from 'react';
 import GlobalStyles from '@mui/material/GlobalStyles';
-import Container from '@mui/material/Container';
-import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import Grid from '@mui/material/Grid';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import CardHeader from '@mui/material/CardHeader';
-import ListItem from '@mui/material/ListItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import List from '@mui/material/List';
-import IconButton from '@mui/material/IconButton';
-import Menu from '@mui/material/Menu';
-import Hidden from '@mui/material/Hidden';
-import Stack from '@mui/material/Stack';
-import Paper from '@mui/material/Paper';
-import Drawer from '@mui/material/Drawer';
 import Button from '@mui/material/Button';
-import useMediaQuery from '@mui/material/useMediaQuery';
 import { createStyles } from '@mui/material/styles';
 import { useTheme, styled } from '@mui/material/styles';
 import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline';
-import StarIcon from '@mui/icons-material/Star';
-import CheckBoxIcon from '@mui/icons-material/CheckBox';
-import CheckIcon from '@mui/icons-material/Check';
 
 // Custom
 import GlobalContext from '../state/globalContext';
@@ -40,6 +19,7 @@ import Footer from '../components/Footer';
 import CustomTextField, { CustomButton } from '../components/CustomTextField';
 import { FOOTER_TOP, HYPER_PINK } from '../src/colors';
 import SectionAnchorTarget from '../components/SectionAnchorTarget';
+import DescriptionSection from '../components/DescriptionSection';
 import PricingSection from '../components/PricingSection';
 import FeaturesSection from '../components/FeaturesSection';
 import MoreFeaturesSection from '../components/MoreFeaturesSection';
@@ -52,33 +32,13 @@ import StudioIcon from '../components/Icons/StudioIcon';
 import UserIcon from '../components/Icons/UserIcon';
 
 const VIEW_CONTEXT = process.env.VIEW_CONTEXT;
-
-const HeaderUnderline = () => (
-  <hr
-    css={css`
-      width: 120px;
-      border: none;
-      border-top: 3px solid ${HYPER_PINK};
-      margin-bottom: 1rem;
-    `}
-  />
-);
-
-const DescriptionSection = () => {
-  return (
-    <Box component="section" sx={sectionStyles.sectionContainer}>
-      <Box
-        id="details.contentContainer"
-        sx={sectionStyles.sectionContentContainer}
-      >
-        <SectionHeader title="" subtitle1={'What is HyperTattoo?'} />
-      </Box>
-    </Box>
-  );
-};
+const VIEW_AS_RECRUITMENT_PAGE = VIEW_CONTEXT === 'JOIN';
+const FOOTER_TOP_GRADIENT_COLOR = VIEW_AS_RECRUITMENT_PAGE
+  ? '#000000'
+  : FOOTER_TOP;
 
 const styles = {
-  mainContainer: {
+  main: {
     overflowX: 'hidden',
     minHeight: 'calc(100vh - 50px)',
     width: '100%',
@@ -144,11 +104,6 @@ if (process.env.ENABLE_OBSERVABILITY !== 'true') {
 
 console.log('env.VIEW_CONTEXT:', process.env.VIEW_CONTEXT);
 
-const VIEW_AS_RECRUITMENT_PAGE = VIEW_CONTEXT === 'JOIN';
-const FOOTER_TOP_GRADIENT_COLOR = VIEW_AS_RECRUITMENT_PAGE
-  ? '#000000'
-  : FOOTER_TOP;
-
 export function Index() {
   const { isLoggedIn, update } = useContext(GlobalContext);
 
@@ -175,7 +130,7 @@ export function Index() {
         `}
       />
       {isLoggedIn || process.env.TEST_MODE === 'true' ? (
-        <Box id="home" component="main" sx={styles.mainContainer}>
+        <Box id="home" component="main" sx={styles.main}>
           <Header
             color="transparent"
             brand="Brand text here"
