@@ -26,7 +26,7 @@ const PricingSection = (props) => {
         background: `linear-gradient(${PRICING_TOP} 80%, ${FOOTER_TOP} 90%)`,
       }}
     >
-      <SectionAnchorTarget id="pricing-target" />
+      <SectionAnchorTarget id="pricing-target" style={{ top: '-40px' }} />
       <Box
         id="pricingSection.contentContainer"
         sx={{

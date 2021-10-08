@@ -2,12 +2,82 @@ import React from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Hidden from '@mui/material/Hidden';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import PlayCircleFilledWhiteOutlinedIcon from '@mui/icons-material/PlayCircleFilledWhiteOutlined';
+import IconButton from '@mui/material/IconButton';
+
+// Custom
 import CustomTextField, { CustomButton } from '../components/CustomTextField';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import useMediaQuery from '@mui/material/useMediaQuery';
 import { defaultHeaderFont } from '../src/theme';
+import CustomPlayButton from './CustomPlayButton';
+import { scrollToId } from '../utils';
 
 const MENDIX_URL = 'http://demo.hypertattoo.com/link/homepage';
+
+const styles = {
+  container: {
+    textAlign: 'center',
+    display: 'flex',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+
+    padding: '0',
+    overflow: 'hidden',
+    position: 'relative',
+    maxHeight: '1600px',
+    backgroundImage: `
+          -o-linear-gradient(
+            180deg,
+            rgba(0,0,0,.85),
+            rgba(0,0,0,.3) 25%,
+            rgba(0,0,0,.2) 50%,
+            rgba(0,0,0,.1) 75%,
+            rgba(0,0,0,0) 100%),
+          url(/assets/img/bg_desktop70.jpg)`,
+    backgroundImage: `
+          linear-gradient(
+            180deg,
+            rgba(0,0,0,.85),
+            rgba(0,0,0,.3) 25%,
+            rgba(0,0,0,.2) 50%,
+            rgba(0,0,0,.1) 75%,
+            rgba(0,0,0,0) 100%),
+          url(/assets/img/bg_desktop70.jpg)`,
+    backgroundPosition: '50%',
+    backgroundSize: 'cover',
+    height: '75vh',
+    backgroundPosition: 'center top',
+    '@media (max-width: 600px)': {
+      marginTop: '60px',
+      height: '70vh',
+    },
+  },
+  contentContainer: {
+    textAlign: 'left',
+    color: '#fff',
+    fontSize: '22.4px',
+    fontSize: '1.4rem',
+    lineHeight: '28.8px',
+    lineHeight: '1.8rem',
+    padding: '0 16px',
+    // width: '100%',
+    zIndex: '1',
+    // marginLeft: 'auto',
+    // marginRight: 'auto',
+    marginBottom: '1rem',
+    marginTop: '1rem',
+    paddingLeft: '15px',
+    paddingRight: '15px',
+    '@media (min-width: 600px)': {
+      // maxWidth: '1280px',
+      maxWidth: '35rem',
+    },
+    '@media (max-width: 600px)': {
+      marginTop: '3.5rem',
+    },
+  },
+};
 
 const HeroSection = (props) => {
   const [email, setEmail] = React.useState('');
@@ -22,70 +92,8 @@ const HeroSection = (props) => {
   const { classes } = props;
   const emailSignUpButtonText = matches ? 'Start for Free' : 'Start';
   return (
-    <Box
-      component="section"
-      sx={{
-        textAlign: 'center',
-        display: 'flex',
-        padding: '0',
-        overflow: 'hidden',
-        position: 'relative',
-        alignItems: 'center',
-        maxHeight: '1600px',
-        backgroundImage: `
-          -o-linear-gradient(
-            180deg,
-            rgba(0,0,0,.85),
-            rgba(0,0,0,.3) 25%,
-            rgba(0,0,0,.2) 50%,
-            rgba(0,0,0,.1) 75%,
-            rgba(0,0,0,0) 100%),
-          url(/assets/img/bg_desktop70.jpg)`,
-        backgroundImage: `
-          linear-gradient(
-            180deg,
-            rgba(0,0,0,.85),
-            rgba(0,0,0,.3) 25%,
-            rgba(0,0,0,.2) 50%,
-            rgba(0,0,0,.1) 75%,
-            rgba(0,0,0,0) 100%),
-          url(/assets/img/bg_desktop70.jpg)`,
-        backgroundPosition: '50%',
-        backgroundSize: 'cover',
-        height: '75vh',
-        backgroundPosition: 'center top',
-        '@media (max-width: 600px)': {
-          marginTop: '60px',
-          height: '70vh',
-        },
-      }}
-    >
-      <Box
-        id="heroSection.contentContainer"
-        sx={{
-          textAlign: 'left',
-          color: '#fff',
-          fontSize: '22.4px',
-          fontSize: '1.4rem',
-          lineHeight: '28.8px',
-          lineHeight: '1.8rem',
-          padding: '0 16px',
-          width: '100%',
-          zIndex: '1',
-          marginLeft: 'auto',
-          marginRight: 'auto',
-          marginBottom: '1rem',
-          marginTop: '1rem',
-          paddingLeft: '15px',
-          paddingRight: '15px',
-          '@media (min-width: 600px)': {
-            maxWidth: '1280px',
-          },
-          '@media (max-width: 600px)': {
-            marginTop: '3.5rem',
-          },
-        }}
-      >
+    <Box component="section" sx={styles.container}>
+      <Box id="heroSection.contentContainer" sx={styles.contentContainer}>
         <Typography
           variant="h2"
           sx={{
@@ -174,6 +182,14 @@ const HeroSection = (props) => {
           </Box>
         </Hidden>
       </Box>
+      <Hidden mdDown>
+        <Box sx={{ position: 'relative' }}>
+          <CustomPlayButton onClick={scrollToId('description-target')} />
+          {/* <PlayCircleFilledWhiteOutlinedIcon
+              sx={{ color: 'white', width: '150px', height: '150px' }}
+            /> */}
+        </Box>
+      </Hidden>
     </Box>
   );
 };

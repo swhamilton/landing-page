@@ -192,7 +192,6 @@ const Footer = ({ topGradientColor, showSignUp }) => {
                   }}
                 />
                 <CustomButton
-                  buttonIcon={<ArrowForwardIosIcon />}
                   fullWidth
                   styles={{
                     fontSize: '1.2rem',

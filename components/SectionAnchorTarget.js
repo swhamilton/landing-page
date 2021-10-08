@@ -7,8 +7,7 @@ const SectionAnchorTarget = (props) => (
   <div
     css={css`
       position: relative;
-      display: inline-block;
-      top: -40px;
+      top: -80px;
       height: 0;
     `}
     {...props}
