@@ -15,9 +15,6 @@ const styles = {
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    '@media (min-width: 600px)': {
-      marginBottom: '1rem',
-    },
     '@media (max-width: 600px)': {
       padding: '1rem 0',
     },

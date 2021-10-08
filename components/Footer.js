@@ -105,7 +105,7 @@ const FooterNavLinks = () => {
     </Grid>
   );
 };
-const Footer = ({ topGradientColor }) => {
+const Footer = ({ topGradientColor, showSignUp }) => {
   return (
     <Box
       component="section"
@@ -147,61 +147,65 @@ const Footer = ({ topGradientColor }) => {
               </Box>
             </Box>
           </Box>
-          <Typography variant="h6" gutterBottom sx={{ fontWeight: 600 }}>
-            Sign up for our newsletter
-          </Typography>
-          <Typography variant="body1">
-            We respect your privacy.{' '}
-            <Hidden smUp>
-              <br />
-            </Hidden>
-            You can cancel at any time.
-          </Typography>
+          {showSignUp && (
+            <>
+              <Typography variant="h6" gutterBottom sx={{ fontWeight: 600 }}>
+                Sign up for our newsletter
+              </Typography>
+              <Typography variant="body1">
+                We respect your privacy.{' '}
+                <Hidden smUp>
+                  <br />
+                </Hidden>
+                You can cancel at any time.
+              </Typography>
 
-          <Hidden smDown>
-            <CustomTextField
-              useButton
-              textFieldStyles={{
-                marginTop: 5,
-                marginBottom: 5,
-                width: '30rem',
-                '@media (max-width: 600px)': {
-                  width: '20rem',
-                },
-              }}
-              buttonStyles={{ width: '18rem' }}
-              buttonText="Sign Up"
-              placeholder="Email address"
-            />
-          </Hidden>
-          <Hidden smUp>
-            <CustomTextField
-              placeholder="Email address"
-              textFieldStyles={{
-                minWidth: '100%',
-                marginBottom: 2,
-                marginTop: 5,
-              }}
-              inputFieldStyles={{
-                width: '100%',
-              }}
-              buttonStyles={{
-                padding: '0.3rem 2rem',
-              }}
-            />
-            <CustomButton
-              buttonIcon={<ArrowForwardIosIcon />}
-              fullWidth
-              styles={{
-                fontSize: '1.2rem',
-                fontWeight: '600',
-                padding: '0.4rem 2rem',
-                textTransform: 'none',
-                marginBottom: 5,
-              }}
-              buttonText="Sign Up"
-            />
-          </Hidden>
+              <Hidden smDown>
+                <CustomTextField
+                  useButton
+                  textFieldStyles={{
+                    marginTop: 5,
+                    marginBottom: 5,
+                    width: '30rem',
+                    '@media (max-width: 600px)': {
+                      width: '20rem',
+                    },
+                  }}
+                  buttonStyles={{ width: '18rem' }}
+                  buttonText="Sign Up"
+                  placeholder="Email address"
+                />
+              </Hidden>
+              <Hidden smUp>
+                <CustomTextField
+                  placeholder="Email address"
+                  textFieldStyles={{
+                    minWidth: '100%',
+                    marginBottom: 2,
+                    marginTop: 5,
+                  }}
+                  inputFieldStyles={{
+                    width: '100%',
+                  }}
+                  buttonStyles={{
+                    padding: '0.3rem 2rem',
+                  }}
+                />
+                <CustomButton
+                  buttonIcon={<ArrowForwardIosIcon />}
+                  fullWidth
+                  styles={{
+                    fontSize: '1.2rem',
+                    fontWeight: '600',
+                    padding: '0.4rem 2rem',
+                    textTransform: 'none',
+                    marginBottom: 5,
+                  }}
+                  buttonText="Sign Up"
+                />
+              </Hidden>
+            </>
+          )}
           <FooterNavLinks />
           <Typography variant="body1">
             © 2021 HyperTattoo. All rights reserved.

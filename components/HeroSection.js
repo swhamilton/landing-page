@@ -52,7 +52,7 @@ const HeroSection = (props) => {
           url(/assets/img/bg_desktop70.jpg)`,
         backgroundPosition: '50%',
         backgroundSize: 'cover',
-        height: '78vh',
+        height: '75vh',
         backgroundPosition: 'center top',
         '@media (max-width: 600px)': {
           marginTop: '60px',

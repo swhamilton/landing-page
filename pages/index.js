@@ -158,12 +158,15 @@ export function Index() {
             }}
           />
           <HeroSection />
-          {!VIEW_AS_RECRUITMENT_PAGE && <DescriptionSection />}
-          {!VIEW_AS_RECRUITMENT_PAGE && <VideoSection />}
+          <DescriptionSection />
+          <VideoSection />
           <FeaturesSection />
           <MoreFeaturesSection />
           {!VIEW_AS_RECRUITMENT_PAGE && <PricingSection tiers={tiers} />}
-          <Footer topGradientColor={FOOTER_TOP_GRADIENT_COLOR} />
+          <Footer
+            showSignUp={!VIEW_AS_RECRUITMENT_PAGE}
+            topGradientColor={FOOTER_TOP_GRADIENT_COLOR}
+          />
         </Box>
       ) : (
         <SignIn
