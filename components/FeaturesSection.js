@@ -30,7 +30,7 @@ const FeaturesSection = (props) => {
           subtitleStyles={{
             '@media (max-width: 600px)': {
               fontSize: '1.5rem',
-              lineHeight: '1.5rem',
+              lineHeight: '2rem',
             },
           }}
         />

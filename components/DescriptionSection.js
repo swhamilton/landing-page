@@ -11,7 +11,7 @@ const DescriptionSection = () => {
         id="details.contentContainer"
         sx={sectionStyles.sectionContentContainer}
       >
-        <SectionHeader title="" subtitle1={'What is HyperTattoo?'} />
+        <SectionHeader title="" subtitle1="What is HyperTattoo?" />
       </Box>
     </Box>
   );

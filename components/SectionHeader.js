@@ -40,7 +40,7 @@ const styles = {
     lineHeight: '3rem',
     '@media (max-width: 600px)': {
       fontSize: '1.6rem',
-      lineHeight: '1.6rem',
+      lineHeight: '2.5rem',
     },
   },
 };
